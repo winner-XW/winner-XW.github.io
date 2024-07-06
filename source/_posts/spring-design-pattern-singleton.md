@@ -1,10 +1,9 @@
 ---
 title: Spring设计模式-单例模式
 date: 2022/01/14
-tags: JAVA,SPRING,设计模式
+tags: [Java,Spring,单例模式]
 categories: JAVA
 description: 设计模式是软件开发的重要组成部分。这些解决方案不仅解决了反复出现的问题，而且还通过识别通用模式来帮助开发人员了解框架的设计。
-keywords: JAVA,SPRING,设计模式
 cover: /img/md/spring.jpg
 ---
 

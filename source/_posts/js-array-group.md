@@ -1,10 +1,9 @@
 ---
 title: 数组对象分组引发的思考
 date: 2023/08/06
-tags: 前端,JS,闭包
-categories: JS
+tags: [分组,JavaScript]
+categories: JavaScript
 description: 根据特定的key完成数组分组
-keywords: 前端,JS,分组
 cover: /img/md/js.jpg
 ---
 

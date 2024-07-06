@@ -1,10 +1,9 @@
 ---
 title: XHTML和HTML有什么区别？
 date: 2024/04/07
-tags: 前端基础,高级
+tags: [前端,高级]
 categories: 前端面试
 description: XHTML和HTML有什么区别？
-keywords: 前端基础,高级
 cover: /img/md/web.png
 ---
 # 其基础语言不同

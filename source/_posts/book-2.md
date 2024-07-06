@@ -1,10 +1,9 @@
 ---
 title: 第二曲线创新
 date: 2024/01/17
-tags: 书籍,读后感
+tags: [书籍,读后感]
 categories: 读后感
 description:  读书让人进步
-keywords: 书籍,读后感
 cover: /img/md/book/2.jpg
 ---
 # 简介

@@ -1,10 +1,9 @@
 ---
 title: 简述异步线程，轮询机制，宏任务微任务？
 date: 2023/02/07
-tags: 前端基础,高级
+tags: [前端,高级]
 categories: 前端面试
 description:  简述异步线程，轮询机制，宏任务微任务？
-keywords: 前端基础,高级
 cover: /img/md/js.jpg
 ---
 

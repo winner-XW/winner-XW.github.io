@@ -1,10 +1,9 @@
 ---
 title:  简述什么叫优雅降级和渐进增强？
 date: 2024/04/07
-tags: 前端基础,中级
+tags: [前端,中级]
 categories: 前端面试
 description:  简述什么叫优雅降级和渐进增强？
-keywords: 前端基础,中级
 cover: /img/md/web.png
 ---
 

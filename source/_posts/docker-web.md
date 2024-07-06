@@ -1,10 +1,9 @@
 ---
 title: 前端代码docker镜像作成
 date: 2022/12/07
-tags: docker,打包,镜像
+tags: [Docker,前端部署]
 categories: 运维
 description:  制作一个docker镜像，无需在主机中安装且这样统一了前端环境。
-keywords: docker,打包,镜像,后端
 cover: /img/md/docker.png
 ---
 
@@ -14,7 +13,7 @@ cover: /img/md/docker.png
 部署Vue项目，可以build之后，直接放到nginx下面即可，今天给大家介绍创建docker镜像，使用docker镜像启动容器运行部署Vue项目的方式，可以尝试尝试，原理和使用nginx部署一样，不过是使用的docker容器而已，内部还是使用的是nginx作为基础镜像。
 
 ## docker安装
-可以参考[docker-linux安装教程](https://xiaoweixiaoyun.github.io/2022/08/07/docker-install/)
+可以参考[docker-linux安装教程](https://winner-XW.github.io/2022/08/07/docker-install/)
 
 ## 编写dockerfile并发布
 ```shell

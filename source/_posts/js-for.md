@@ -1,10 +1,9 @@
 ---
 title: js几种循环方式
 date: 2021/06/05
-tags: 前端,JS,循环
+tags: [循环,JavaScript]
 categories: JS
 description: 循环可以将代码块执行指定的次数
-keywords: 前端,js,循环,for
 cover: /img/md/js.jpg
 ---
 

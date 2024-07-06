@@ -1,10 +1,9 @@
 ---
 title: for、forEach和map的区别?
 date: 2023/02/08
-tags: 前端基础,中级
+tags: [前端,中级]
 categories: 前端面试
 description: for 循环与 forEach 的区别?
-keywords: 前端基础,中级
 cover: /img/md/js.jpg
 ---
 

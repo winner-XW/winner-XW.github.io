@@ -1,10 +1,9 @@
 ---
 title: JavaScript阻止事件冒泡的方法？
 date: 2024/04/07
-tags: 前端基础,初级
+tags: [前端,初级]
 categories: 前端面试
 description: JavaScript阻止事件冒泡的方法？
-keywords: 前端基础,初级
 cover: /img/md/js.jpg
 ---
 

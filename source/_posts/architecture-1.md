@@ -1,10 +1,9 @@
 ---
 title: 系统架构设计师-学习第一天
 date: 2023/12/27
-tags: 学习,软考
+tags: 软考知识
 categories: 软考知识
 description:  2024年度目标，加油一起学习吧。
-keywords: 学习,软考
 cover: /img/md/architecture.jpeg
 ---
 # 绪论

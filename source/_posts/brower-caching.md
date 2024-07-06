@@ -1,10 +1,9 @@
 ---
 title: 什么是浏览器缓存
 date: 2023/05/07
-tags: 面试,缓存
-categories: HTTP
+tags: [浏览器,缓存]
+categories: 浏览器缓存
 description:  浏览器缓存(Brower Caching)是浏览器在本地磁盘对用户最近请求过的文档进行存储，当访问者再次访问同一页面时，浏览器就可以直接从本地磁盘加载文档。
-keywords: Http,缓存
 cover: /img/md/web.png
 ---
 

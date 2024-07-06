@@ -1,10 +1,9 @@
 ---
 title: Vue常用工具类-全局公共函数function
 date: 2021/07/07
-tags: function,函数
+tags: [Vue,全局公共函数]
 categories: Vue
 description: 定义一个全局的函数，实现快速，准确处理事件
-keywords: function,函数
 cover: /img/md/vue.jpg
 ---
 

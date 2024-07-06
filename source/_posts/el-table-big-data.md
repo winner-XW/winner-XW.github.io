@@ -1,10 +1,9 @@
 ---
-title: vue2 Element-UI 表格大数据加载渲染慢问题
+title: Vue2 Element-UI 表格大数据加载渲染慢问题
 date: 2022/01/07
-tags: vue,大数据，渲染卡顿
-categories: Element-UI
+tags: [Vue2,Element-UI,el-table]
+categories: Element-UI优化
 description: 页面数据量大，在没有分页的情况下操作表格，导致渲染卡顿，甚至奔溃。
-keywords: vue,大数据,渲染卡顿
 cover: /img/md/vue.jpg
 ---
 

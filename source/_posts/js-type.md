@@ -1,10 +1,9 @@
 ---
 title: JS数据类型判断
 date: 2022/01/24
-tags: 前端,JS,工具类
+tags: [类型,JavaScript]
 categories: JS
 description: js数据类型判断一共有四种方法
-keywords: 前端,JS,工具类
 cover: /img/md/js.jpg
 ---
 

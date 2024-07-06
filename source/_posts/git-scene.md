@@ -1,10 +1,9 @@
 ---
 title: Git经典操作场景
 date: 2021/11/24
-tags: git
+tags: [git,命令]
 categories: GIT
 description: 整理了日常用git合代码的经典操作场景，基本覆盖了工作中的需求。
-keywords: git
 cover: /img/md/git.jpg
 ---
 

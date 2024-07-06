@@ -1,10 +1,9 @@
 ---
 title:  Http状态码有那些？
 date: 2024/04/07
-tags: 前端基础,初级
+tags: [前端,初级]
 categories: 前端面试
 description:  Http状态码有那些？
-keywords: 前端基础,初级
 cover: /img/md/web.png
 ---
 

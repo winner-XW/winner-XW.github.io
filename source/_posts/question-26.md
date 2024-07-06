@@ -1,10 +1,9 @@
 ---
 title: 如何将String类型转化成Number类型？
 date: 2024/04/08
-tags: Java基础,初级
+tags: [Java,初级]
 categories: 后端面试
 description: 如何将String类型转化成Number类型？
-keywords: Java基础,初级
 cover: /img/md/java.png
 ---
 

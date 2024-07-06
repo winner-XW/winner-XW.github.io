@@ -1,10 +1,9 @@
 ---
 title: 如果要重写一个对象的equals方法,还要考虑什么?
 date: 2024/04/08
-tags: Java基础,高级
+tags: [Java,高级]
 categories: 后端面试
 description: 如果要重写一个对象的equals方法,还要考虑什么?
-keywords: Java基础,高级
 cover: /img/md/java.png
 ---
 

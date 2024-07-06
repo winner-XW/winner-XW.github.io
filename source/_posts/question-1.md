@@ -1,11 +1,9 @@
 ---
 title: 什么是PromiseLike(面试)
 date: 2023/02/06
-tags: 前端基础,高级
-categories: 
-    - 前端面试
+tags: [前端,初级]
+categories: 前端面试
 description: 在手机的迭代更新中越来越多的手机不断的更新出世，各种样式层出不起。
-keywords: 前端基础,高级
 cover: /img/md/js.jpg
 --- 
 

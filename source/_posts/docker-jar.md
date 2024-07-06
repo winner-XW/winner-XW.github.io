@@ -1,10 +1,9 @@
 ---
 title: jar包docker镜像作成
 date: 2023/08/07
-tags: docker,打包,镜像
+tags: [Docker,jar部署]
 categories: 运维
 description:  制作一个docker镜像，无需在主机中安装且这样统一了后端环境。
-keywords: docker,打包,镜像,前端
 cover: /img/md/docker.png
 ---
 
@@ -14,7 +13,7 @@ cover: /img/md/docker.png
 部署jar项目，可以mvn clean package之后，直接放到启动路径下即可，今天给大家介绍创建docker镜像，使用docker镜像启动容器运行部署jar项目的方式，可以尝试尝试，原理和使用直接拖动部署一样，不过是使用的docker容器而已，内部还是使用的是jdk作为基础镜像。
 
 ## docker安装
-可以参考[docker-linux安装教程](https://xiaoweixiaoyun.github.io/2022/08/07/docker-install/)
+可以参考[docker-linux安装教程](https://winner-XW.github.io/2022/08/07/docker-install/)
 
 ## 编写dockerfile并发布
 ```shell

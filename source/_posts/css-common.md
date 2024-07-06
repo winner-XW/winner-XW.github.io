@@ -1,10 +1,9 @@
 ---
 title: CSS 开头的全局标准代码
 date: 2021/03/24
-tags: CSS,基础,共通
+tags: [CSS,共通代码]
 categories: CSS
 description: 布局是把页面分成一块一块，按左中右、上中下等排列。
-keywords: CSS,基础,共通
 cover: /img/md/css.jpg
 ---
 

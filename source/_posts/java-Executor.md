@@ -1,10 +1,9 @@
 ---
 title: Java线程池
 date: 2024/03/21
-tags: java,线程池
+tags: [Java,线程池]
 categories: JAVA
 description: Java线程池
-keywords: java,线程池
 cover: /img/md/java.png
 ---
 

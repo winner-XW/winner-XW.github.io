@@ -1,10 +1,9 @@
 ---
 title: 对WEB标准以及W3C的理解与认识？
 date: 2024/04/07
-tags: 前端基础,中级
+tags: [前端,中级]
 categories: 前端面试
 description: 对WEB标准以及W3C的理解与认识？
-keywords: 前端基础,中级
 cover: /img/md/web.png
 ---
 

@@ -1,10 +1,9 @@
 ---
 title: 请描述JDK和JRE的区别 ？
 date: 2024/04/08
-tags: Java基础,初级
+tags: [Java,初级]
 categories: 后端面试
 description: 请描述JDK和JRE的区别 ？
-keywords: Java基础,初级
 cover: /img/md/java.png
 ---
 

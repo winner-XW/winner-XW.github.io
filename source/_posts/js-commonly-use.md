@@ -1,10 +1,9 @@
 ---
 title: js中数组处理常用方法
 date: 2021/06/06
-tags: 前端,JS,工具类
+tags: [数组工具,JavaScript]
 categories: JS
 description: 加快开发速度，提高开发精度
-keywords: 前端,js,工具
 cover: /img/md/js.jpg
 ---
 

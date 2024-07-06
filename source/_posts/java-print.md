@@ -1,10 +1,9 @@
 ---
 title: 实现在CS端调用本地打印机服务打印PDF的功能
 date: 2023/11/07
-tags: java,打印机,打印,自定义打印,打印参数
+tags: [Java,自定义打印,PDF]
 categories: JAVA
 description: 实现在CS端调用本地打印机服务打印PDF的功能
-keywords: java,打印机,打印,自定义打印,打印参数
 cover: /img/md/java.png
 ---
 

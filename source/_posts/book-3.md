@@ -1,10 +1,9 @@
 ---
 title: CTO说
 date: 2024/02/07
-tags: 书籍,读后感
+tags: [书籍,读后感]
 categories: 读后感
 description:  读书让人进步
-keywords: 书籍,读后感
 cover: /img/md/book/3.jpg
 ---
 # 简介

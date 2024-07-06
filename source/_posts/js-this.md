@@ -1,10 +1,9 @@
 ---
 title: Js中的this指向
 date: 2022/09/16
-tags: 前端,JS,this
+tags: [this,JavaScript]
 categories: JS
 description: 任何一门语言中，相信this的指向问题都是一个重点，js也不例外
-keywords: 前端,JS,this
 cover: /img/md/js.jpg
 ---
 

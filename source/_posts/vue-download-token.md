@@ -1,10 +1,9 @@
 ---
-title: vue下载文件需要token校验
+title: Vue下载文件需要token校验
 date: 2021/12/06
-tags: vue,文件下载,token
+tags: [Vue,下载]
 categories: Vue
 description: 平时下载文件访问后台给的下载链接点击自动下载即可，因文件需要验证身份信息，所以需要在Request headers中塞入token作为身份验证。
-keywords: vue,文件下载,token
 cover: /img/md/vue.jpg
 ---
 

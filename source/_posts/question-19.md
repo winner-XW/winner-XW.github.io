@@ -1,10 +1,9 @@
 ---
 title: 简述什么是迭代器(Iterator)？
 date: 2024/04/08
-tags: Java基础,中级
+tags: [Java,中级]
 categories: 后端面试
 description: 简述什么是迭代器(Iterator)？
-keywords: Java基础,中级
 cover: /img/md/java.png
 ---
 

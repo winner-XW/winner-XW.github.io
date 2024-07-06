@@ -1,10 +1,9 @@
 ---
-title: CSS 布局
+title: CSS常见布局
 date: 2021/05/24
-tags: CSS,布局
+tags: [CSS,布局]
 categories: CSS
 description: 布局是把页面分成一块一块，按左中右、上中下等排列。
-keywords: CSS,布局
 cover: /img/md/css.jpg
 ---
 

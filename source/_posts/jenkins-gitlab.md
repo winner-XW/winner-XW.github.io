@@ -1,11 +1,10 @@
 ---
-title: jenkins-docker
+title: Jenkins-Docker
 date: 2023/08/15
 password: luoping123
-tags: jenkins,docker,CI/CD
+tags: [Jenkins,Docker,CI/CD]
 categories: 运维
 description:  节约每次上线部署时间，提高作业效率，保证正确性。
-keywords: jenkins,docker,CI/CD
 cover: /img/md/jenkins.png
 ---
 

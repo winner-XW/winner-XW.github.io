@@ -1,10 +1,9 @@
 ---
 title: Redis服务集群配置
 date: 2021/08/06
-tags: redis,集群
+tags: [Redis,集群]
 categories: Redis
 description: 即远程字典服务，是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。
-keywords: redis,集群
 cover: /img/md/redis.jpg
 ---
 

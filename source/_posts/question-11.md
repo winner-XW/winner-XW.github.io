@@ -1,10 +1,9 @@
 ---
 title:  如何实现浏览器内多个标签页之间的通信?
 date: 2024/04/07
-tags: 前端基础,中级
+tags: [前端,中级]
 categories: 前端面试
 description:  如何实现浏览器内多个标签页之间的通信?
-keywords: 前端基础,中级
 cover: /img/md/web.png
 ---
 

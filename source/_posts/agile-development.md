@@ -1,10 +1,9 @@
 ---
 title: 什么是敏捷开发(Agile Development)
 date: 2024/02/06
-tags: 敏捷,开发,项目管理
+tags: [敏捷开发]
 categories: 敏捷开发
 description:  敏捷开发以用户的需求进化为核心，采用迭代、循序渐进的方法进行软件开发。
-keywords: project,management
 cover: /img/md/agileDevelopment.png
 ---
 

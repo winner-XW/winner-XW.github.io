@@ -1,10 +1,9 @@
 ---
 title: 聚合支付H5
 date: 2021/03/14
-tags: HTML,JS,支付
-categories: WEBAPP
+tags: [聚合支付,微信,支付宝]
+categories: Web-App
 description: 聚合支付是一种新兴的支付方式。这种新的支付方式不同于微信支付、支付宝支付，不是与单一APP对接的，而是与多种支付通道对接，就像一个多头充电线，自身携带数个不同接口，可以同时满足安卓手机、苹果手机等不同机型的充电需求……这种新兴的支付方式就是聚合支付。
-keywords: 聚合支付,微信,支付宝
 cover: /img/md/pay.png
 ---
 

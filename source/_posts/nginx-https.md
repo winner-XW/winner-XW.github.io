@@ -1,10 +1,9 @@
 ---
-title: nginx配置https服务器​
+title: Nginx配置https服务器​
 date: 2024/03/25
-tags: nginx,https
+tags: [安装,Nginx,SSL]
 categories: NGINX
 description: nginx配置https服务器​
-keywords: nginx,https
 cover: /img/md/nginx.png
 ---
 

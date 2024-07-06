@@ -1,10 +1,9 @@
 ---
 title: Spring如何解决循环依赖
 date: 2023/08/14
-tags: JAVA,SPRING,循环依赖
+tags: [Java,Spring,循环依赖]
 categories: JAVA
 description: Spring如何解决循环依赖，是面试中经常问到的题目，今天我们就来分享一下spring是如何解决循环依赖问题的。
-keywords: JAVA,SPRING,循环依赖
 cover: /img/md/spring.jpg
 ---
 

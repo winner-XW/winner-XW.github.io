@@ -1,10 +1,9 @@
 ---
-title: web性能优化
+title: Web性能优化
 date: 2021/04/04
-tags: 前端,优化
+tags: [Web,性能优化]
 categories: WEB
 description: Web 性能优化就是用户觉得页面加载很快，用户从输入URL（网址）到页面在浏览器上加载出来的时间很短。
-keywords: 前端,优化,web性能优化
 cover: /img/md/web.png
 ---
 

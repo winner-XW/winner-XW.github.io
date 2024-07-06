@@ -1,10 +1,9 @@
 ---
 title: 简述什么是值传递和引用传递？
 date: 2024/04/08
-tags: Java基础,初级
+tags: [Java,初级]
 categories: 后端面试
 description: 简述什么是值传递和引用传递？
-keywords: Java基础,初级
 cover: /img/md/java.png
 ---
 

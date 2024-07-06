@@ -1,10 +1,9 @@
 ---
 title: 说明public static void main(String args[])这段声明里每个关键字的作用
 date: 2024/04/08
-tags: Java基础,高级
+tags: [Java,高级]
 categories: 后端面试
 description: 说明public static void main(String args[])这段声明里每个关键字的作用
-keywords: Java基础,高级
 cover: /img/md/java.png
 ---
 
