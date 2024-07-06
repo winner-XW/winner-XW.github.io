@@ -1,0 +1,103 @@
+- class_name: cahtGPT
+  class_desc: OpenAI研发的一款聊天机器人程序
+  link_list:
+    - name: 智谱清言
+      link: https://chatglm.cn/main/detail
+      avatar: https://chatglm.cn/img/icons/apple-touch-icon-152x152.png
+      descr: 中国版对话语言模型，与GLM大模型进行对话。
+    - name: 文心一言
+      link: https://yiyan.baidu.com/
+      avatar: https://nlp-eb.cdn.bcebos.com/logo/favicon.ico
+      descr: 有用、有趣、有温度的智能伙伴
+
+- class_name: 在线工具
+  class_desc: 比你快两倍不止哦
+  link_list:
+    - name: yaml互转properties
+      link: https://www.toyaml.com/index.html
+      avatar: https://www.toyaml.com/favicon.ico
+      descr: ToYaml.com -- Convert between Properties and YAML Online -- About
+    - name: 图片去底工具
+      link: https://www.aigei.com/bgremover/
+      avatar: https://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico
+      descr: 将纯色背景的图片转换为背景透明的图片
+    - name: Linux命令搜索引擎
+      link: https://wangchujiang.com/linux-command/
+      avatar: https://wangchujiang.com/linux-command/img/favicon.ico
+      descr: 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册
+    - name: 在线文本比较工具
+      link: https://www.jq22.com/textDifference
+      avatar: https://www.jq22.com/favicon.ico
+      descr: 在线文本差异对比,文本对比,文本比较,文本比较工具,代码差异对比,内容差异对比
+    - name: 熊猫办公（音频……）
+      link: https://www.tukuppt.com/
+      avatar: https://static.tukuppt.com/common/image/logo1.png
+      descr: 海量创意模板，满足您的需求
+    - name: 在线制作SVG-WAVE
+      link: https://svgwave.in/
+      avatar: https://svgwave.in/assets/apple-touch-icon-cb103bd2.png
+      descr: It lets you abiltiy to generate and export pngs and svgs of beautiful waves
+    - name: 在线图像优化器
+      link: https://imagecompressor.com/zh/
+      avatar: https://imagecompressor.com/images/imagecompressor/favicon.png
+      descr: 使用最佳优化和压缩算法来达到最小尺寸的JPEG、GIF和PNG图像，同时保证最佳质量/尺寸比。在多数情况下优化器可以实现优于其它软件和软件的最佳图像压缩比
+    - name: 在线图像优化器-TinyPNG
+      link: https://tinypng.com/
+      avatar: https://tinypng.com/images/favicon.ico
+      descr: Compress WebP, PNG and JPEG images intelligently
+
+- class_name: 图标、图片
+  class_desc: 只有你想到的，没有你想不到的
+  link_list:
+    - name: Feather
+      link: https://feathericons.com/
+      avatar: https://feathericons.com/favicon-32x32.png
+      descr: Simply beautiful open source icons
+    - name: Tabler Icons
+      link: https://tablericons.com/
+      avatar: https://tablericons.com/favicon.png
+      descr: 1424 Fully customizable free SVG icons. (MIT license)
+    - name: 图标工场
+      link: https://icon.wuruihong.com/#
+      avatar: https://icon.wuruihong.com/wrh/apple-touch-icon.png
+      descr: 一键生成所有尺寸的应用图标
+    - name: IconPark
+      link: https://iconpark.oceanengine.com/
+      avatar: https://lf1-cdn2-tos.bytegoofy.com/bydesign/iconparksite/logo.svg
+      descr: IconPark, park your icon. Made by ByteDance
+    - name: IconFont
+      link: https://www.iconfont.cn/
+      avatar: https://img.alicdn.com/imgextra/i4/O1CN01XZe8pH1USpiUNT1QN_!!6000000002517-2-tps-114-114.png
+      descr: 国内功能很强大且图标内容很丰富的矢量图标库，提供矢量图标下载、在线存储、格式转换等功能。阿里巴巴体验团队倾力打造，设计和前端开发的便捷工具
+    - name: 免费图片素材
+      link: https://www.logosc.cn/so/
+      avatar: https://www.logosc.cn/img/so/search_logo.png
+      descr: 免版权图片，高清图片，商用图片，搜图神器
+
+- class_name: CSS
+  class_desc: 你的世界开始炫酷
+  link_list:
+    - name: CSS参考手册
+      link: https://www.php.cn/css3/css3-gradients.html
+      avatar: https://www.php.cn/favicon.ico
+      descr: 为Web前端开发人员提供最新、最全的CSS中文版在线资料，涵盖CSS3参考手册
+
+- class_name: 技术网站
+  class_desc: 未来掌握在自己手中
+  link_list:
+    - name: 程序员极速开发平台-coderd
+      link: http://coderd.adjustrd.com/
+      avatar: http://coderd.adjustrd.com/favicon.ico
+      descr: 一键构建框架，极速开发项目，支持30+种语言
+    - name: 快速搭建-若依
+      link: http://www.ruoyi.vip/
+      avatar: https://www.ruoyi.vip/images/favicon.ico
+      descr: 核心技术采用SpringBoot、MyBatis、Shiro、Thymeleaf、Bootstrap、Vue没有任何其它重度依赖。直接运行即可用
+
+- class_name: 面试集合
+  class_desc: 轻松战胜HR
+  link_list:
+    - name: 高级前端面试题
+      link: https://www.yuque.com/weixiaozhudelaocaipi/gm3gb8
+      avatar: https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original
+      descr: 针对前端面试者提出比较具有实战性的问题
