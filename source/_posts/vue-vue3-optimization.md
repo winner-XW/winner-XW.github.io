@@ -1,7 +1,7 @@
 ---
 title: Vue3在哪些方面做了性能提升？
 date: 2022/06/16
-tags: [Vue,性能提升]
+tags: [Vue3,性能提升]
 categories: Vue
 description: 尤大大在介绍vue3说客户端的渲染效率比vue2提升了1.3-2倍, SSR渲染效率比 vue2 提升了2-3倍。
 cover: /img/md/vue.jpg
