@@ -102,13 +102,13 @@ theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-# deploy:
-#   type: git
-#   repository: 
-#     github: https://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@github.com/xiaoweixiaoyun/xiaoweixiaoyun.github.io.git
-#   branch: master
-
 deploy:
-  type: git 
-  repo: https://gitee.com/xiaoweixiaoyun/xiaoweixiaoyun.git
-  branch: pages
+  type: git
+  repository: 
+    github: https://github.com/winner-XW/winner-XW.github.io.git
+  branch: master
+
+# deploy:
+#   type: git 
+#   repo: https://gitee.com/xiaoweixiaoyun/xiaoweixiaoyun.git
+#   branch: pages
