@@ -105,7 +105,7 @@ theme: butterfly
 deploy:
   type: git
   repository: 
-    github: https://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@github.com/winner-XW/winner-XW.github.io.git
+    github: https://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@github.com/winner-XW/winner-XW.github.io.git
   branch: master
 
 # deploy:
