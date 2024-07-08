@@ -4,9 +4,36 @@
   
     
     <entry>
+      <title>简述什么是迭代器(Iterator)？</title>
+      <link href="/2024/04/08/question/question-19/"/>
+      <url>/2024/04/08/question/question-19/</url>
+      
+        <content type="html"><![CDATA[<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><blockquote><p>迭代器（Iterator）是一种设计模式，Java 中的迭代器是集合框架中的一个接口，它可以让程序员遍历集合中的元素而无需暴露集合的内部结构。使用迭代器可以遍历任何类型的集合，例如 List、Set 和 Map 等。</p></blockquote><p>通过调用集合类的 iterator() 方法可以获取一个迭代器，并使用 hasNext() 方法判断是否还有下一个元素，如果有，则使用 next() 方法获取下一个元素。使用迭代器的好处在于遍历集合时不需要了解集合内部的结构，从而让代码更具可维护性和可重用性。</p><p>迭代器还具有一些额外的功能，比如支持 remove() 方法来删除迭代器返回的最后一个元素，以及可以使用 forEachRemaining() 方法来迭代集合中余下的所有元素等。</p><blockquote><p>注意的是，一旦使用了迭代器进行遍历，就不能在遍历时修改集合中的元素，否则可能会导致不可预知的行为。如果需要修改集合中的元素，应该使用集合提供的遍历方式（如 for-each 循环）来进行遍历，或者使用列表迭代器（ListIterator）来对列表进行修改。</p></blockquote><h2 id="Java为什么不直接实现Iterator接口，而是实现Iterable？"><a href="#Java为什么不直接实现Iterator接口，而是实现Iterable？" class="headerlink" title="Java为什么不直接实现Iterator接口，而是实现Iterable？"></a>Java为什么不直接实现Iterator接口，而是实现Iterable？</h2><p>Iterator是迭代器类，而Iterable是接口。好多类都实现了Iterable接口，这样对象就可以调用iterator()方法。</p><ol><li>Iterator接口的核心方法next()或者hasNext() 是依赖于迭代器的当前迭代位置的。如果Collection直接实现Iterator接口，势必导致集合对象中包含当前迭代位置的数据(指针)。</li><li>当集合在不同方法间被传递时，由于当前迭代位置不可预置，那么next()方法的结果会变成不可预知。除非再为Iterator接口添加一个reset()方法，用来重置当前迭代位置。</li><li>Collection也只能同时存在一个当前迭代位置。而Iterable则不然，每次调用都会返回一个从头开始计数的迭代器。多个迭代器是互不干扰的。</li></ol><h2 id="Iterator和ListIterator的区别是什么？"><a href="#Iterator和ListIterator的区别是什么？" class="headerlink" title="Iterator和ListIterator的区别是什么？"></a>Iterator和ListIterator的区别是什么？</h2><ol><li>使用范围不同，iterator可以应用于所有的集合，Set、List和Map以及这些集合的子类型。而ListIterator只能用于List及其子类型。</li><li>ListIterator有add方法，可以向List中添加对象，而Iterator不能。</li><li>ListIterator和Iterator都有hasNext()和next()方法，可以实现顺序向后遍历，但是ListIterator有hasPrevious()和previous()方法，可以实现逆向遍历，但是iterator不可以。</li><li>ListIterator可以定位当前索引的位置，nextIndex()和previousIndex()可以实现。Iterator没有此功能。</li><li>都可以实现删除操作，但是ListIterator可以实现对象的修改，set()方法可以实现。Iterator仅能遍历，不能实现修改。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 中级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>请描述JDK和JRE的区别？</title>
-      <link href="/2024/04/08/question-20/"/>
-      <url>/2024/04/08/question-20/</url>
+      <link href="/2024/04/08/question/question-20/"/>
+      <url>/2024/04/08/question/question-20/</url>
       
         <content type="html"><![CDATA[<ol><li><p>JDK：全称Java Development Kit，翻译为Java开发工具包，提供Java的开发和运行环境，是整个Java的核心。目前各大主流公司都有自己的jdk，比如oracle jdk（注意，生产环境使用时需要注意法律风险）、openjdk（目前生产环境主流的jdk）、dragonwell（阿里家的jdk，在金融电商物流方面做了优化）、zulujdk（巨硬家的jdk）等等</p></li><li><p>JRE：全称Java Runtime Environment，Java运行时环境，为Java提供运行所需的环境<br>总的来说，JDK包含JRE，JAVA源码的编译器javac，监控工具jconsole，分析工具jvisualvm<br>总结，如果你需要运行Java程序（类似我的世界那种），只需要安装JRE；如果你需要程序开发，那么需要安装JDK就行了，不需要再重复安装JRE。</p></li></ol>]]></content>
       
@@ -32,8 +59,8 @@
     
     <entry>
       <title>简述什么是值传递和引用传递？</title>
-      <link href="/2024/04/08/question-21/"/>
-      <url>/2024/04/08/question-21/</url>
+      <link href="/2024/04/08/question/question-21/"/>
+      <url>/2024/04/08/question/question-21/</url>
       
         <content type="html"><![CDATA[<ol><li><p>值传递：方法调用时，实际参数把它的值传递给对应的形式参数，方法执行中形式参数值的改变不影响实际参 数的值。</p></li><li><p>引用传递：也称为传地址。方法调用时，实际参数的引用(地址，而不是参数的值)被传递给方法中相对应的形式参数，在方法执行中，对形式参数的操作实际上就是对实际参数的操作，方法执行中形式参数值的改变将会影响实际参数的值。</p></li></ol>]]></content>
       
@@ -59,8 +86,8 @@
     
     <entry>
       <title>Java中Exception和Error有什么区别？</title>
-      <link href="/2024/04/08/question-22/"/>
-      <url>/2024/04/08/question-22/</url>
+      <link href="/2024/04/08/question/question-22/"/>
+      <url>/2024/04/08/question/question-22/</url>
       
         <content type="html"><![CDATA[<h2 id="Exception（异常）"><a href="#Exception（异常）" class="headerlink" title="Exception（异常）"></a>Exception（异常）</h2><p>应用程序中可能的可预测、可恢复问题。一般大多数异常表示中度到轻度的问题。异常一般是在特定环境下产生的，通常出现在代码的特定方法和操作中。在 EchoInput 类中，当试图调用 readLine 方法时，可能出现 IOException 异常。<br>Exception 类有一个重要的子类 RuntimeException。RuntimeException 类及其子类表示“JVM 常用操作”引发的错误。例如，若试图使用空值对象引用、除数为零或数组越界，则分别引发运行时异常（NullPointerException、ArithmeticException）和 ArrayIndexOutOfBoundException。</p><h2 id="Error（错误）"><a href="#Error（错误）" class="headerlink" title="Error（错误）"></a>Error（错误）</h2><p>运行应用程序中较严重问题。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。例如，当 JVM 不再有继续执行操作所需的内存资源时，将出现 OutOfMemoryError。</p><h2 id="处理异常的方式"><a href="#处理异常的方式" class="headerlink" title="处理异常的方式"></a>处理异常的方式</h2><ol><li>使用try..catch..finally进行捕获；</li><li>在产生异常的方法声明后面写上throws 某一个Exception类型，如throws Exception，将异常抛出到外面一层去。对于运行时异常（runtime exception），可以对其进行处理，也可以不处理。推荐不对运行时异常进行处理。</li></ol><h2 id="常见的异常"><a href="#常见的异常" class="headerlink" title="常见的异常"></a>常见的异常</h2><ol><li>ArrayIndexOutOfBoundsException 数组下标越界异常</li><li>ArithmaticException 算数异常 如除数为零</li><li>NullPointerException 空指针异常</li><li>IllegalArgumentException 不合法参数异常</li></ol><h2 id="throw和throws的区别"><a href="#throw和throws的区别" class="headerlink" title="throw和throws的区别"></a>throw和throws的区别</h2><h3 id="throws"><a href="#throws" class="headerlink" title="throws"></a>throws</h3><blockquote><p>用来声明一个方法可能产生的所有异常，不做任何处理而是将异常往上传，谁调用我我就抛给谁。</p></blockquote><ol><li>用在方法声明后面，跟的是异常类名</li><li>可以跟多个异常类名，用逗号隔开</li><li>表示抛出异常，由该方法的调用者来处理</li><li>throws表示出现异常的一种可能性，并不一定会发生这些异常</li></ol><h3 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h3><blockquote><p>则是用来抛出一个具体的异常类型。</p></blockquote><ol><li>用在方法体内，跟的是异常对象名</li><li>只能抛出一个异常对象名</li><li>表示抛出异常，由方法体内的语句处理</li><li>throw则是抛出了异常，执行throw则一定抛出了某种异常</li></ol>]]></content>
       
@@ -86,8 +113,8 @@
     
     <entry>
       <title>如果要重写一个对象的equals方法,还要考虑什么?</title>
-      <link href="/2024/04/08/question-23/"/>
-      <url>/2024/04/08/question-23/</url>
+      <link href="/2024/04/08/question/question-23/"/>
+      <url>/2024/04/08/question/question-23/</url>
       
         <content type="html"><![CDATA[<ol><li>自反性：x.equals(x)一定返回true</li><li>对称性：x.equals(y)返回true当且仅当y.equals(x)</li><li>传递性：x.equals(y)且y.equals(z)，则x.equals(z)为true</li><li>一致性：若x.equals(y)返回true，则不改变x，y时多次调用x.equals(y)都返回true</li><li>对于任意的非空引用值x，x.equals(null)一定返回false。</li></ol><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> x;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> y;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Point</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line"><span class="built_in">this</span>.x = x;</span><br><span class="line"><span class="built_in">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line"><span class="keyword">if</span>(!(o <span class="keyword">instanceof</span> Point))</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">Point</span> <span class="variable">p</span> <span class="operator">=</span> (Point)o;</span><br><span class="line"><span class="keyword">return</span> p.x == x &amp;&amp; p.y == y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
@@ -113,8 +140,8 @@
     
     <entry>
       <title>说明public static void main(String args[])这段声明里每个关键字什么作用？</title>
-      <link href="/2024/04/08/question-24/"/>
-      <url>/2024/04/08/question-24/</url>
+      <link href="/2024/04/08/question/question-24/"/>
+      <url>/2024/04/08/question/question-24/</url>
       
         <content type="html"><![CDATA[<ol><li>public表示权限修饰符，表明任何类或对象都可以访问这个方法；</li><li>static表示main()方法是一个静态方法，即方法中的代码是存储在静态存储区的，只要类被加载后，就可以使用该方法而不需要通过实例化对象来访问；</li><li>void表示该方法没有返回值；</li><li>main是JVM识别的特殊方法名，是程序的入口方法。</li><li>String 类来创建和操作字符串</li></ol>]]></content>
       
@@ -140,8 +167,8 @@
     
     <entry>
       <title>如何将String类型转化成Number类型？</title>
-      <link href="/2024/04/08/question-26/"/>
-      <url>/2024/04/08/question-26/</url>
+      <link href="/2024/04/08/question/question-26/"/>
+      <url>/2024/04/08/question/question-26/</url>
       
         <content type="html"><![CDATA[<h2 id="使用Integer-parseInt"><a href="#使用Integer-parseInt" class="headerlink" title="使用Integer.parseInt()"></a>使用Integer.parseInt()</h2><p>如果你知道字符串表示的是一个整数，可以使用Integer.parseInt()方法：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> Integer.parseInt(numberStr);</span><br><span class="line">使用Double.parseDouble()</span><br><span class="line">如果字符串表示的是一个浮点数，可以使用Double.parseDouble()方法：</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123.456&quot;</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">number</span> <span class="operator">=</span> Double.parseDouble(numberStr);</span><br></pre></td></tr></table></figure><h2 id="使用new-Integer-或-new-Double"><a href="#使用new-Integer-或-new-Double" class="headerlink" title="使用new Integer() 或 new Double()"></a>使用new Integer() 或 new Double()</h2><p>这种方法已经被视为过时，不推荐使用，但仍可作为参考：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(numberStr);  <span class="comment">// 整数</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Double</span>(numberStr);    <span class="comment">// 浮点数</span></span><br></pre></td></tr></table></figure><h2 id="使用NumberFormat"><a href="#使用NumberFormat" class="headerlink" title="使用NumberFormat"></a>使用NumberFormat</h2><p>如果你需要进行更复杂的数字格式转换，可以使用NumberFormat类：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="type">NumberFormat</span> <span class="variable">format</span> <span class="operator">=</span> NumberFormat.getInstance();</span><br><span class="line">format.setGroupingUsed(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">Number</span> <span class="variable">number</span> <span class="operator">=</span> format.parse(numberStr);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：以上方法在转换失败时（如字符串不表示有效数字），会抛出异常（如NumberFormatException）。因此，在使用这些方法时，最好进行适当的异常处理。</p>]]></content>
       
@@ -167,8 +194,8 @@
     
     <entry>
       <title>阐述==与equals的区别？</title>
-      <link href="/2024/04/08/question-25/"/>
-      <url>/2024/04/08/question-25/</url>
+      <link href="/2024/04/08/question/question-25/"/>
+      <url>/2024/04/08/question/question-25/</url>
       
         <content type="html"><![CDATA[<h2 id="对象类型不同"><a href="#对象类型不同" class="headerlink" title="对象类型不同"></a>对象类型不同</h2><ol><li>equals()：是超类Object中的方法。</li><li>&#x3D;&#x3D;：是操作符。</li></ol><h2 id="比较的对象不同"><a href="#比较的对象不同" class="headerlink" title="比较的对象不同"></a>比较的对象不同</h2><ol><li>equals()：用来检测两个对象是否相等，即两个对象的内容是否相等。</li><li>&#x3D;&#x3D;：用于比较引用和比较基本数据类型时具有不同的功能，具体如下：</li></ol><ul><li>基础数据类型：比较的是他们的值是否相等，比如两个int类型的变量，比较的是变量的值是否一样。</li><li>引用数据类型：比较的是引用的地址是否相同，比如说新建了两个User对象，比较的是两个User的地址是否一样。</li></ul><h2 id="运行速度不同"><a href="#运行速度不同" class="headerlink" title="运行速度不同"></a>运行速度不同</h2><ol><li>equals()：没有&#x3D;&#x3D;运行速度快。</li><li>&#x3D;&#x3D;：运行速度比equals()快，因为&#x3D;&#x3D;只是比较引用。</li></ol>]]></content>
       
@@ -193,279 +220,9 @@
     
     
     <entry>
-      <title>简述什么是迭代器(Iterator)？</title>
-      <link href="/2024/04/08/question-19/"/>
-      <url>/2024/04/08/question-19/</url>
-      
-        <content type="html"><![CDATA[<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><blockquote><p>迭代器（Iterator）是一种设计模式，Java 中的迭代器是集合框架中的一个接口，它可以让程序员遍历集合中的元素而无需暴露集合的内部结构。使用迭代器可以遍历任何类型的集合，例如 List、Set 和 Map 等。</p></blockquote><p>通过调用集合类的 iterator() 方法可以获取一个迭代器，并使用 hasNext() 方法判断是否还有下一个元素，如果有，则使用 next() 方法获取下一个元素。使用迭代器的好处在于遍历集合时不需要了解集合内部的结构，从而让代码更具可维护性和可重用性。</p><p>迭代器还具有一些额外的功能，比如支持 remove() 方法来删除迭代器返回的最后一个元素，以及可以使用 forEachRemaining() 方法来迭代集合中余下的所有元素等。</p><blockquote><p>注意的是，一旦使用了迭代器进行遍历，就不能在遍历时修改集合中的元素，否则可能会导致不可预知的行为。如果需要修改集合中的元素，应该使用集合提供的遍历方式（如 for-each 循环）来进行遍历，或者使用列表迭代器（ListIterator）来对列表进行修改。</p></blockquote><h2 id="Java为什么不直接实现Iterator接口，而是实现Iterable？"><a href="#Java为什么不直接实现Iterator接口，而是实现Iterable？" class="headerlink" title="Java为什么不直接实现Iterator接口，而是实现Iterable？"></a>Java为什么不直接实现Iterator接口，而是实现Iterable？</h2><p>Iterator是迭代器类，而Iterable是接口。好多类都实现了Iterable接口，这样对象就可以调用iterator()方法。</p><ol><li>Iterator接口的核心方法next()或者hasNext() 是依赖于迭代器的当前迭代位置的。如果Collection直接实现Iterator接口，势必导致集合对象中包含当前迭代位置的数据(指针)。</li><li>当集合在不同方法间被传递时，由于当前迭代位置不可预置，那么next()方法的结果会变成不可预知。除非再为Iterator接口添加一个reset()方法，用来重置当前迭代位置。</li><li>Collection也只能同时存在一个当前迭代位置。而Iterable则不然，每次调用都会返回一个从头开始计数的迭代器。多个迭代器是互不干扰的。</li></ol><h2 id="Iterator和ListIterator的区别是什么？"><a href="#Iterator和ListIterator的区别是什么？" class="headerlink" title="Iterator和ListIterator的区别是什么？"></a>Iterator和ListIterator的区别是什么？</h2><ol><li>使用范围不同，iterator可以应用于所有的集合，Set、List和Map以及这些集合的子类型。而ListIterator只能用于List及其子类型。</li><li>ListIterator有add方法，可以向List中添加对象，而Iterator不能。</li><li>ListIterator和Iterator都有hasNext()和next()方法，可以实现顺序向后遍历，但是ListIterator有hasPrevious()和previous()方法，可以实现逆向遍历，但是iterator不可以。</li><li>ListIterator可以定位当前索引的位置，nextIndex()和previousIndex()可以实现。Iterator没有此功能。</li><li>都可以实现删除操作，但是ListIterator可以实现对象的修改，set()方法可以实现。Iterator仅能遍历，不能实现修改。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 中级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何实现浏览器内多个标签页之间的通信?</title>
-      <link href="/2024/04/07/question-11/"/>
-      <url>/2024/04/07/question-11/</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>LocalStorage 和 sessionStorage<br>通过使用localStorage和sessionStorage，可以在不同的标签页中保存和读取数据。</p></li><li><p>使用Cookie<br>Cookie 是存储在客户端的小文件，可以存储少量数据并在多个标签页之间共享。在一个标签页中设置的 Cookie 可以被其他标签页中的 JavaScript 访问和修改。</p></li><li><p>BroadcastChannel<br>BroadcastChannel API 允许在同源的不同上下文（例如，不同标签页、iframes、workers）之间进行简单的通信。</p></li><li><p>SharedWorker<br>可以使用SharedWorker创建一个共享的工作线程，它可以在同源的多个上下文之间共享。这意味着它可以用于在不同标签页之间进行通信。</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 中级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Http状态码有那些？</title>
-      <link href="/2024/04/07/question-12/"/>
-      <url>/2024/04/07/question-12/</url>
-      
-        <content type="html"><![CDATA[<h1 id="1xx系列：信息性状态码"><a href="#1xx系列：信息性状态码" class="headerlink" title="1xx系列：信息性状态码"></a>1xx系列：信息性状态码</h1><p>1xx系列的状态码表示服务器已经接收到请求并正在处理，但需要进一步的操作才能完成请求。</p><ol><li>100 Continue：表示服务器已经接收到请求的头部，并且客户端应该继续发送请求的主体部分。</li><li>101 Switching Protocols：表示服务器已经理解了客户端的请求，并且将切换到不同的协议来完成请求。</li></ol><h1 id="2xx系列：成功状态码"><a href="#2xx系列：成功状态码" class="headerlink" title="2xx系列：成功状态码"></a>2xx系列：成功状态码</h1><p>2xx系列的状态码表示请求已经成功被服务器接收、理解和处理。</p><ol><li>200 OK：表示请求已成功，服务器正常处理并返回请求的资源。</li><li>201 Created：表示请求已成功，并且服务器创建了新的资源。</li><li>202 Accepted：表示服务器已接受请求，但尚未处理完成。</li><li>204 No Content：表示请求已成功，但服务器没有返回任何内容。</li></ol><h1 id="3xx系列：重定向状态码"><a href="#3xx系列：重定向状态码" class="headerlink" title="3xx系列：重定向状态码"></a>3xx系列：重定向状态码</h1><p>3xx系列的状态码表示客户端需要进行进一步的操作才能完成请求。</p><ol><li>301 Moved Permanently：表示请求的资源已永久移动到新的URL。</li><li>302 Found：表示请求的资源已临时移动到新的URL。</li><li>304 Not Modified：表示请求的资源未被修改，可以直接使用缓存的版本。</li></ol><h1 id="4xx系列：客户端错误状态码"><a href="#4xx系列：客户端错误状态码" class="headerlink" title="4xx系列：客户端错误状态码"></a>4xx系列：客户端错误状态码</h1><p>4xx系列的状态码表示客户端发起的请求有错误或无法完成。</p><ol><li>400 Bad Request：表示客户端发送的请求有语法错误。</li><li>401 Unauthorized：表示请求需要用户进行身份验证。</li><li>403 Forbidden：表示服务器拒绝请求，没有权限访问。</li><li>404 Not Found：表示请求的资源不存在。</li></ol><h1 id="5xx系列：服务器错误状态码"><a href="#5xx系列：服务器错误状态码" class="headerlink" title="5xx系列：服务器错误状态码"></a>5xx系列：服务器错误状态码</h1><p>5xx系列的状态码表示服务器在处理请求时发生了错误。</p><ol><li>500 Internal Server Error：表示服务器内部发生了错误。</li><li>502 Bad Gateway：表示服务器作为网关或代理，从上游服务器接收到无效的响应。</li><li>503 Service Unavailable：表示服务器当前无法处理请求，一般是由于过载或维护导致。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>解释什么是语义化的HTML?</title>
-      <link href="/2024/04/07/question-10/"/>
-      <url>/2024/04/07/question-10/</url>
-      
-        <content type="html"><![CDATA[<h1 id="什么是html语义化？"><a href="#什么是html语义化？" class="headerlink" title="什么是html语义化？"></a>什么是html语义化？</h1><blockquote><p>官方解释：html语义化是指用合理的html标记以及其特有的属性去格式化文档内容。<br>通俗的讲：就是用合理、正确的标签来展示内容。（标签指一种标记方式，如<code>&lt;title&gt;</code>，表示标题信息；也可以理解为人体骨架的某一块骨头，专属名称叫什么）。</p></blockquote><h1 id="为什么需要语义化？"><a href="#为什么需要语义化？" class="headerlink" title="为什么需要语义化？"></a>为什么需要语义化？</h1><ol><li>易读，易书写，易理解（多数情况，标签英文翻译的含义就是其功能含义）；</li><li>利于SEO搜索：语义化可以和搜索引擎建立良好的联系，有利于爬虫抓取有效信息；因为爬虫依赖于语义化标签来确定上下文和各个关键字的权重。</li><li>易于跨设备解析，进而完成渲染网页（如屏幕阅读器、盲人阅读器、移动设备）；</li><li>利于规范化：方便团队开发和维护，也遵循W3C规范。</li></ol><h1 id="h5新增标签"><a href="#h5新增标签" class="headerlink" title="h5新增标签"></a>h5新增标签</h1><ol><li>结构化标签：<br><code>&lt;header&gt;</code>：头部标签 ；<code>&lt;nav&gt;</code>：导航标签 ；<code>&lt;article&gt;</code>：内容标签 ；<code>&lt;section&gt;</code>：定义文档某个区域； <code>&lt;aside&gt;</code>：侧边栏标签 ；<code>&lt;footer&gt;</code>：尾部标签；</li><li>多媒体标签：<br>*音频标签：audio； <code>&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code><br>*视频标签：video；<code>&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 中级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>简述什么叫优雅降级和渐进增强？</title>
-      <link href="/2024/04/07/question-13/"/>
-      <url>/2024/04/07/question-13/</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>优雅降级（Graceful Degradation）：<br>优雅降级是指首先针对最新的浏览器或设备进行开发，利用其提供的最新特性和功能来构建网页。然后，通过检测用户使用的浏览器或设备，如果发现其不支持某些特性或功能，就会提供一个替代方案，以确保网页在旧版本的浏览器或设备上也能够正常显示和使用。这种策略的目标是尽可能地提供最佳的用户体验，但在旧版本浏览器上可能会有一些功能缺失或效果不佳。</p></li><li><p>渐进增强（Progressive Enhancement）：<br>渐进增强是指首先针对基本的浏览器或设备进行开发，确保网页的核心功能在所有浏览器上都能够正常运行。然后，通过检测用户使用的浏览器或设备，如果发现其支持某些额外的特性或功能，就会逐步增强网页的功能和用户体验。这种策略的目标是确保网页在所有浏览器上都能够正常运行，并逐步提供更多的功能和效果。</p></li></ol><blockquote><p>总结起来，优雅降级是从高版本向低版本适配，提供替代方案以确保兼容性；而渐进增强是从低版本向高版本适配，逐步增强功能和用户体验。两种策略都是为了在不同浏览器或设备上提供最佳的用户体验。</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 中级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>前端标准px、em和rem的区别？</title>
-      <link href="/2024/04/07/question-15/"/>
-      <url>/2024/04/07/question-15/</url>
-      
-        <content type="html"><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol><li>px像素，相对长度单位。像素px是相对显示器屏幕分辨率而言的。用于元素的边框或者定位。</li><li>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被设置，则相对浏览器的默认字体尺寸。</li><li>rem是css3新增的一个相对单位（root ），rem相对于html根元素，这个单位可谓是集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例的调整所有的字体大小，又可以避免字体大小逐层复合的连锁反应。目前基本上市面上主流的的浏览器都是支持的。对于不支持它的浏览器，应对的方法也很简单，就是对多写绝对单位。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>解释什么是盒子模型？</title>
-      <link href="/2024/04/07/question-14/"/>
-      <url>/2024/04/07/question-14/</url>
-      
-        <content type="html"><![CDATA[<h2 id="标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。"><a href="#标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。" class="headerlink" title="标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。"></a>标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。</h2><ol><li>标准模式下总宽度&#x3D;width+margin（左右）+padding（左右）border（左右）；</li><li>怪异模式下总宽度&#x3D;width+margin（左右）（就是说width已经包含了padding和border值）。</li></ol><h2 id="标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。"><a href="#标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。" class="headerlink" title="标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。"></a>标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。</h2><ol><li>当设置为box-sizing:content-box时，将采⽤标准模式解析计算，也是默认模式；</li><li>当设置为box-sizing:border-box时，将采⽤怪异模式解析计算；</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XML和JSON的区别？</title>
-      <link href="/2024/04/07/question-16/"/>
-      <url>/2024/04/07/question-16/</url>
-      
-        <content type="html"><![CDATA[<h1 id="XML的定义"><a href="#XML的定义" class="headerlink" title="XML的定义"></a>XML的定义</h1><p>扩展标记语言 (Extensible Markup Language, XML) ，用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。 XML使用DTD(document type definition)文档类型定义来组织数据；格式统一，跨平台和语言，早已成为业界公认的标准。<br>XML是标准通用标记语言 (SGML) 的子集，非常适合Web传输。XML提供统一的方法来描述和交换独立于应用程序或供应商的结构化数据。</p><h1 id="JSON的定义"><a href="#JSON的定义" class="headerlink" title="JSON的定义"></a>JSON的定义</h1><p>JSON(JavaScript Object Notation)一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。可在不同平台之间进行数据交换。JSON采用兼容性很高的、完全独立于语言文本格式，同时也具备类似于C语言的习惯(包括C, C++, C#, Java, JavaScript, Perl, Python等)体系的行为。这些特性使JSON成为理想的数据交换语言。</p><h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol><li><p>编码方面的区别<br>JSON的编码更为清晰且冗余更少些，而XML比较适合于标记文档。JSON网站提供了对JSON语法的严格描述，只是描述较简短。JSON更适于进行数据交换处理。</p></li><li><p>编码可读性之间的区别<br>XML有明显的优势，毕竟人类的语言更贴近这样的说明结构。JSON读起来更像一个数据块，读起来就比较费解了。不过，我们读起来费解的语言，恰恰是适合机器阅读。</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Javascript中async await和promise和generator有什么区别？</title>
-      <link href="/2024/04/07/question-18/"/>
-      <url>/2024/04/07/question-18/</url>
-      
-        <content type="html"><![CDATA[<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><blockquote><p>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p></blockquote><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><ol><li>对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。</li><li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</li></ol><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol><li>无法取消Promise，一旦新建它就会立即执行，无法中途取消。</li><li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。</li><li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li></ol><h2 id="generator-x2F-yield"><a href="#generator-x2F-yield" class="headerlink" title="generator&#x2F;yield"></a>generator&#x2F;yield</h2><blockquote><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p></blockquote><h3 id="语法上"><a href="#语法上" class="headerlink" title="语法上"></a>语法上</h3><p>首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p><h3 id="形式上"><a href="#形式上" class="headerlink" title="形式上"></a>形式上</h3><p>Generator 函数是一个普通函数，但是有两个特征。</p><ol><li>function关键字与函数名之间有一个星号；</li><li>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。</li></ol><p>Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。<br>不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象（Iterator Object）。<br>下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。<br>yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。</p><h2 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h2><blockquote><p>async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await，仅此而已。</p></blockquote><h3 id="async函数对-Generator-函数的改进"><a href="#async函数对-Generator-函数的改进" class="headerlink" title="async函数对 Generator 函数的改进"></a>async函数对 Generator 函数的改进</h3><ol><li>内置执行器: async函数自带执行器,使用方法为 asyncReadFile()</li><li>更好的语义: async表示函数里有异步操作,await表示紧跟再后面的表达式需要等待结果</li><li>更广的适用性: yield命令后,只能是Thunk函数或Promise对象,而async函数的await命令后面,可以是Promise对象和原始类型的值</li><li>返回值是Promise对象,可以使用then方法指定下一步操作</li></ol><h3 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h3><ol><li>await命令后面的Promise对象，运行结果可能是rejected，所以最好把await命令放在try…catch代码块中。</li><li>多个await命令后面的异步操作，如果不存在继发关系（比较耗时），最好让它们同时触发。</li><li>await命令只能用在async函数之中，如果用在普通函数，就会报错。</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> Promise 的写法比回调函数的写法大大改进，但是一眼看上去，代码完全都是 Promise 的 API（then、catch等等），操作本身的语义反而不容易看出来。<br> Generator 函数语义比 Promise 写法更清晰，这个写法的问题在于，必须有一个任务运行器，自动执行 Generator 函数。<br> Async 函数的实现最简洁，最符合语义，几乎没有语义不相关的代码。<br> 它将 Generator 写法中的自动执行器，改在语言层面提供，不暴露给用户，因此代码量最少。<br> 如果使用 Generator 写法，自动执行器需要用户自己提供。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 高级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JavaScript阻止事件冒泡的方法？</title>
-      <link href="/2024/04/07/question-17/"/>
-      <url>/2024/04/07/question-17/</url>
-      
-        <content type="html"><![CDATA[<p>比如现在有一个子盒子和一个父盒子，子盒子和父盒子二者都有点击事件，但是此时，当我们点击子盒子时，只想让子盒子显示点击事件。这里我们就要用到阻止事件冒泡的方法来隔断父盒子的事件显示。<br>我们应该怎样阻断父盒子的点击事件呢？</p><p>可以直接在子盒子内部的点击事件里面添加stopPropagation()方法<br>如下所示：</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line">e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br></pre></td></tr></table></figure><p>但是需要注意的是：这个方法也有兼容性问题，在低版本浏览器中（IE 6-8 ）通常是利用事件对象cancelBubble属性来操作的。即直接在相应的点击事件里面添加：<br><code>e.cancelBubble = true;</code><br>如果我们想要解决这种兼容性问题，就可以采用下述方法：</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(e &amp;&amp; e.<span class="property">stopPropagation</span>)&#123;</span><br><span class="line">e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">cancelBubble</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>浏览器渲染原理，回流，重绘的概念和原理 ？</title>
-      <link href="/2024/04/07/question-4/"/>
-      <url>/2024/04/07/question-4/</url>
+      <link href="/2024/04/07/question/question-4/"/>
+      <url>/2024/04/07/question/question-4/</url>
       
         <content type="html"><![CDATA[<h1 id="浏览器的渲染机制"><a href="#浏览器的渲染机制" class="headerlink" title="浏览器的渲染机制"></a>浏览器的渲染机制</h1><ol><li>浏览器的渲染机制一般分为以下几个步骤:</li><li>处理 HTML 并构建 DOM 树。</li><li>处理 CSS 构建 CSSOM 树。</li><li>将 DOM 与 CSSOM 合并成一个渲染树。</li><li>根据渲染树来布局，计算每个节点的位置。</li><li>调用 GPU 绘制，合成图层，显示在屏幕上。</li></ol><h1 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h1><h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此损耗较少</p><h2 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h2><p>当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:<br>– 页面初次渲染 – 浏览器窗口大小改变 – 元素尺寸、位置、内容发生改变 – 元素字体大小变化 – 添加或者删除可见的 dom 元素 – 激活 CSS 伪类（例如：:hover） – 查询某些属性或调用某些方法： – clientWidth、clientHeight、clientTop、clientLeft – offsetWidth、offsetHeight、offsetTop、offsetLeft – scrollWidth、scrollHeight、scrollTop、scrollLeft – getComputedStyle() – getBoundingClientRect() – scrollTo()</p><blockquote><p>总结:<br>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。所以尽量减少触发回流的操作, 以达到更好的性能</p></blockquote>]]></content>
       
@@ -491,8 +248,8 @@
     
     <entry>
       <title>对WEB标准以及W3C的理解与认识？</title>
-      <link href="/2024/04/07/question-6/"/>
-      <url>/2024/04/07/question-6/</url>
+      <link href="/2024/04/07/question/question-6/"/>
+      <url>/2024/04/07/question/question-6/</url>
       
         <content type="html"><![CDATA[<p>Web标准简单来说可以分为结构、表现、行为。其中结构是由HTML各种标签组成，简单来说就是body里面写入标签是为了页面的结构。表现指的是CSS层叠样式表，通过CSS可以让我们的页面结构标签更具美感。行为指的是页面和用户具有一定的交互，这部分主要由JS组成</p><p>W3C，全称：world wide web consortium是一个制定各种标准的非盈利性组织，也叫万维网联盟，标准包括HTML、CSS、ECMAScript等等，web标准的制定有很多好处，比如说：</p><ol><li>可以统一开发流程，统一使用标准化开发工具(VSCode、WebStorm、Sublime)，方便多人协作</li><li>学习成本降低，只需要学习标准就行，否则就要学习各个浏览器厂商标准</li><li>跨平台，方便迁移都不同设备</li><li>降低代码维护成本</li></ol>]]></content>
       
@@ -518,8 +275,8 @@
     
     <entry>
       <title>XHTML和HTML有什么区别？</title>
-      <link href="/2024/04/07/question-7/"/>
-      <url>/2024/04/07/question-7/</url>
+      <link href="/2024/04/07/question/question-7/"/>
+      <url>/2024/04/07/question/question-7/</url>
       
         <content type="html"><![CDATA[<h1 id="其基础语言不同"><a href="#其基础语言不同" class="headerlink" title="其基础语言不同"></a>其基础语言不同</h1><ol><li>XhtmL是基于可扩展标记语言（XmL）。</li><li>htmL是基于标准通用标记语言（sgmL）。</li></ol><h1 id="语法严格程度不同"><a href="#语法严格程度不同" class="headerlink" title="语法严格程度不同"></a>语法严格程度不同</h1><ol><li>XhtmL语法比较严格，存在dtd定义规则。</li><li>htmL语法要求比较松散，这样对网页编写者来说，比较方便。</li></ol><h1 id="可混合应用不同"><a href="#可混合应用不同" class="headerlink" title="可混合应用不同"></a>可混合应用不同</h1><ol><li>XhtmL可以混合各种XmL应用，比如mathmL、sVg。</li><li>htmL不能混合其它XmL应用。</li></ol><h1 id="大小写敏感度不同"><a href="#大小写敏感度不同" class="headerlink" title="大小写敏感度不同"></a>大小写敏感度不同</h1><ol><li>XhtmL对大小写敏感，标准的XhtmL标签应该使用小写。</li><li>htmL对大小写不敏感。</li></ol><h1 id="公布时间不同"><a href="#公布时间不同" class="headerlink" title="公布时间不同"></a>公布时间不同</h1><ol><li>XhtmL是2000年w3c公布发行的。</li><li>htmL4.01是1999年w3c推荐标准。</li></ol>]]></content>
       
@@ -544,9 +301,36 @@
     
     
     <entry>
+      <title>标签上title与alt属性的区别是什么?</title>
+      <link href="/2024/04/07/question/question-8/"/>
+      <url>/2024/04/07/question/question-8/</url>
+      
+        <content type="html"><![CDATA[<ol><li>含义不同<br>alt是当图片不存在时的替代文字;title是对图片的描述与进一步说明</li><li>在浏览器中的表现不同<br>在firefox（火狐浏览器）和ie8中，当鼠标经过图片时title值会显示，而alt的值不会显示;只有在ie6中，当鼠标经过图片时title和alt的值都会显示。</li><li>对于网站seo优化来说，title与alt还有最重要的一点：<br>搜索引擎对图片意思的判断，主要靠alt属性。所以在图片alt属性中以简要文字说明，同时包含关键词，也是页面优化的一部分。条件允许的话，可以在title属性里，进一步对图片说明。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端页面有哪三层构成，分别是什么？作用是什么?</title>
-      <link href="/2024/04/07/question-9/"/>
-      <url>/2024/04/07/question-9/</url>
+      <link href="/2024/04/07/question/question-9/"/>
+      <url>/2024/04/07/question/question-9/</url>
       
         <content type="html"><![CDATA[<ol><li>结构层：由 HTML 或 XHTML 之类的标记语言负责创建，仅负责语义的表达。解决了页面”内容是什么”的问题。</li><li>表示层：由CSS负责创建，解决了页面“如何显示内容”的问题。</li><li>行为层：由脚本负责。解决了页面上“内容应该如何对事件作出反应”的问题。</li></ol>]]></content>
       
@@ -571,11 +355,65 @@
     
     
     <entry>
-      <title>标签上title与alt属性的区别是什么?</title>
-      <link href="/2024/04/07/question-8/"/>
-      <url>/2024/04/07/question-8/</url>
+      <title>解释什么是语义化的HTML?</title>
+      <link href="/2024/04/07/question/question-10/"/>
+      <url>/2024/04/07/question/question-10/</url>
       
-        <content type="html"><![CDATA[<ol><li>含义不同<br>alt是当图片不存在时的替代文字;title是对图片的描述与进一步说明</li><li>在浏览器中的表现不同<br>在firefox（火狐浏览器）和ie8中，当鼠标经过图片时title值会显示，而alt的值不会显示;只有在ie6中，当鼠标经过图片时title和alt的值都会显示。</li><li>对于网站seo优化来说，title与alt还有最重要的一点：<br>搜索引擎对图片意思的判断，主要靠alt属性。所以在图片alt属性中以简要文字说明，同时包含关键词，也是页面优化的一部分。条件允许的话，可以在title属性里，进一步对图片说明。</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="什么是html语义化？"><a href="#什么是html语义化？" class="headerlink" title="什么是html语义化？"></a>什么是html语义化？</h1><blockquote><p>官方解释：html语义化是指用合理的html标记以及其特有的属性去格式化文档内容。<br>通俗的讲：就是用合理、正确的标签来展示内容。（标签指一种标记方式，如<code>&lt;title&gt;</code>，表示标题信息；也可以理解为人体骨架的某一块骨头，专属名称叫什么）。</p></blockquote><h1 id="为什么需要语义化？"><a href="#为什么需要语义化？" class="headerlink" title="为什么需要语义化？"></a>为什么需要语义化？</h1><ol><li>易读，易书写，易理解（多数情况，标签英文翻译的含义就是其功能含义）；</li><li>利于SEO搜索：语义化可以和搜索引擎建立良好的联系，有利于爬虫抓取有效信息；因为爬虫依赖于语义化标签来确定上下文和各个关键字的权重。</li><li>易于跨设备解析，进而完成渲染网页（如屏幕阅读器、盲人阅读器、移动设备）；</li><li>利于规范化：方便团队开发和维护，也遵循W3C规范。</li></ol><h1 id="h5新增标签"><a href="#h5新增标签" class="headerlink" title="h5新增标签"></a>h5新增标签</h1><ol><li>结构化标签：<br><code>&lt;header&gt;</code>：头部标签 ；<code>&lt;nav&gt;</code>：导航标签 ；<code>&lt;article&gt;</code>：内容标签 ；<code>&lt;section&gt;</code>：定义文档某个区域； <code>&lt;aside&gt;</code>：侧边栏标签 ；<code>&lt;footer&gt;</code>：尾部标签；</li><li>多媒体标签：<br>*音频标签：audio； <code>&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code><br>*视频标签：video；<code>&lt;video src=&quot;文件地址&quot; controls=&quot;controls&quot;&gt;&lt;/video&gt;</code></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 中级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何实现浏览器内多个标签页之间的通信?</title>
+      <link href="/2024/04/07/question/question-11/"/>
+      <url>/2024/04/07/question/question-11/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>LocalStorage 和 sessionStorage<br>通过使用localStorage和sessionStorage，可以在不同的标签页中保存和读取数据。</p></li><li><p>使用Cookie<br>Cookie 是存储在客户端的小文件，可以存储少量数据并在多个标签页之间共享。在一个标签页中设置的 Cookie 可以被其他标签页中的 JavaScript 访问和修改。</p></li><li><p>BroadcastChannel<br>BroadcastChannel API 允许在同源的不同上下文（例如，不同标签页、iframes、workers）之间进行简单的通信。</p></li><li><p>SharedWorker<br>可以使用SharedWorker创建一个共享的工作线程，它可以在同源的多个上下文之间共享。这意味着它可以用于在不同标签页之间进行通信。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 中级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Http状态码有那些？</title>
+      <link href="/2024/04/07/question/question-12/"/>
+      <url>/2024/04/07/question/question-12/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1xx系列：信息性状态码"><a href="#1xx系列：信息性状态码" class="headerlink" title="1xx系列：信息性状态码"></a>1xx系列：信息性状态码</h1><p>1xx系列的状态码表示服务器已经接收到请求并正在处理，但需要进一步的操作才能完成请求。</p><ol><li>100 Continue：表示服务器已经接收到请求的头部，并且客户端应该继续发送请求的主体部分。</li><li>101 Switching Protocols：表示服务器已经理解了客户端的请求，并且将切换到不同的协议来完成请求。</li></ol><h1 id="2xx系列：成功状态码"><a href="#2xx系列：成功状态码" class="headerlink" title="2xx系列：成功状态码"></a>2xx系列：成功状态码</h1><p>2xx系列的状态码表示请求已经成功被服务器接收、理解和处理。</p><ol><li>200 OK：表示请求已成功，服务器正常处理并返回请求的资源。</li><li>201 Created：表示请求已成功，并且服务器创建了新的资源。</li><li>202 Accepted：表示服务器已接受请求，但尚未处理完成。</li><li>204 No Content：表示请求已成功，但服务器没有返回任何内容。</li></ol><h1 id="3xx系列：重定向状态码"><a href="#3xx系列：重定向状态码" class="headerlink" title="3xx系列：重定向状态码"></a>3xx系列：重定向状态码</h1><p>3xx系列的状态码表示客户端需要进行进一步的操作才能完成请求。</p><ol><li>301 Moved Permanently：表示请求的资源已永久移动到新的URL。</li><li>302 Found：表示请求的资源已临时移动到新的URL。</li><li>304 Not Modified：表示请求的资源未被修改，可以直接使用缓存的版本。</li></ol><h1 id="4xx系列：客户端错误状态码"><a href="#4xx系列：客户端错误状态码" class="headerlink" title="4xx系列：客户端错误状态码"></a>4xx系列：客户端错误状态码</h1><p>4xx系列的状态码表示客户端发起的请求有错误或无法完成。</p><ol><li>400 Bad Request：表示客户端发送的请求有语法错误。</li><li>401 Unauthorized：表示请求需要用户进行身份验证。</li><li>403 Forbidden：表示服务器拒绝请求，没有权限访问。</li><li>404 Not Found：表示请求的资源不存在。</li></ol><h1 id="5xx系列：服务器错误状态码"><a href="#5xx系列：服务器错误状态码" class="headerlink" title="5xx系列：服务器错误状态码"></a>5xx系列：服务器错误状态码</h1><p>5xx系列的状态码表示服务器在处理请求时发生了错误。</p><ol><li>500 Internal Server Error：表示服务器内部发生了错误。</li><li>502 Bad Gateway：表示服务器作为网关或代理，从上游服务器接收到无效的响应。</li><li>503 Service Unavailable：表示服务器当前无法处理请求，一般是由于过载或维护导致。</li></ol>]]></content>
       
       
       <categories>
@@ -590,6 +428,168 @@
             <tag> 前端 </tag>
             
             <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>简述什么叫优雅降级和渐进增强？</title>
+      <link href="/2024/04/07/question/question-13/"/>
+      <url>/2024/04/07/question/question-13/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>优雅降级（Graceful Degradation）：<br>优雅降级是指首先针对最新的浏览器或设备进行开发，利用其提供的最新特性和功能来构建网页。然后，通过检测用户使用的浏览器或设备，如果发现其不支持某些特性或功能，就会提供一个替代方案，以确保网页在旧版本的浏览器或设备上也能够正常显示和使用。这种策略的目标是尽可能地提供最佳的用户体验，但在旧版本浏览器上可能会有一些功能缺失或效果不佳。</p></li><li><p>渐进增强（Progressive Enhancement）：<br>渐进增强是指首先针对基本的浏览器或设备进行开发，确保网页的核心功能在所有浏览器上都能够正常运行。然后，通过检测用户使用的浏览器或设备，如果发现其支持某些额外的特性或功能，就会逐步增强网页的功能和用户体验。这种策略的目标是确保网页在所有浏览器上都能够正常运行，并逐步提供更多的功能和效果。</p></li></ol><blockquote><p>总结起来，优雅降级是从高版本向低版本适配，提供替代方案以确保兼容性；而渐进增强是从低版本向高版本适配，逐步增强功能和用户体验。两种策略都是为了在不同浏览器或设备上提供最佳的用户体验。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 中级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>解释什么是盒子模型？</title>
+      <link href="/2024/04/07/question/question-14/"/>
+      <url>/2024/04/07/question/question-14/</url>
+      
+        <content type="html"><![CDATA[<h2 id="标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。"><a href="#标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。" class="headerlink" title="标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。"></a>标准盒与怪异盒的区别在于他们的总宽度的计算公式不⼀样。</h2><ol><li>标准模式下总宽度&#x3D;width+margin（左右）+padding（左右）border（左右）；</li><li>怪异模式下总宽度&#x3D;width+margin（左右）（就是说width已经包含了padding和border值）。</li></ol><h2 id="标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。"><a href="#标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。" class="headerlink" title="标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。"></a>标准模式下如果定义的DOCTYPE缺失，则在ie6、ie7、ie8下汇触发怪异模式。</h2><ol><li>当设置为box-sizing:content-box时，将采⽤标准模式解析计算，也是默认模式；</li><li>当设置为box-sizing:border-box时，将采⽤怪异模式解析计算；</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端标准px、em和rem的区别？</title>
+      <link href="/2024/04/07/question/question-15/"/>
+      <url>/2024/04/07/question/question-15/</url>
+      
+        <content type="html"><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol><li>px像素，相对长度单位。像素px是相对显示器屏幕分辨率而言的。用于元素的边框或者定位。</li><li>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被设置，则相对浏览器的默认字体尺寸。</li><li>rem是css3新增的一个相对单位（root ），rem相对于html根元素，这个单位可谓是集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例的调整所有的字体大小，又可以避免字体大小逐层复合的连锁反应。目前基本上市面上主流的的浏览器都是支持的。对于不支持它的浏览器，应对的方法也很简单，就是对多写绝对单位。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XML和JSON的区别？</title>
+      <link href="/2024/04/07/question/question-16/"/>
+      <url>/2024/04/07/question/question-16/</url>
+      
+        <content type="html"><![CDATA[<h1 id="XML的定义"><a href="#XML的定义" class="headerlink" title="XML的定义"></a>XML的定义</h1><p>扩展标记语言 (Extensible Markup Language, XML) ，用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。 XML使用DTD(document type definition)文档类型定义来组织数据；格式统一，跨平台和语言，早已成为业界公认的标准。<br>XML是标准通用标记语言 (SGML) 的子集，非常适合Web传输。XML提供统一的方法来描述和交换独立于应用程序或供应商的结构化数据。</p><h1 id="JSON的定义"><a href="#JSON的定义" class="headerlink" title="JSON的定义"></a>JSON的定义</h1><p>JSON(JavaScript Object Notation)一种轻量级的数据交换格式，具有良好的可读和便于快速编写的特性。可在不同平台之间进行数据交换。JSON采用兼容性很高的、完全独立于语言文本格式，同时也具备类似于C语言的习惯(包括C, C++, C#, Java, JavaScript, Perl, Python等)体系的行为。这些特性使JSON成为理想的数据交换语言。</p><h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><ol><li><p>编码方面的区别<br>JSON的编码更为清晰且冗余更少些，而XML比较适合于标记文档。JSON网站提供了对JSON语法的严格描述，只是描述较简短。JSON更适于进行数据交换处理。</p></li><li><p>编码可读性之间的区别<br>XML有明显的优势，毕竟人类的语言更贴近这样的说明结构。JSON读起来更像一个数据块，读起来就比较费解了。不过，我们读起来费解的语言，恰恰是适合机器阅读。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JavaScript阻止事件冒泡的方法？</title>
+      <link href="/2024/04/07/question/question-17/"/>
+      <url>/2024/04/07/question/question-17/</url>
+      
+        <content type="html"><![CDATA[<p>比如现在有一个子盒子和一个父盒子，子盒子和父盒子二者都有点击事件，但是此时，当我们点击子盒子时，只想让子盒子显示点击事件。这里我们就要用到阻止事件冒泡的方法来隔断父盒子的事件显示。<br>我们应该怎样阻断父盒子的点击事件呢？</p><p>可以直接在子盒子内部的点击事件里面添加stopPropagation()方法<br>如下所示：</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">son.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;son&#x27;</span>);</span><br><span class="line">e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;,<span class="literal">false</span>)</span><br></pre></td></tr></table></figure><p>但是需要注意的是：这个方法也有兼容性问题，在低版本浏览器中（IE 6-8 ）通常是利用事件对象cancelBubble属性来操作的。即直接在相应的点击事件里面添加：<br><code>e.cancelBubble = true;</code><br>如果我们想要解决这种兼容性问题，就可以采用下述方法：</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(e &amp;&amp; e.<span class="property">stopPropagation</span>)&#123;</span><br><span class="line">e.<span class="title function_">stopPropagation</span>();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">cancelBubble</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Javascript中async await和promise和generator有什么区别？</title>
+      <link href="/2024/04/07/question/question-18/"/>
+      <url>/2024/04/07/question/question-18/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><blockquote><p>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p></blockquote><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><ol><li>对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。</li><li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</li></ol><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol><li>无法取消Promise，一旦新建它就会立即执行，无法中途取消。</li><li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。</li><li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li></ol><h2 id="generator-x2F-yield"><a href="#generator-x2F-yield" class="headerlink" title="generator&#x2F;yield"></a>generator&#x2F;yield</h2><blockquote><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p></blockquote><h3 id="语法上"><a href="#语法上" class="headerlink" title="语法上"></a>语法上</h3><p>首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p><h3 id="形式上"><a href="#形式上" class="headerlink" title="形式上"></a>形式上</h3><p>Generator 函数是一个普通函数，但是有两个特征。</p><ol><li>function关键字与函数名之间有一个星号；</li><li>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。</li></ol><p>Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。<br>不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象（Iterator Object）。<br>下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。<br>yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。</p><h2 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h2><blockquote><p>async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await，仅此而已。</p></blockquote><h3 id="async函数对-Generator-函数的改进"><a href="#async函数对-Generator-函数的改进" class="headerlink" title="async函数对 Generator 函数的改进"></a>async函数对 Generator 函数的改进</h3><ol><li>内置执行器: async函数自带执行器,使用方法为 asyncReadFile()</li><li>更好的语义: async表示函数里有异步操作,await表示紧跟再后面的表达式需要等待结果</li><li>更广的适用性: yield命令后,只能是Thunk函数或Promise对象,而async函数的await命令后面,可以是Promise对象和原始类型的值</li><li>返回值是Promise对象,可以使用then方法指定下一步操作</li></ol><h3 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h3><ol><li>await命令后面的Promise对象，运行结果可能是rejected，所以最好把await命令放在try…catch代码块中。</li><li>多个await命令后面的异步操作，如果不存在继发关系（比较耗时），最好让它们同时触发。</li><li>await命令只能用在async函数之中，如果用在普通函数，就会报错。</li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> Promise 的写法比回调函数的写法大大改进，但是一眼看上去，代码完全都是 Promise 的 API（then、catch等等），操作本身的语义反而不容易看出来。<br> Generator 函数语义比 Promise 写法更清晰，这个写法的问题在于，必须有一个任务运行器，自动执行 Generator 函数。<br> Async 函数的实现最简洁，最符合语义，几乎没有语义不相关的代码。<br> 它将 Generator 写法中的自动执行器，改在语言层面提供，不暴露给用户，因此代码量最少。<br> 如果使用 Generator 写法，自动执行器需要用户自己提供。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 高级 </tag>
             
         </tags>
       
@@ -738,8 +738,8 @@
     
     <entry>
       <title>GetMapping和RequestMapping的区别？</title>
-      <link href="/2024/03/21/question-5/"/>
-      <url>/2024/03/21/question-5/</url>
+      <link href="/2024/03/21/question/question-5/"/>
+      <url>/2024/03/21/question/question-5/</url>
       
         <content type="html"><![CDATA[<ol><li>@RequestMapping是加在类上面的，所以@RequestMapping是具有类属性的，可以进行GET,POST,PUT或者其他的注解中具有的请求方法。</li><li>@GetMapping注解相当于标注该请求方法精确到了Get请求方法。@GetMapping是@RequestMapping方法附加了get请求方法。</li><li>@GetMapping是@RequestMapping的一个延伸，目的是为了提高项目的清晰度。</li></ol>]]></content>
       
@@ -765,8 +765,8 @@
     
     <entry>
       <title>系统架构设计师-学习第七天</title>
-      <link href="/2024/02/19/architecture-7/"/>
-      <url>/2024/02/19/architecture-7/</url>
+      <link href="/2024/02/19/architecture/architecture-7/"/>
+      <url>/2024/02/19/architecture/architecture-7/</url>
       
         <content type="html"><![CDATA[<h1 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h1><h2 id="多媒体概述"><a href="#多媒体概述" class="headerlink" title="多媒体概述"></a>多媒体概述</h2><blockquote><p>媒体(Media) 是承载信息的载体， 即信息的表现形式(或者传播形式)， 如文字、声音、图像、动画和视频等。按照ITU-T 建议的定义， 媒体可分为感觉媒体、表示媒体、显示媒体、存储媒体和传输媒体。　　</p></blockquote><ol><li>感觉媒体(Perception Medium), 指的是用户接触信息的感觉形式,如视觉、听觉和触觉等。　　</li><li>表示媒体(Representation Medium), 指的是信息的表示形式, 如图像、声音、视频等。　　</li><li>表现媒体(Presentation Medium) 也称为显示媒体, 指表现和获取信息的物理设备,如键盘、鼠标、扫描仪、话筒和摄像机等为输入媒体；显示器、打印机和音箱等为输出媒体。　　</li><li>存储媒体(Storage Medium), 指用于存储表示媒体的物理介质, 如硬盘、软盘、磁盘、光盘、ROM及RAM等。　　</li><li>传输媒体(Transmission Medium), 指传输表示媒体的物理介质,如电缆、光缆和电磁波等。</li></ol><p>　　</p><p>多媒体(Multimedia) 就是指利用计算机技术把文本、图形、图像、声音、动画和电视等多种媒体综合起来，使多种信息建立逻辑连接，并能对它们进行获取、压缩、加工处理和存储，集成为一个具有交互性的系统。当前，多媒体技术已被广泛应用于工业、医疗、军事、轨道交通、办公、教学、娱乐和智能家电等领域。</p><h2 id="多媒体的重要特征"><a href="#多媒体的重要特征" class="headerlink" title="多媒体的重要特征"></a>多媒体的重要特征</h2><ol><li>多维化。多维化是指媒体的多样化。它提供了多维化信息空间下的交互能力和获得多维化信息空间的方法，如输入、输出、传输、存储和处理的手段与方法等。</li><li>集成性。集成性不仅指多媒体设备集成，而且指多媒体信息集成或表现集成。</li><li>交互性。交互性是人们获取和使用信息时变被动为主动的最重要的标志。交互性可向用户提供更有效地控制和使用信息的手段，可增加人们对信息的注意和理解。</li><li>实时性。实时性是指多媒体技术中涉及的一些媒体。例如，音频和视频信息具有很强的时间特性， 会随着时间的变化而变化。</li></ol><h2 id="多媒体的组成"><a href="#多媒体的组成" class="headerlink" title="多媒体的组成"></a>多媒体的组成</h2><p><img src="/img/md/architecture/image9.jpg" alt="多媒体的组成"></p>]]></content>
       
@@ -790,8 +790,8 @@
     
     <entry>
       <title>系统架构设计师-学习第六天</title>
-      <link href="/2024/02/18/architecture-6/"/>
-      <url>/2024/02/18/architecture-6/</url>
+      <link href="/2024/02/18/architecture/architecture-6/"/>
+      <url>/2024/02/18/architecture/architecture-6/</url>
       
         <content type="html"><![CDATA[<h1 id="计算机语言"><a href="#计算机语言" class="headerlink" title="计算机语言"></a>计算机语言</h1><h2 id="计算机语言的组成"><a href="#计算机语言的组成" class="headerlink" title="计算机语言的组成"></a>计算机语言的组成</h2><p>计算机语言(Computer Language) 是指用于人与计算机之间交流的一种语言， 是人与计算机之间传递信息的媒介。计算机语言主要由一套指令组成， 而这种指令一般包括表达式、流程控制和集合三大部分内容。</p><h2 id="计算机语言的分类"><a href="#计算机语言的分类" class="headerlink" title="计算机语言的分类"></a>计算机语言的分类</h2><h3 id="机器语言"><a href="#机器语言" class="headerlink" title="机器语言"></a>机器语言</h3><blockquote><p>机器语言是最早使用的程序设计语言， 是第一代计算机语言， 是计算机自身具有的“本地语”。在计算机设计时，围绕的中心是指令， 指令是一种基本的操作。一台计算机处理功能的大小与指令的功能以及指令的多少有关。所有指令的集合称为指令系统，也就是机器语言。机器语言是计算机能够直接接收并能识别和执行操作的语言， 其优点是可以被计算机直接理解和执行，而且执行速度快、占用内存少。</p></blockquote><p>指令包含内容：</p><ol><li>操作码。它具体说明了操作的性质及功能。一台计算机可能有几十条至几百条指令，每一条指令都有一个相应的操作码，计算机通过识别该操作码来完成不同的操作。</li><li>操作数的地址。CPU 通过该地址就可以取得所需的操作数。</li><li>操作结果的存储地址。把对操作数的处理所产生的结果保存在该地址中，以便再次使用。</li><li>下条指令的地址。执行程序时， 大多数指令按顺序依次从主存中取出执行， 只有在遇到转移指令时，程序指令的执行顺序才会改变。为了压缩指令的长度，可以用一个程序计数器(Program Counter, PC) 存放指令地址。每执行一条指令, PC的指令地址就自动<br>(设该指令只占一个主存单元)， 指出将要执行的下一条指令的地址。当遇到执行转移指令时，则用转移地址修改PC的内容。由于使用了PC，指令中就不必明显地给出下一条将要执行指令的地址。</li></ol><p>指令格式：</p><ol><li>三地址指令。一般地址域中 A1、A2分别确定第1、第2操作数地址， A3确定结果地址。下一条指令的地址通常由程序计数器按顺序给出。</li><li>二地址指令。地址域中 A1确定第1操作数地址， A2同时确定第2操作数地址和结果地址。</li><li>单地址指令。地址域中 A 确定第1操作数地址。固定使用某个寄存器存放第2操作数和操作结果。因而在指令中隐含了它们的地址。</li><li>零地址指令。在堆栈型计算机中， 操作数一般存放在堆栈顶的两个单元中，结果又放入栈顶， 地址均被隐含， 因而大多数指令只有操作码而没有地址域。</li><li>可变地址数指令。地址域所涉及的地址的数量随操作定义而改变。如有的计算机的指令中的地址数可少至0个， 多至6个。</li></ol><h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><blockquote><p>为了降低使用机器语言编程的难度，人们进行了一种有益的改进，即用一些简洁的英文字母、符号串来替代一个特定指令的二进制串， 例如， 用ADD代表加法， MOV代表数据传递等，这样一来，人们很容易读懂并理解程序在做什么，编程、纠错及维护都变得方便了，这种程序设计语言就称为汇编语言， 即第二代计算机语言。</p></blockquote><h3 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h3><blockquote><p>由于汇编语言依赖于硬件， 使得程序的可移植性极差， 而且编程人员在使用新的计算机时还需学习新的汇编指令， 大大增加了编程人员的工作量，为此诞生计算机高级语言。高级语言不是一门语言， 而是一类语言的统称， 它比汇编语言更贴近于人类使用的语言， 易于理解、记忆和使用。由于高级语言和计算机的架构、指令集无关，因此它具有良好的可移植性。高级语言应用非常广泛， 世界上绝大多数编程人员都在使用高级语言进行程序开发。常见的高级语言包括C、C++、Java、VB、C#、Python、Ruby等。下面介绍几种常见的高级语言。</p></blockquote><h4 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h4><blockquote><p>UML 是一种定义良好、易于表达、功能强大且普遍适用的建模语言。它的作用不限于支持面向对象的分析与设计，还支持从需求分析开始的软件开发的全过程。UML 成为“标准”建模语言的原因之一在于与程序设计语言无关。而且，UML 符号集只是一种语言而不是一种方法学，不需要任何正式的工作产品。因为语言与方法学不同，它可以在不做任何更改的情况下很容易地适应任何公司的业务运作方式。</p></blockquote><ol><li>UML组成要素：UML的基本构造块(事物、关系)、图(支配基本构造块如何放置在一起的规则)和运用于整个语言的公用机制。</li><li>关系：依赖、关联（聚集）、泛化和实现。</li><li>图：UML 2.0提供了 13种图，分别是类图、对象图、用例图、序列图、通信图、状态图、活动图、构件图、部署图、组合结构图、包图、交互概览图和计时图。序列图、通信图、交互概览图和计时图均被称为交互图。</li><li>视图：用例视图、逻辑视图、进程视图、实现视图和部署视图， 其中的用例视图居于中心地位。<br>(1)用例视图： 描述系统的功能需求， 方便找出用例和执行者；它展示了一个外部用户能够观察到的系统功能模型， 主要包括用例图。对此关心的开发团队成员主要包括客户、分析者、设计者、开发者和测试者。　　<br>(2) 逻辑视图： 描述如何实现系统内部的功能；系统的静态结构和因发送消息而出现的动态协作关系。逻辑视图包含类图和对象图、状态图、顺序图、合作图和活动图。　　<br>(3) 进程视图： 描述系统的并发性， 并处理这些线程间的通信和同步； 它将系统分割成并发执行的控制线程及处理这些线程的通信和同步。进程视图主要包括状态图、顺序图、合作图、活动图、构件图和配置图；对此关心的开发团队成员主要包括开发者和系统集成者。　　<br>(4) 实现视图： 描述系统代码构件组织和实现模块及它们之间的依赖关系； 实现视图主要包括构件图； 对此关心的开发团队成员主要有设计者、开发者和测试者。　　<br>(5) 部署视图： 定义系统中软硬件的物理体系结构及连接、哪个程序或对象驻留在哪台计算机上执行； 主要包括配置图； 对此关心的开发团队成员主要包括开发者、系统集成者和测试者。</li></ol><h3 id="形式化语言"><a href="#形式化语言" class="headerlink" title="形式化语言"></a>形式化语言</h3><blockquote><p>形式化方法是把概念、判断、推理转化成特定的形式符号后，对形式符号表达系统进行研究的方法， 是用具有精确语义的形式语言书写的程序功能描述，它是设计和编制程序的出发点，也是验证程序是否正确的依据。形式化方法就是用符号化的数学变换把需求分析准确地表述出来， 这样可以确保和需求的一致性， 并能用于分析和验证应用程序。毕竟，一个程序本身就是一个正式的规范化语言。</p></blockquote>]]></content>
       
@@ -815,8 +815,8 @@
     
     <entry>
       <title>CTO说</title>
-      <link href="/2024/02/07/book-3/"/>
-      <url>/2024/02/07/book-3/</url>
+      <link href="/2024/02/07/book/book-3/"/>
+      <url>/2024/02/07/book/book-3/</url>
       
         <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote><p>《CTO说》是一本由多位技术专家共同撰写的书籍，旨在分享他们在技术领域的心得体会、管理经验以及对未来技术的洞察。这本书对于技术从业者，尤其是那些担任或希望成为首席技术官（CTO）的人来说，是非常宝贵的资源。</p></blockquote><h1 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h1><ol><li>技术管理与领导力：书中探讨了CTO在组织中的角色和责任，包括如何建立有效的技术管理体系，如何领导技术团队，以及如何将技术战略与业务目标相结合。</li><li>技术创新与实践：涵盖了从概念验证到产品发布的整个过程，讨论了如何在组织内部推动创新，如何管理技术风险，以及如何将新技术快速转化为市场优势。</li><li>团队建设与人才管理：讨论了如何招聘和培养技术人才，如何建立高效的团队文化，以及如何激励团队成员发挥最佳性能。</li><li>技术趋势与未来展望：分析了当前的技术趋势，如人工智能、大数据、云计算等，并探讨了这些技术趋势对企业和CTO角色的潜在影响。</li><li>案例研究与实践分享：通过真实的案例研究，分享了成功的技术领导经验和教训，这些案例研究可以帮助读者更好地理解理论如何在实践中得到应用。</li><li>沟通与协作：强调了CTO在与业务领导、工程师和其他利益相关者沟通和协作中的重要性，提供了提高跨职能团队合作效率的策略。</li><li>个人成长与职业发展：提供了关于如何成为更好的技术领导者，以及如何规划和管理个人职业发展的建议。</li></ol>]]></content>
       
@@ -867,8 +867,8 @@
     
     <entry>
       <title>系统架构设计师-学习第五天</title>
-      <link href="/2024/02/05/architecture-5/"/>
-      <url>/2024/02/05/architecture-5/</url>
+      <link href="/2024/02/05/architecture/architecture-5/"/>
+      <url>/2024/02/05/architecture/architecture-5/</url>
       
         <content type="html"><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><blockquote><p>早期数据库种类有3种， 分别是层次式数据库、网络式数据库和关系型数据库。目前最常见的数据库种类是关系型数据库和非关系型数据库。根据数据库存储体系分类， 还可分为关系型数据库、键值(Key-Value)数据库、列存储数据库、文档数据库和搜索引擎数据库等类型。</p></blockquote><h2 id="关系数据库"><a href="#关系数据库" class="headerlink" title="关系数据库"></a>关系数据库</h2><p>数据模型是数据特征的抽象， 它是对数据库组织方式的一种模型化表示， 是数据库系统的核心与基础。它具有数据结构、数据操作和完整性约束条件三要素。</p><h3 id="关系数据库设计的特点及方法"><a href="#关系数据库设计的特点及方法" class="headerlink" title="关系数据库设计的特点及方法"></a>关系数据库设计的特点及方法</h3><ol><li>特点：从数据结构即数据模型开始，并以数据模型为核心展开，这是数据库设计的一个主要特点； 静态结构设计与动态行为设计分离； 试探性； 反复性和多步性。</li><li>设计方式：直观设计法、规范设计法、计算机辅助设计法和自动化设计法。</li></ol><h3 id="关系数据库设计的基本步骤"><a href="#关系数据库设计的基本步骤" class="headerlink" title="关系数据库设计的基本步骤"></a>关系数据库设计的基本步骤</h3><p>数据库设计分为需求分析、概念结构设计、逻辑结构设计、物理结构设计、应用程序设计和运行维护6个阶段，如图所示。<br><img src="/img/md/architecture/image6.jpg" alt="关系数据库设计的基本步骤"></p><h2 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h2><p>分布式数据库系统(Distributed DataBase System, DDBS)是针对地理上分散, 而管理上又需要不同程度集中管理的需求而提出的一种数据管理信息系统。满足分布性、逻辑相关性、场地透明性和场地自治性的数据库系统被称为完全分布式数据库系统。</p><h3 id="分布式数据库设计的特点"><a href="#分布式数据库设计的特点" class="headerlink" title="分布式数据库设计的特点"></a>分布式数据库设计的特点</h3><p>数据的集中控制性、数据独立性、数据冗余可控性、场地自治性和存取的有效性。</p><h3 id="分布式数据库体系结构"><a href="#分布式数据库体系结构" class="headerlink" title="分布式数据库体系结构"></a>分布式数据库体系结构</h3><p><img src="/img/md/architecture/image7.jpg" alt="分布式数据库体系结构"><br>4层模式划分为全局外层、全局概念层、局部概念层和局部内层，在各层间还有相应的层间映射。这种4层模式适用于同构型分布式数据库系统，也适用于异构型分布式数据库系统。</p><h2 id="常用数据库管理系统"><a href="#常用数据库管理系统" class="headerlink" title="常用数据库管理系统"></a>常用数据库管理系统</h2><p>计算机科学技术不断发展，数据库管理系统也不断发展进化， MySQL AB 公司(2009 年被Oracle 公司收购) 的 MySQL、Microsoft公司的 Access等是小型关系数据库管理系统的代表, Oracle 公司的Oracle、Microsoft公司的 SQL Server、IBM 公司的 DB2等是功能强大的大型关系数据库管理系统的代表。</p><h2 id="大型数据库管理系统的特点"><a href="#大型数据库管理系统的特点" class="headerlink" title="大型数据库管理系统的特点"></a>大型数据库管理系统的特点</h2><ol><li>基于网络环境的数据库管理系统。可以用于 C&#x2F;S结构的数据库应用系统，也可以用于结构的数据库应用系统。</li><li>支持大规模的应用。可支持数千个并发用户、多达上百万的事务处理和超过数百GB的数据容量。</li><li>提供的自动锁功能使得并发用户可以安全而高效地访问数据。</li><li>可以保证系统的高度安全性。</li><li>提供方便而灵活的数据备份和恢复方法及设备镜像功能，还可以利用操作系统提供容错功能，确保设计良好的应用中的数据在发生意外的情况下可以最大限度地被恢复。</li><li>提供多种维护数据完整性的手段。</li><li>提供了方便易用的分布式处理功能。</li></ol><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="中间件分类"><a href="#中间件分类" class="headerlink" title="中间件分类"></a>中间件分类</h2><ol><li>通信处理(消息) 中间件</li><li>事务处理(交易)中间件</li><li>数据存取管理中间件</li><li>Web服务器中间件</li><li>安全中间件</li><li>跨平台和架构的中间件</li><li>专用平台中间件</li><li>网络中间件</li></ol><h1 id="软件构件"><a href="#软件构件" class="headerlink" title="软件构件"></a>软件构件</h1><p>构件又称为组件，是一个自包容、可复用的程序集。构件是一个程序集， 或者说是一组程序的集合。这个集合可能会以各种方式体现出来，如源程序或二进制的代码。</p><h2 id="软件构件的组装模型"><a href="#软件构件的组装模型" class="headerlink" title="软件构件的组装模型"></a>软件构件的组装模型</h2><p>随着软件构件技术的发展，人们开始尝试利用软件构件进行搭积木式的开发，即构件组装模型。</p><h2 id="商用构件的标准规范"><a href="#商用构件的标准规范" class="headerlink" title="商用构件的标准规范"></a>商用构件的标准规范</h2><p>当前, 主流的商用构件标准规范包括对象管理组织(Object Management Group, OMG)的CORBA、Sun的J2EE 和Microsoft 的DNA。</p><h1 id="嵌入式系统及软件"><a href="#嵌入式系统及软件" class="headerlink" title="嵌入式系统及软件"></a>嵌入式系统及软件</h1><h2 id="嵌入式系统的组成"><a href="#嵌入式系统的组成" class="headerlink" title="嵌入式系统的组成"></a>嵌入式系统的组成</h2><h3 id="嵌入式处理器"><a href="#嵌入式处理器" class="headerlink" title="嵌入式处理器"></a>嵌入式处理器</h3><p>由于嵌入式系统一般是在恶劣的环境条件下工作，与一般处理器相比，嵌入式处理器应可抵抗恶劣环境的影响，比如高温、寒冷、电磁、加速度等环境因素。为适应恶劣环境， 嵌入式处理器芯片除满足低功耗、体积小等需求外， 根据不同环境需求， 其工艺可分为民用、工业和军用等三个档次。</p><h3 id="相关支撑硬件"><a href="#相关支撑硬件" class="headerlink" title="相关支撑硬件"></a>相关支撑硬件</h3><p>相关支撑硬件是指除嵌入式处理器以外的构成系统的其他硬件， 包括存储器、定时器、总线、IO接口以及相关专用硬件。</p><h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><p>嵌入式操作系统是指运行在嵌入式系统中的基础软件，主要用于管理计算机资源和应用软件。与通用操作系统不同，嵌入式操作系统应具备实时性、可剪裁性和安全性等特征。</p><h3 id="支撑软件"><a href="#支撑软件" class="headerlink" title="支撑软件"></a>支撑软件</h3><p>支撑软件是指为应用软件开发与运行提供公共服务、软件开发、调试能力的软件， 支撑软件的公共服务通常运行在操作系统之上，以库的方式被应用软件所引用。</p><h3 id="应用软件"><a href="#应用软件" class="headerlink" title="应用软件"></a>应用软件</h3><p>应用软件是指为完成嵌入式系统的某一特定目标所开发的软件。</p><h2 id="嵌入式系统的特点"><a href="#嵌入式系统的特点" class="headerlink" title="嵌入式系统的特点"></a>嵌入式系统的特点</h2><ol><li>专用性强。嵌入式系统面向特定应用需求，能够把通用CPU 中许多由板卡完成的任务集成在芯片内部， 从而有利于嵌入式系统的小型化。</li><li>技术融合。嵌入式系统将先进的计算机技术、通信技术、半导体技术和电子技术与各个行业的具体应用相结合，是一个技术密集、资金密集、高度分散、不断创新的知识集成系统。</li><li>软硬一体软件为主。软件是嵌入式系统的主体，有IP核。嵌入式系统的硬件和软件都可以高效地设计，量体裁衣， 去除冗余，可以在同样的硅片面积上实现更高的性能。</li><li>比通用计算机资源少。由于嵌入式系统通常只完成少数几个任务。设计时考虑到其经济性， 不能使用通用CPU， 这就意味着管理的资源少， 成本低，结构更简单。</li><li>程序代码固化在非易失存储器中。为了提高执行速度和系统可靠性， 嵌入式系统中的软件一般都固化在存储器芯片或单片机本身中， 而不是存在磁盘中。</li><li>需专门开发工具和环境。嵌入式系统本身不具备开发能力， 即使设计完成以后，用户通常也不能对其中的程序功能进行修改，必须有一套开发工具和环境才能进行开发。</li><li>体积小、价格低、工艺先进、性能价格比高、系统配置要求低、实时性强。</li><li>对安全性和可靠性的要求高。</li></ol><h2 id="嵌入式系统的分类"><a href="#嵌入式系统的分类" class="headerlink" title="嵌入式系统的分类"></a>嵌入式系统的分类</h2><p>根据不同用途可将嵌入式系统划分为嵌入式实时系统和嵌入式非实时系统两种， 而实时系统又可分为强实时(Hard Real-Time) 系统和弱实时(WeakReal-Time) 系统。<br>如果从安全性要求看, 嵌入式系统还可分为安全攸关(Safety-Critical 或 Life-Critical)系统和非安全攸关系统。</p><h2 id="嵌入式软件的组成"><a href="#嵌入式软件的组成" class="headerlink" title="嵌入式软件的组成"></a>嵌入式软件的组成</h2><p><img src="/img/md/architecture/image8.jpg" alt="嵌入式系统软件组成架构"></p><ol><li>硬件层</li><li>抽象层</li><li>操作系统层</li><li>中间件(Middleware)层</li><li>应用层</li></ol><h2 id="嵌入式软件的主要特点"><a href="#嵌入式软件的主要特点" class="headerlink" title="嵌入式软件的主要特点"></a>嵌入式软件的主要特点</h2><ol><li>可剪裁性</li><li>可配置性</li><li>强实时性</li><li>安全性(Safety)</li><li>可靠性</li><li>高确定性</li></ol>]]></content>
       
@@ -892,8 +892,8 @@
     
     <entry>
       <title>系统架构设计师-学习第四天</title>
-      <link href="/2024/02/04/architecture-4/"/>
-      <url>/2024/02/04/architecture-4/</url>
+      <link href="/2024/02/04/architecture/architecture-4/"/>
+      <url>/2024/02/04/architecture/architecture-4/</url>
       
         <content type="html"><![CDATA[<h1 id="计算机软件"><a href="#计算机软件" class="headerlink" title="计算机软件"></a>计算机软件</h1><h2 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h2><h3 id="并发性"><a href="#并发性" class="headerlink" title="并发性"></a>并发性</h3><blockquote><p>在多道程序环境下， 并发性是指在一段时间内，宏观上有多个程序同时运行， 但实际上在单CPU的运行环境，每一个时刻只有一个程序在执行。因此，从微观上来说， 各个程序是交替、轮流执行的， 如果计算机系统中有多个CPU，则可将多个程序分配到不同CPU上实现并行运行。</p></blockquote><h3 id="共享性"><a href="#共享性" class="headerlink" title="共享性"></a>共享性</h3><blockquote><p>共享是指操作系统中的资源(包括硬件资源和信息资源) 可以被多个并发执行的进程(线程) 共同使用，而不是被一个进程所独占。出于经济上的考虑，一次性向每个用户程序分别提供它所需的全部资源不但是浪费的，有时也是不可能的。现实的方法是让操作系统和多个用户程序共用一套计算机系统的所有资源，因此必然会产生共享资源的需要。共享资源的方式可以分为同时共享和互斥共享。</p></blockquote><h3 id="虚拟性"><a href="#虚拟性" class="headerlink" title="虚拟性"></a>虚拟性</h3><blockquote><p>虚拟性是指操作系统中的一种管理技术，它是把物理上的一个实体变成逻辑上的多个对应物，或把物理上的多个实体变成逻辑上的一个对应物的技术。前者是实际存在的，而后者是虚构假想的，是用户感觉上的东西。采用虚拟技术的目的是为用户提供易于使用且方便高效的操作环境。</p></blockquote><h3 id="不确定性"><a href="#不确定性" class="headerlink" title="不确定性"></a>不确定性</h3><blockquote><p>在多道程序环境中，允许多个进程并发执行， 但由于资源有限，在多数情况下进程的执行不是一贯到底的， 而是“走走停停”。例如一个进程，在CPU上运行一段时间后，由于等待资源或某事件发生，它被暂停执行， 将CPU转让给另一个进程执行。系统中的进程何时执行，何时暂停， 以什么样的速度向前推进， 进程总共要花多少时间执行才能完成，这些都是不可预知的。或者说该进程是以不确定的方式运行的，其导致的直接后果是程序执行结果可能不唯一。</p></blockquote><h2 id="操作系统的分类"><a href="#操作系统的分类" class="headerlink" title="操作系统的分类"></a>操作系统的分类</h2><h3 id="批处理操作系统"><a href="#批处理操作系统" class="headerlink" title="批处理操作系统"></a>批处理操作系统</h3><p>批处理操作系统分为单道批处理和多道批处理。</p><h3 id="分时操作系统"><a href="#分时操作系统" class="headerlink" title="分时操作系统"></a>分时操作系统</h3><p>分时系统主要有4个特点： 多路性、独立性、交互性和及时性。</p><h3 id="实时操作系统"><a href="#实时操作系统" class="headerlink" title="实时操作系统"></a>实时操作系统</h3><p>实时系统分为实时控制系统和实时信息处理系统。</p><h3 id="网络操作系统"><a href="#网络操作系统" class="headerlink" title="网络操作系统"></a>网络操作系统</h3><p>网络操作系统是使联网计算机能方便而有效地共享网络资源，为网络用户提供各种服务的软件和有关协议的集合。</p><h3 id="分布式操作系统"><a href="#分布式操作系统" class="headerlink" title="分布式操作系统"></a>分布式操作系统</h3><p>分布式计算机系统是由多个分散的计算机经连接而成的计算机系统，系统中的计算机无主、次之分，任意两台计算机可以通过通信交换信息。</p><h3 id="微型计算机操作系统"><a href="#微型计算机操作系统" class="headerlink" title="微型计算机操作系统"></a>微型计算机操作系统</h3><p>微型计算机操作系统简称微机操作系统,常用的有 Windows、Mac OS、Linux。</p><h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><ol><li>微型化： 从性能和成本角度考虑，希望占用的资源和系统代码量少， 如内存少、字长短、运行速度有限、能源少(用微小型电池)。</li><li>可定制： 从减少成本和缩短研发周期考虑，要求嵌入式操作系统能运行在不同的微处理器平台上，能针对硬件变化进行结构与功能上的配置， 以满足不同应用需要。</li><li>实时性： 嵌入式操作系统主要应用于过程控制、数据采集、传输通信、多媒体信息及关键要害领域需要迅速响应的场合， 所以对实时性要求较高。</li><li>可靠性： 系统构件、模块和体系结构必须达到应有的可靠性， 对关键要害应用还要提供容错和防故障措施。</li><li>易移植性: 为了提高系统的易移植性,通常采用硬件抽象层(Hardware AbstractionLevel, HAL) 和板级支撑包(Board Support Package, BSP) 的底层设计技术。</li></ol><p>常见的嵌入式实时操作系统有 VxWorks、μClinux、PalmOS、WindowsCE、μC&#x2F;OS-Ⅱ和eCos等。</p>]]></content>
       
@@ -917,8 +917,8 @@
     
     <entry>
       <title>第二曲线创新</title>
-      <link href="/2024/01/17/book-2/"/>
-      <url>/2024/01/17/book-2/</url>
+      <link href="/2024/01/17/book/book-2/"/>
+      <url>/2024/01/17/book/book-2/</url>
       
         <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote><p>《第二曲线创新》是混沌学园创始人李善友教授关于创业的一阶课程的文字版总结。这本书不仅仅讲述了企业第二曲线如何打造，还讲述了与之交错的若干知识。通过阅读这本书，我对第二曲线创新有了更深入的理解。</p></blockquote><h1 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h1><p>首先，作者解释了商业为什么是S型曲线发展。S型曲线在开始时呈下降趋势，说明此时的投入高于产出；突破了破局点之后，曲线的上升幅度明显增强；靠近曲线上方时，增长速度开始放缓，虽然还保持着增长态势，但相较之前的高速增长已远远不足；曲线由上而下的翻转点就是极限点，此后曲线便走向下坡路。任何一条增长的S曲线，都会滑过抛物线的顶点（极限点），持续增长的秘密是在第一条曲线消失之前，开始一条新的S曲线。</p><p>其次，作者阐述了第一曲线创新和第二曲线创新的关系。第一曲线创新是对现有产品和服务的改良，可以带来10%甚至百分之几十的增长；而第二曲线创新是重新开启新的曲线，可以带来10倍速的增长。第二曲线创新并不是对第一曲线的改良，而是重新开启新的曲线。这个理论虽然美好，但是两条曲线中间存在鸿沟，我称之为非连续性鸿沟。企业在第一曲线越成功，就越难以转换到第二曲线，我将其称为人类思维的阿喀琉斯之踵。</p><p>《第二曲线创新》这本书让我明白了，企业要想持续发展，就不能一直停留在原有的产品和服务的改善上，而要寻找新的增长点，这就是所谓的第二曲线创新。作者通过S型曲线的发展规律，告诉我们任何一条增长的S曲线，都会滑过抛物线的顶点（极限点），持续增长的秘密是在第一条曲线消失之前，开始一条新的S曲线。</p><p>书中还提到了第一曲线创新和第二曲线创新的关系。第一曲线创新是对现有产品和服务的改良，可以带来10%甚至百分之几十的增长；而第二曲线创新是重新开启新的曲线，可以带来10倍速的增长。但是，从第一曲线转换到第二曲线并不容易，因为它们之间存在一个非连续性鸿沟。</p><p>为了跨越这个非连续性鸿沟，作者提出了第一性原理的方法论。第一性原理就是从哲科先贤提出的经典理论中汲取营养，它们提供的是新鲜的思维视角。通过学习这些经典理论，我们可以找到非连续性事物之间的连续性桥梁。</p><p>最后，我觉得这本书对于我们了解和创新的人来说，是非常有帮助的。它让我明白了，要想在竞争激烈的市场中脱颖而出，就要不断学习新的思维方式，寻找新的增长点，这样才能在第一条曲线消失之前，开启一条新的S曲线，实现持续增长。</p><h2 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h2><p><img src="/img/md/book/Dingtalk_20240204102506.jpg" alt="可视区域"></p>]]></content>
       
@@ -944,8 +944,8 @@
     
     <entry>
       <title>好战略，坏战略</title>
-      <link href="/2024/01/08/book-1/"/>
-      <url>/2024/01/08/book-1/</url>
+      <link href="/2024/01/08/book/book-1/"/>
+      <url>/2024/01/08/book/book-1/</url>
       
         <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这本书提供了对战略制定的有益指导和方法，对于希望成为优秀领导者的读者来说，是一本非常实用的参考书籍。通过学习好战略的制定方法，我们可以更好地应对挑战，实现个人和组织的目标。</p><blockquote><p>调查分析：分析形势，认清竞争优势和态势，了解竞争对手；<br>指导方针：为了克服障碍而制定整体性策略；<br>连贯性活动：采取统一连贯性的行动；</p></blockquote><p>围绕这三个核心要素，《好战略，坏战略》通过剖析包含苹果、IBM、星巴克、英伟达、宜家、沃尔玛等诸多企业的经典商业案例与熟悉的热点事件，深入浅出地分析了好战略与坏战略的区别，并从9个方面阐述了制定好战略的详尽方法论。这些方法包括：发挥杠杆作用、制定近似目标、强化短板、秉持动态视角、利用惯性等。</p><h1 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h1><h2 id="什么是战略"><a href="#什么是战略" class="headerlink" title="什么是战略"></a>什么是战略</h2><blockquote><p>是企业在分析其外部环境和内部条件的基础上，为实现其长远发展目标而进行的整体性规划和决策。涵盖了企业发展的方向、目标、原则和方法，是企业文化、价值观、使命、愿景在具体行动中的体现。</p></blockquote><h2 id="战略的核心目的"><a href="#战略的核心目的" class="headerlink" title="战略的核心目的"></a>战略的核心目的</h2><blockquote><p>战略是为了在竞争中取得优势，实现组织的目标。一个好的战略应该具有明确的目标和实现这些目标的途径。</p></blockquote><h2 id="好战略的特征"><a href="#好战略的特征" class="headerlink" title="好战略的特征"></a>好战略的特征</h2><ol><li>战略聚焦<br>战略聚焦意味着放弃一些不重要的方面，专注于关键的目标。</li><li>扬长避短<br>扬长避短则是充分发挥自己的优势，避免与竞争对手的优势直接竞争，而是通过找到对自己有利的战场，将对手的优势变为劣势。</li><li>战术协同<br>战术协同则是在战略思考中避免被一开始的想法锁死，避免从众心理，以及避免被对手的优势误导。</li><li>合理的资源配置<br>好战略需要合理分配资源，确保组织能够有效地实施行动方案。</li><li>应对风险<br>好战略应考虑潜在的风险和不确定性，并制定相应的应对措施。</li></ol><h2 id="坏战略的特征"><a href="#坏战略的特征" class="headerlink" title="坏战略的特征"></a>坏战略的特征</h2><ol><li>空话<br>空话是伪装成战略理念的没有信息含量的话，无法解决实际问题。</li><li>不能直面挑战<br>不能直面挑战则是因为无法识别真正的挑战和问题所在。</li><li>把目标当成战略<br>把目标当成战略则只有愿景、愿望，没有具体的、可执行的计划。</li><li>糟糕的战略目标<br>糟糕的战略目标则是无法解决关键问题，或者各个战略目标之间相互冲突。 </li><li>资源浪费<br>坏战略往往无法合理配置资源，导致组织效率低下。</li><li>忽视风险<br>坏战略往往忽视潜在的风险和不确定性，使组织面临更大的困境。</li></ol><p>通过阅读这本书，我深刻认识到制定好战略的重要性和不易之处。好战略需要建立在调查分析的基础之上，充分理解外界的机遇与威胁、自身与竞争对手的优势与劣势，然后集中有限而宝贵的资源，在少数几个关键点上取得突破，并设置环环相扣的战略体系，以获得最大化的收益和竞争优势。  </p><h2 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h2><blockquote><p>我认为的好战略可以分为三个阶段：前期、中期、后期。</p></blockquote><p><img src="/img/md/book/Dingtalk_20240119163219.jpg" alt="可视区域"></p>]]></content>
       
@@ -971,8 +971,8 @@
     
     <entry>
       <title>系统架构设计师-学习第三天</title>
-      <link href="/2024/01/03/architecture-3/"/>
-      <url>/2024/01/03/architecture-3/</url>
+      <link href="/2024/01/03/architecture/architecture-3/"/>
+      <url>/2024/01/03/architecture/architecture-3/</url>
       
         <content type="html"><![CDATA[<h1 id="计算机系统基础知识"><a href="#计算机系统基础知识" class="headerlink" title="计算机系统基础知识"></a>计算机系统基础知识</h1><h2 id="计算机系统概述"><a href="#计算机系统概述" class="headerlink" title="计算机系统概述"></a>计算机系统概述</h2><p> <img src="/img/md/architecture/image3.png" alt="典型计算机系统的组成"><br> <img src="/img/md/architecture/image4.png" alt="计算机系统的分类示意图"></p><h2 id="计算机硬件"><a href="#计算机硬件" class="headerlink" title="计算机硬件"></a>计算机硬件</h2><h3 id="计算机硬件组成"><a href="#计算机硬件组成" class="headerlink" title="计算机硬件组成"></a>计算机硬件组成</h3><ul><li>处理器</li><li>存储器</li><li>总线</li><li>接口</li><li>外部设备</li></ul><h3 id="处理器（CPU）"><a href="#处理器（CPU）" class="headerlink" title="处理器（CPU）"></a>处理器（CPU）</h3><blockquote><p>作为计算机系统运算和控制的核心部件，经历了长期演化过程</p></blockquote><p><img src="/img/md/architecture/image5.png" alt="典型的处理器体系结构示意图"></p><h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><blockquote><p>利用半导体、磁、光等介质制成用于存储数据的电子设备</p></blockquote><ol><li>片上缓存：在处理器核心中直接集成的缓存，一般为SRAM结构，实现数据的快速读取。它容量较小一般为16kB-512kB，按照不同的设计可能划分为一级或二级。</li><li>片外缓存：在处理器核心外的缓存，需要经过交换互联开发访问，一般也是由SRAM构成，容量较片上缓存略大，可以为256kB-4MB。按照层次被称为L2Cache或L3Cache，或者成为平台Cache。</li><li>主存（内存）：通常采用DRAM结构，以独立的部件&#x2F;芯片存在，通过总线与处理器链接。DRAM依赖不断充电维持其中的数据，容量在数百MB至数十GB之间。</li><li>外存：可以是磁带、磁盘、光盘和各类Flash等介质器件，这类设备访问速度慢，但容量大，且在掉点后能够保持其数据。</li></ol><h3 id="总线（Bus）"><a href="#总线（Bus）" class="headerlink" title="总线（Bus）"></a>总线（Bus）</h3><blockquote><p>是指计算机部件间遵循某一特定协议实现数据交换的形式，即以一种特定格式按照规定的控制逻辑实现部件间的数据传输。</p></blockquote><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><blockquote><p>是指同意计算机不同功能层之间的通信规则</p></blockquote><h3 id="外部设备"><a href="#外部设备" class="headerlink" title="外部设备"></a>外部设备</h3><blockquote><p>也成为外围设备，是计算机的非必要设备</p></blockquote>]]></content>
       
@@ -996,8 +996,8 @@
     
     <entry>
       <title>系统架构设计师-学习第二天</title>
-      <link href="/2024/01/02/architecture-2/"/>
-      <url>/2024/01/02/architecture-2/</url>
+      <link href="/2024/01/02/architecture/architecture-2/"/>
+      <url>/2024/01/02/architecture/architecture-2/</url>
       
         <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote><p>系统架构设计师（System Architecture Designer），决定系统健壮性和生命周期的长短。</p></blockquote><h2 id="系统架构设计师概述"><a href="#系统架构设计师概述" class="headerlink" title="系统架构设计师概述"></a>系统架构设计师概述</h2><blockquote><p>是项目开发活动中的众多角色之一，它可以是一个人或一个小组，也可以是一个团队。</p></blockquote><h3 id="架构设计师的定义、职责和任务"><a href="#架构设计师的定义、职责和任务" class="headerlink" title="架构设计师的定义、职责和任务"></a>架构设计师的定义、职责和任务</h3><h4 id="架构设计师、架构设计和架构的关系图"><a href="#架构设计师、架构设计和架构的关系图" class="headerlink" title="架构设计师、架构设计和架构的关系图"></a>架构设计师、架构设计和架构的关系图</h4><p><img src="/img/md/architecture/image1.jpg" alt="架构设计师、架构设计和架构的关系图"></p><h4 id="系统架构师的任务"><a href="#系统架构师的任务" class="headerlink" title="系统架构师的任务"></a>系统架构师的任务</h4><ol><li>领导与协调整个项目中的技术活动（分析、设计和实施）。</li><li>推动主要的技术决策并最终表达为系统架构。</li><li>确定系统架构，并促使其架构设计的文档化，整理的文档化应包含需求、设计、实施和部署等“视图”。</li></ol><h3 id="架构设计师应具备的专业素质"><a href="#架构设计师应具备的专业素质" class="headerlink" title="架构设计师应具备的专业素质"></a>架构设计师应具备的专业素质</h3><ol><li>掌握业务领域的知识</li><li>掌握技术知识</li><li>掌握设计技能</li><li>具有编程能力</li><li>具备沟通能力</li><li>具有决策力</li><li>知道组织策略</li><li>应是谈判专家</li></ol><h3 id="架构设计师的知识结构"><a href="#架构设计师的知识结构" class="headerlink" title="架构设计师的知识结构"></a>架构设计师的知识结构</h3><ol><li>战略规划能力</li><li>业务流程建模能力</li><li>信息数据架构能力</li><li>技术架构设计和实现能力</li><li>应用系统架构的解决和实现能力</li><li>基本IT知识及基础设施、资源调配能力</li><li>信息安全技术支持与管理保障能力</li><li>IT审计、治理与基本需求的分析和获取能力</li><li>面向软件系统可靠性与系统生命周期的质量保障服务能力</li><li>对新技术与新概念的理解、掌握和分析能力</li></ol><h2 id="如何成为一名好的系统架构设计师"><a href="#如何成为一名好的系统架构设计师" class="headerlink" title="如何成为一名好的系统架构设计师"></a>如何成为一名好的系统架构设计师</h2><ol><li>作为领导者</li><li>作为开发者</li><li>作为系统综合者</li><li>具备企业家思维</li><li>具备战略技术专家的权威思维和战术思维</li><li>具备良好的沟通能力</li></ol><h2 id="系统架构师的演化"><a href="#系统架构师的演化" class="headerlink" title="系统架构师的演化"></a>系统架构师的演化</h2><ol><li>工程师</li><li>高级工程师</li><li>技术专家</li><li>系统架构师（初级）</li><li>系统架构师（中级）</li><li>系统架构师（高级）</li></ol>]]></content>
       
@@ -1021,8 +1021,8 @@
     
     <entry>
       <title>系统架构设计师-学习第一天</title>
-      <link href="/2023/12/27/architecture-1/"/>
-      <url>/2023/12/27/architecture-1/</url>
+      <link href="/2023/12/27/architecture/architecture-1/"/>
+      <url>/2023/12/27/architecture/architecture-1/</url>
       
         <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><blockquote><p>系统架构设计师（System Architecture Designer），决定系统健壮性和生命周期的长短。</p></blockquote><h2 id="系统架构概述"><a href="#系统架构概述" class="headerlink" title="系统架构概述"></a>系统架构概述</h2><ul><li>1946年世界第一台计算机诞生</li><li>电子数字积分器和计算机（ENIAC）</li><li>离散变量自动电子计算机（EDVAC）（冯.若依曼）</li></ul><h3 id="系统架构的定义及发展历程"><a href="#系统架构的定义及发展历程" class="headerlink" title="系统架构的定义及发展历程"></a>系统架构的定义及发展历程</h3><blockquote><p>是系统的一种整体的高层次的结构表示，是系统的骨架和根基，支撑和链接各个部分，我们通常把架构设计作为系统开发过程中需求分析阶段后的一个关键步骤，也不是不可或缺的工作要点。</p></blockquote><ol><li>软件架构发展阶段</li></ol><ul><li>基础研究阶段（1968-1994年）</li><li>概念体系和核心技术形成阶段（1999-2000年）</li><li>理论体系完善与发展阶段（1996年至今）</li><li>普及应用阶段（2000年至今）</li></ul><ol start="2"><li>架构设计的作用</li></ol><ul><li>解决相对复杂的需求分析问题</li><li>解决非功能属性在系统占据重要位置的设计问题</li><li>解决生命周期长、扩展性需求高的系统整体结果问题</li><li>解决系统基于组件需要的集成问题</li><li>解决业务流程再造难得问题</li></ul><ol start="3"><li>模块化开发规则</li></ol><ul><li>最高模块内聚</li><li>最低耦合</li><li>模块大小适度</li><li>模块调用链的深度不可过多</li><li>接口简单、精炼，具有信息隐藏能力</li><li>尽可能地复用已有模块</li></ul><p><img src="/img/md/architecture/image2.png" alt="传统MIS系统软甲架构"></p><ol start="4"><li>软件架构影响软件开发的各个阶段</li></ol><ul><li>需求阶段：把软件架构有的概念引入需求分析阶段，有助于保证需求规约和系统收割机之间的可追踪性和一致性。</li><li>设计阶段：设计阶段是软件架构最早和最多的阶段。</li><li>实现阶段：将设计阶段设计的算法及数据类型用程序设计语言进行表示，满足设计、架构和需求分析的要求，从而得到满足设计需求的目标系统。</li><li>维护阶段：为了保证软具有良好的维护性，在软件架构中针对维护性目标进行分析时，需要对一些有关维护性的属性（如可扩展性、可替换性）进行规定。</li></ul><h3 id="软件架构的常用分类和建模方式"><a href="#软件架构的常用分类和建模方式" class="headerlink" title="软件架构的常用分类和建模方式"></a>软件架构的常用分类和建模方式</h3><ol><li>软件架构的常用分类</li></ol><ul><li><p>分层结构（最常见的四层结构，也是事实上的标准架构）</p><ul><li>表现层：用户界面，负责视觉和用户互动</li><li>业务层：实行业务逻辑</li><li>持久层：提供数据，SQL语句就放在这一层</li><li>数据库：保存数据<blockquote><p>有的项目在逻辑层和持久层中间加了一层服务层（Service），提供不同业务逻辑需要的一些通用接口。用户的请求将依次通过这四层的处理，不能跳过其中的任何一层。</p></blockquote></li></ul></li><li><p>事件驱动架构（Event-driven Architecture：是通过事件进行通信的软件架构）</p><ul><li>事件队列（Event Queue）：接受事件的入口。</li><li>分发器（Event Mediator）：将不同的事件分发到不同的业务逻辑单元。</li><li>事件通道（Event Channel）：分发器与处理器中间的联系渠道。</li><li>事件处理器（Event Processor）：实现业务逻辑，处理完成后会发出事件，触发下一步操作。<blockquote><p>对于简单的项目，事件队列、分发器和事件通道可以合为一体，整个软件就分成事件代理和事件处理器两部分。</p></blockquote></li></ul></li><li><p>微核架构（Microkernel Architecture：又称为插件架构（Plug-in Architecture），是指软件内核相对较小，主要功能和业务逻辑都通过插件实现）</p><blockquote><p>内核（Core）通常只包含系统运行的最小功能。插件则是相互独立的，插件之间的通信减少到最低，避免出现互相依赖的问题。</p></blockquote></li><li><p>微服务架构（Microservices Architecture：每一个服务就是一个独立的部署单元，这些单元是分布式的，互相解耦，通过远程通信协议（比如REST、SOAP）联系）。</p><ul><li>RESTFUL API模式：服务通过API提供，云服务就属于这一类；</li><li>RESTFUL 应用模式：服务通过传统的网路协议或者应用协议提供，背后通常是一个多功能的应用程序，常见于企业内部。</li><li>集中消息模式：采用消息代理（Message Broker）可以实现消息队列、负载均衡、统一日志和异常处理，缺点是会出现单点失败，消息代理可能要做集群。</li></ul></li><li><p>云架构（Cloud Architecture：主要解决扩展性和比并发的问题，也是最容易扩展的架构；由于每个处理都在内存里，需要进行数据持久化。）</p><ul><li>处理单元（Processing Unit）：实现业务逻辑。</li><li>虚拟中间件（Virtualized Middleware）：负责通信、保持回话控制（sessions）、数据复制、分布式处理和处理单元的部署。<ul><li>消息中间件（Messaging Grid）：管理用户请求和回话控制（sessions），当一个请求进来以后，它决定分配给哪一个处理单元。</li><li>数据中间件（Data Grid）：将数据复制到每一个处理单元，即数据同步。</li><li>处理中间件（Processing Grid）：可选，如果一个请求涉及不同类型的处理单元，该中间件负责协调处理单元。</li><li>部署中间件（Deploement Manager）：负责处理单元的启动和关闭，监控负载和响应时间，当负载增加，就新启动处理单元，负载减少，就关闭处理单元。</li></ul></li></ul></li></ul><ol start="2"><li>系统架构的常用建模方法</li></ol><ul><li>结构模型</li><li>框架模型</li><li>动态模型</li><li>过程模型</li></ul>]]></content>
       
@@ -1272,8 +1272,8 @@
     
     <entry>
       <title>for、forEach和map的区别?</title>
-      <link href="/2023/02/08/question-3/"/>
-      <url>/2023/02/08/question-3/</url>
+      <link href="/2023/02/08/question/question-3/"/>
+      <url>/2023/02/08/question/question-3/</url>
       
         <content type="html"><![CDATA[<h2 id="for和forEach的不同点"><a href="#for和forEach的不同点" class="headerlink" title="for和forEach的不同点"></a>for和forEach的不同点</h2><ol><li>for 循环可以使用 break 跳出循环，但 forEach 不能。</li><li>for 循环可以控制循环起点（i初始化的数字决定循环的起点）， forEach 只能默认从索引 0 开始。</li><li>for 循环过程中支持修改索引（修改 i ），但 forEach 做不到（底层控制 index 自增，无法左右它）。</li></ol><h2 id="map和foreach的共同点"><a href="#map和foreach的共同点" class="headerlink" title="map和foreach的共同点"></a>map和foreach的共同点</h2><ol><li>都是循环遍历数组中的每一项。</li><li>forEach()和map()里面每一次执行匿名函数都支持3个参数：数组中的当前项item,当前项的索引index,原始数组input。</li><li>匿名函数中的this都是指Window。</li><li>只能遍历数组。</li></ol><h2 id="map和foreach的不同点"><a href="#map和foreach的不同点" class="headerlink" title="map和foreach的不同点"></a>map和foreach的不同点</h2><ol><li>forEach()：没有返回值，即返回值为undefined<br>理论上这个方法是没有返回值的，仅仅是遍历数组中的每一项，不对原来数组进行修改；但是可以自己通过数组的索引来修改原来的数组，或当数组项为对象时修改对象中的值；</li><li>map()：有返回值，可以return 出来。<br>区别：map的回调函数中支持return返回值；return的是啥，相当于把数组中的这一项变为啥（并不影响原来的数组，只是相当于把原数组克隆一份，把克隆的这一份的数组中的对应项改变了）；</li><li>forEach()返回值是undefined，不可以链式调用。</li><li>map()返回一个新数组，原数组不会改变。</li></ol>]]></content>
       
@@ -1299,8 +1299,8 @@
     
     <entry>
       <title>简述异步线程，轮询机制，宏任务微任务？</title>
-      <link href="/2023/02/07/question-2/"/>
-      <url>/2023/02/07/question-2/</url>
+      <link href="/2023/02/07/question/question-2/"/>
+      <url>/2023/02/07/question/question-2/</url>
       
         <content type="html"><![CDATA[<blockquote><p>同步任务： 指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。<br>异步任务： 指的是不进入主线程，某个异步任务可以执行了，该任务才会进入主线程执行。</p></blockquote><ol><li>同步和异步任务在不同的执行”场所”，同步的进入主线程，异步的进入Event Table执行并注册函数。</li><li>当指定的异步事情完成时，Event Table会将这个函数移入Event Queue。</li><li>主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，推入主线程执行。</li><li>js引擎的monitoring process进程会持续不断的检查主线程执行栈是否为空，一旦为空，就会去Event<br>Queue那里检查是否有等待被调用的函数。上述过程会不断重复，也就是常说的Event Loop(事件循环也可以叫事件轮询)。</li></ol><h2 id="宏任务（macrotask-）和微任务（microtask-）"><a href="#宏任务（macrotask-）和微任务（microtask-）" class="headerlink" title="宏任务（macrotask ）和微任务（microtask ）"></a>宏任务（macrotask ）和微任务（microtask ）</h2><p>macrotask 和 microtask 表示异步任务的两种分类。<br>在挂起任务时，JS 引擎会将所有任务按照类别分到这两个队列中，首先在 macrotask 的队列（这个队列也被叫做 task queue）中取出第一个任务，执行完毕后取出 microtask 队列中的所有任务顺序执行；之后再取 macrotask 任务，周而复始，直至两个队列的任务都取完。</p><h2 id="JavaScript-执行机制"><a href="#JavaScript-执行机制" class="headerlink" title="JavaScript 执行机制"></a>JavaScript 执行机制</h2><p>主线程任务——&gt;微任务——&gt;宏任务<br>如果宏任务里还有微任就继续执行宏任务里的微任务，如果宏任务中的微任务中还有宏任务就在依次进行</p><blockquote><p>主线程任务——&gt;微任务——&gt;宏任务——&gt;宏任务里的微任务——&gt;宏任务里的微任务中的宏任务——&gt;知道任务全部完成</p></blockquote>]]></content>
       
@@ -1326,8 +1326,8 @@
     
     <entry>
       <title>什么是PromiseLike？</title>
-      <link href="/2023/02/06/question-1/"/>
-      <url>/2023/02/06/question-1/</url>
+      <link href="/2023/02/06/question/question-1/"/>
+      <url>/2023/02/06/question/question-1/</url>
       
         <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><blockquote><p>如何判断一个值是不是PromiseLike？</p></blockquote><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 判断一个值是不是PromiseLike</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isPromiseLike</span>(<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (value !== <span class="literal">null</span> </span><br><span class="line">  &amp;&amp; (<span class="keyword">typeof</span> value === <span class="string">&#x27;object&#x27;</span> || <span class="keyword">typeof</span> value === <span class="string">&#x27;function&#x27;</span>) </span><br><span class="line">  &amp;&amp; <span class="keyword">typeof</span> value.<span class="property">then</span> === <span class="string">&#x27;function&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
