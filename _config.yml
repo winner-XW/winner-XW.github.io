@@ -4,10 +4,10 @@
 
 # Site
 title: 爱吃的瘦子
-subtitle: '活得精彩 自始至终'
-description: ''
-keywords: 前端,JavaScript,html5,css3,Jquery,NodeJs,小伟,小云,前端,博客
-author: 云的颜色
+subtitle: '努力成为优秀的人'
+description: '努力成为优秀的人'
+keywords: 全栈工程师
+author: 爱吃的瘦子
 language: zh-CN
 timezone: ''
 
@@ -105,7 +105,7 @@ theme: butterfly
 deploy:
   type: git
   repository: 
-    github: https://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@github.com/winner-XW/winner-XW.github.io.git
+    github: https://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@github.com/winner-XW/winner-XW.github.io.git
   branch: master
 
 # deploy:

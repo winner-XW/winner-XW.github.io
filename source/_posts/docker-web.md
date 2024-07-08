@@ -16,7 +16,7 @@ cover: /img/md/docker.png
 可以参考[docker-linux安装教程](https://winner-XW.github.io/2022/08/07/docker-install/)
 
 ## 编写dockerfile并发布
-```shell
+```bash
 # dokcerfile
 # build stage
 FROM node:lts-alpine as build-stage
@@ -59,7 +59,7 @@ CMD ["nginx","-g","Daemon off;"]
 - CMD ["nginx" ,"-g","daemon off"] 容器创建时运行 nginx -g daemon off 命令 一旦COM对映命令结束 容器就会被销毁 所以通过daemon off rang Nginx 一直在前台运行
 
 ## 编写nginx默认配置
-```shell
+```bash
 server {
     listen       9099;
     server_name  localhost;
@@ -86,7 +86,7 @@ server {
 ```
 
 ## 创建Docker镜像
-```shell
+```bash
 docker build . -t dokcerImage:last
 ```
 - docker build 创建Docker镜像
@@ -95,7 +95,7 @@ docker build . -t dokcerImage:last
 - dockerImage:last 创建名为dockerImage的镜像，并标记为last（最新）版本
 
 ## 创建Docker 容器
-```shell
+```bash
 docker run -d -p 80:80 --name dockerContainer dockerImage:last
 ```
 

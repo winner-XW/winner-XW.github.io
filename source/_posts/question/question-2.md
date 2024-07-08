@@ -7,6 +7,7 @@ description:  简述异步线程，轮询机制，宏任务微任务？
 cover: /img/md/js.jpg
 ---
 
+# 定义
 > 同步任务： 指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。
 异步任务： 指的是不进入主线程，某个异步任务可以执行了，该任务才会进入主线程执行。
 
@@ -16,11 +17,11 @@ cover: /img/md/js.jpg
 4. js引擎的monitoring process进程会持续不断的检查主线程执行栈是否为空，一旦为空，就会去Event
 Queue那里检查是否有等待被调用的函数。上述过程会不断重复，也就是常说的Event Loop(事件循环也可以叫事件轮询)。
 
-## 宏任务（macrotask ）和微任务（microtask ）
+# 宏任务（macrotask ）和微任务（microtask ）
 macrotask 和 microtask 表示异步任务的两种分类。
 在挂起任务时，JS 引擎会将所有任务按照类别分到这两个队列中，首先在 macrotask 的队列（这个队列也被叫做 task queue）中取出第一个任务，执行完毕后取出 microtask 队列中的所有任务顺序执行；之后再取 macrotask 任务，周而复始，直至两个队列的任务都取完。
 
-## JavaScript 执行机制
+# JavaScript 执行机制
 主线程任务——>微任务——>宏任务
 如果宏任务里还有微任就继续执行宏任务里的微任务，如果宏任务中的微任务中还有宏任务就在依次进行
 

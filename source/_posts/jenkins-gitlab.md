@@ -13,7 +13,7 @@ cover: /img/md/jenkins.png
 ## 设置工程名参数：project（***-back、***-web）
 
 ## 编写生成镜像脚本（web举例）
-```shell
+```bash
 # Build Steps
 # 执行 shell
 echo "tag=$(date +%Y%m%d).${BUILD_NUMBER}.${branch}" > /tmp/jenkins-env-***-web-tag
@@ -46,7 +46,7 @@ tag=${tag}
 ```
 
 ## 编写容器启动脚本（docker-compose.yml）[下载地址](/file/conf.zip)
-```shell
+```bash
 version: "3.8"
 
 services:
@@ -83,7 +83,7 @@ services:
 
 ## 调用容器启动脚本
 ### 设置分支参数：server、app（web/back）、tag
-```shell
+```bash
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "docker login code.trechina.cn -u 用户名 -p 密码"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "sed -i 's|\(image: code.trechina.cn/project-trial/hbs/***-'${app}':\).*|\1'${tag}'|' /home/systemuser/announcement/docker-compose.yaml"
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null systemuser@${server} "cd /home/systemuser/announcement/ && docker compose up -d"

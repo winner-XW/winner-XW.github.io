@@ -16,7 +16,7 @@ cover: /img/md/docker.png
 可以参考[docker-linux安装教程](https://winner-XW.github.io/2022/08/07/docker-install/)
 
 ## 编写dockerfile并发布
-```shell
+```bash
 FROM maven:3.6.3-openjdk-11-slim  AS builder
 
 WORKDIR "/server"
@@ -46,7 +46,7 @@ EXPOSE 8083
 ```
 
 ## 创建Docker镜像
-```shell
+```bash
 docker build . -t dokcerImage:last
 ```
 - docker build 创建Docker镜像
@@ -55,7 +55,7 @@ docker build . -t dokcerImage:last
 - dockerImage:last 创建名为dockerImage的镜像，并标记为last（最新）版本
 
 ## 创建Docker 容器
-```shell
+```bash
 docker run -d -p 80:80 --name dockerContainer dockerImage:last
 ```
 

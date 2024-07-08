@@ -4,20 +4,20 @@
 
 menu:
   首页: / || fas fa-home
-  前端知识||fa fa-list:
+  前端知识||fa fa-industry:
     知识学习: /categories/前端-知识学习/ || fas fa-book
     开发效率: /categories/前端-开发效率/ || fas fa-coffee
     面试题库: /categories/前端-面试题库/ || fas fa-question
     疑难杂症: /categories/前端-疑难杂症/ || fas fa-bug
-  后端知识||fa fa-list:
+  后端知识||fa fa-server:
     知识学习: /categories/后端-知识学习/ || fas fa-book
     开发效率: /categories/后端-开发效率/ || fas fa-coffee
     面试题库: /categories/后端-面试题库/ || fas fa-question
     疑难杂症: /categories/后端-疑难杂症/ || fas fa-bug
-  运维知识||fa fa-list:
+  运维知识||fa fa-suitcase:
     知识学习: /categories/运维-知识学习/ || fas fa-book
     安装教程: /categories/运维-安装教程/ || fas fa-coffee
-    运维效率: /categories/运维-运维效率/ || fas fa-coffee
+    运维效率: /categories/运维-运维效率/ || fas fa-location-arrow
     面试题库: /categories/运维-面试题库/ || fas fa-question
     疑难杂症: /categories/运维-疑难杂症/ || fas fa-bug
   软考知识: /categories/软考知识/ || fas fa-pencil

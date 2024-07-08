@@ -7,8 +7,7 @@ description: PromiseLike是一个用于表示类似于Promise的对象的接口
 cover: /img/md/js.jpg
 --- 
 
-# 问题描述
->如何判断一个值是不是PromiseLike？
+>PromiseLike是一个用于表示类似于Promise的对象的接口
 
 # 代码实现
 ```javascript

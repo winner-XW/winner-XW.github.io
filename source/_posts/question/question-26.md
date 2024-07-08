@@ -7,7 +7,7 @@ description: 如何将String类型转化成Number类型？
 cover: /img/md/java.png
 ---
 
-## 使用Integer.parseInt()
+# 使用Integer.parseInt()
 如果你知道字符串表示的是一个整数，可以使用Integer.parseInt()方法：
 
 ```java
@@ -21,7 +21,7 @@ String numberStr = "123.456";
 double number = Double.parseDouble(numberStr);
 ```
 
-## 使用new Integer() 或 new Double()
+# 使用new Integer() 或 new Double()
 这种方法已经被视为过时，不推荐使用，但仍可作为参考：
 
 ```java
@@ -30,8 +30,7 @@ Integer number = new Integer(numberStr);  // 整数
 Double number = new Double(numberStr);    // 浮点数
 ```
 
-
-## 使用NumberFormat
+# 使用NumberFormat
 如果你需要进行更复杂的数字格式转换，可以使用NumberFormat类：
 
 ```java

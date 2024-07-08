@@ -1,5 +1,5 @@
 ---
-title: Docker-centos安装教程
+title: Docker-CentOS安装教程
 date: 2022/08/07
 tags: [Docker,安装]
 categories: 运维-安装教程
@@ -12,10 +12,10 @@ cover: /img/md/docker.png
 Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
 
 # docker安装
-```shell
+```bash
 # 使用'yum-utils'来维护YUM并提高其性能
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo https://download.docker.com/linux/CentOS/docker-ce.repo
 # 默认安装最新版本（不指定版本的情况下）
 sudo yum -y install docker-ce docker-ce-cli containerd.io
 
@@ -55,8 +55,10 @@ alias docker-compose='docker compose'
 docker-compose --version
 ```
 
-# docker-compose安装（上边第8步骤已经作业的情况下，下面就不用安装了）
-```shell
+# docker-compose安装
+> 注：上边第8步骤已经作业的情况下，下面就不用安装了
+
+```bash
 # 查看相应的版本
 https://github.com/docker/compose/releases
 
@@ -74,7 +76,7 @@ sudo docker-compose version
 # docker命令卸载
 
 1. 删除docker所在目录
-```shell
+```bash
 rm -rf /etc/docker
 rm -rf /run/docker
 rm -rf /var/lib/dockershim
@@ -82,13 +84,13 @@ rm -rf /var/lib/docker
 ```
 
 2. Kill掉Docker进程
-```shell
+```bash
 ps -ef | grep docker
 kill -9 pid
 ```
 
 3. 卸载docker相关包
-```shell
+```bash
 # 查看相关包
 yum list installed | grep docker
 # 把匹配到的包执行 yum remove 删除

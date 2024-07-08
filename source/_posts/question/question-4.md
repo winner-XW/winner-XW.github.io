@@ -22,5 +22,5 @@ cover: /img/md/web.png
 当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:
 – 页面初次渲染 – 浏览器窗口大小改变 – 元素尺寸、位置、内容发生改变 – 元素字体大小变化 – 添加或者删除可见的 dom 元素 – 激活 CSS 伪类（例如：:hover） – 查询某些属性或调用某些方法： – clientWidth、clientHeight、clientTop、clientLeft – offsetWidth、offsetHeight、offsetTop、offsetLeft – scrollWidth、scrollHeight、scrollTop、scrollLeft – getComputedStyle() – getBoundingClientRect() – scrollTo()
 
->总结:
-回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。所以尽量减少触发回流的操作, 以达到更好的性能
+# 总结
+>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。所以尽量减少触发回流的操作, 以达到更好的性能
