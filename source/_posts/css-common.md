@@ -1,9 +1,9 @@
 ---
-title: CSS 开头的全局标准代码
+title: CSS全局样式基础代码
 date: 2021/03/24
 tags: [CSS,共通代码]
-categories: CSS
-description: 布局是把页面分成一块一块，按左中右、上中下等排列。
+categories: 前端-开发效率
+description: CSS的"全局标准代码"通常指的是一组基础样式，确保所有网页元素在不同浏览器上有一致的样式表现。
 cover: /img/md/css.jpg
 ---
 

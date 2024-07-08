@@ -2,7 +2,7 @@
 title: 如何将String类型转化成Number类型？
 date: 2024/04/08
 tags: [Java,初级]
-categories: 后端面试
+categories: 后端-面试题库
 description: 如何将String类型转化成Number类型？
 cover: /img/md/java.png
 ---

@@ -2,7 +2,7 @@
 title: 阐述==与equals的区别？
 date: 2024/04/08
 tags: [Java,中级]
-categories: 后端面试
+categories: 后端-面试题库
 description: 阐述==与equals的区别？
 cover: /img/md/java.png
 ---

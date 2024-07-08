@@ -2,7 +2,7 @@
 title: 对WEB标准以及W3C的理解与认识？
 date: 2024/04/07
 tags: [前端,中级]
-categories: 前端面试
+categories: 前端-面试题库
 description: 对WEB标准以及W3C的理解与认识？
 cover: /img/md/web.png
 ---

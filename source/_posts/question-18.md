@@ -1,9 +1,9 @@
 ---
-title: Javascipt中async await 和promise和generator有什么区别
+title: Javascript中async await和promise和generator有什么区别？
 date: 2024/04/07
 tags: [前端,高级]
-categories: 前端面试
-description: Javascipt中async await 和promise和generator有什么区别
+categories: 前端-面试题库
+description: Javascript中async await和promise和generator有什么区别？
 cover: /img/md/js.jpg
 ---
 

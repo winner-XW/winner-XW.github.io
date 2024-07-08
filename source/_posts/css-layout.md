@@ -2,7 +2,7 @@
 title: CSS常见布局
 date: 2021/05/24
 tags: [CSS,布局]
-categories: CSS
+categories: 前端-知识学习
 description: 布局是把页面分成一块一块，按左中右、上中下等排列。
 cover: /img/md/css.jpg
 ---

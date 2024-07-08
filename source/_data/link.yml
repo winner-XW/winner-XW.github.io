@@ -9,6 +9,10 @@
       link: https://yiyan.baidu.com/
       avatar: https://nlp-eb.cdn.bcebos.com/logo/favicon.ico
       descr: 有用、有趣、有温度的智能伙伴
+    - name: ChatGPT
+      link: https://chatgpt.com/
+      avatar: https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png
+      descr: Get instant answers, find inspiration, learn something new
 
 - class_name: 在线工具
   class_desc: 比你快两倍不止哦
@@ -93,11 +97,3 @@
       link: http://www.ruoyi.vip/
       avatar: https://www.ruoyi.vip/images/favicon.ico
       descr: 核心技术采用SpringBoot、MyBatis、Shiro、Thymeleaf、Bootstrap、Vue没有任何其它重度依赖。直接运行即可用
-
-- class_name: 面试集合
-  class_desc: 轻松战胜HR
-  link_list:
-    - name: 高级前端面试题
-      link: https://www.yuque.com/weixiaozhudelaocaipi/gm3gb8
-      avatar: https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original
-      descr: 针对前端面试者提出比较具有实战性的问题

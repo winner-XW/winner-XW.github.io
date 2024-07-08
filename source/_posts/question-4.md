@@ -2,7 +2,7 @@
 title: 浏览器渲染原理，回流，重绘的概念和原理 ？
 date: 2024/04/07
 tags: [前端,高级]
-categories: 前端面试
+categories: 前端-面试题库
 description:  浏览器渲染原理，回流，重绘的概念和原理 ？
 cover: /img/md/web.png
 ---

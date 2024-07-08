@@ -2,7 +2,7 @@
 title: XHTML和HTML有什么区别？
 date: 2024/04/07
 tags: [前端,高级]
-categories: 前端面试
+categories: 前端-面试题库
 description: XHTML和HTML有什么区别？
 cover: /img/md/web.png
 ---

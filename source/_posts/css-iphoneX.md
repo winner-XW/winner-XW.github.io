@@ -1,10 +1,9 @@
 ---
-title: iphoneX样式适配
+title: iPhoneX样式适配
 date: 2021/12/24
-tags: [CSS,iphoneX刘海]
-categories: CSS
-description: 在手机的迭代更新中越来越多的手机不断的更新出世，各种样式层出不起。
-keywords: CSS,刘海
+tags: [CSS,iPhoneX,webAPP]
+categories: 前端-开发效率
+description: 在手机的迭代更新中越来越多的手机不断的更新出世，各种样式层出不起，这里针对特殊的iPhoneX刘海屏做出改善。
 cover: /img/md/css.jpg
 ---
 

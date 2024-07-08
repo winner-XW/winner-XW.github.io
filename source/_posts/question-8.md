@@ -2,7 +2,7 @@
 title: 标签上title与alt属性的区别是什么?
 date: 2024/04/07
 tags: [前端,初级]
-categories: 前端面试
+categories: 前端-面试题库
 description: 标签上title与alt属性的区别是什么?
 cover: /img/md/web.png
 ---

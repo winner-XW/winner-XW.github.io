@@ -1,9 +1,9 @@
 ---
-title: nginx中location匹配规则与proxy_pass代理转发
+title: Nginx中location匹配规则与proxy_pass代理转发
 date: 2024/03/24
 tags: [匹配规则,Nginx,代理]
-categories: NGINX
-description: 闭nginx中location匹配规则与proxy_pass代理转发
+categories: 运维-知识学习
+description: Nginx中location匹配规则与proxy_pass代理转发
 cover: /img/md/nginx.png
 ---
 

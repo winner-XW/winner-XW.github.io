@@ -1,8 +1,8 @@
 ---
-title: js几种循环方式
+title: JavaScript循环方式
 date: 2021/06/05
 tags: [循环,JavaScript]
-categories: JS
+categories: 前端-知识学习
 description: 循环可以将代码块执行指定的次数
 cover: /img/md/js.jpg
 ---

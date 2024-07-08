@@ -1,9 +1,9 @@
 ---
-title: Java线程的创建方式
+title: Java线程
 date: 2024/03/21
 tags: [Java,线程]
-categories: JAVA
-description: Java线程的创建方式
+categories: 后端-知识学习
+description: Java线程
 cover: /img/md/java.png
 ---
 

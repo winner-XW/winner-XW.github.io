@@ -4,11 +4,23 @@
 
 menu:
   首页: / || fas fa-home
-  知识库||fa fa-list:
-    前端面试: /categories/前端面试/ || fas fa-question
-    后端面试: /categories/后端面试/ || fas fa-question
-    数据库面试: /categories/数据库面试/ || fas fa-question
-    软考知识: /categories/软考知识/ || fas fa-pencil
+  前端知识||fa fa-list:
+    知识学习: /categories/前端-知识学习/ || fas fa-book
+    开发效率: /categories/前端-开发效率/ || fas fa-coffee
+    面试题库: /categories/前端-面试题库/ || fas fa-question
+    疑难杂症: /categories/前端-疑难杂症/ || fas fa-bug
+  后端知识||fa fa-list:
+    知识学习: /categories/后端-知识学习/ || fas fa-book
+    开发效率: /categories/后端-开发效率/ || fas fa-coffee
+    面试题库: /categories/后端-面试题库/ || fas fa-question
+    疑难杂症: /categories/后端-疑难杂症/ || fas fa-bug
+  运维知识||fa fa-list:
+    知识学习: /categories/运维-知识学习/ || fas fa-book
+    安装教程: /categories/运维-安装教程/ || fas fa-coffee
+    运维效率: /categories/运维-运维效率/ || fas fa-coffee
+    面试题库: /categories/运维-面试题库/ || fas fa-question
+    疑难杂症: /categories/运维-疑难杂症/ || fas fa-bug
+  软考知识: /categories/软考知识/ || fas fa-pencil
   读后感: /categories/读后感/ || fas fa-book
   # 时间轴: /archives/ || fas fa-archive
   文档 || fas fa-archive:
@@ -835,6 +847,7 @@ inject:
     - <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_1.css" >
     - <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_2.css" >
     - <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/css/function.min.css">
+    - <link rel="stylesheet" href="/config/css/style.css">
   bottom:
     # - <script src="xxxx"></script>
 

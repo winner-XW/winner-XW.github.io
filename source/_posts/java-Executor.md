@@ -2,7 +2,7 @@
 title: Java线程池
 date: 2024/03/21
 tags: [Java,线程池]
-categories: JAVA
+categories: 后端-知识学习
 description: Java线程池
 cover: /img/md/java.png
 ---

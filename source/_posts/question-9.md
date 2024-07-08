@@ -2,7 +2,7 @@
 title: 前端页面有哪三层构成，分别是什么？作用是什么?
 date: 2024/04/07
 tags: [前端,初级]
-categories: 前端面试
+categories: 前端-面试题库
 description: 前端页面有哪三层构成，分别是什么？作用是什么?
 cover: /img/md/web.png
 ---

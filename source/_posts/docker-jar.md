@@ -1,8 +1,8 @@
 ---
-title: jar包docker镜像作成
+title: Docker-jar包镜像部署
 date: 2023/08/07
 tags: [Docker,jar部署]
-categories: 运维
+categories: 运维-运维效率
 description:  制作一个docker镜像，无需在主机中安装且这样统一了后端环境。
 cover: /img/md/docker.png
 ---

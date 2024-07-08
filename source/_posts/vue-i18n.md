@@ -1,8 +1,8 @@
 ---
-title: Vue多语言-vue-i18n
+title: Vue-I18n
 date: 2022/02/16
 tags: [Vue,多语言]
-categories: Vue
+categories: 前端-开发效率
 description: 有些项⽬我们需要⽀持多种语⾔切换，满⾜国际化需求。 vue-i18n是⼀个vue插件，主要作⽤就是让项⽬⽀持国际化多语⾔，使⽤⽅便快捷，能很轻松的将我们的项⽬国际化。本⽂主要介绍使⽤vue-i18n实现切换中英⽂效果。
 cover: /img/md/vue.jpg
 ---

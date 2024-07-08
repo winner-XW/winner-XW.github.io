@@ -1,8 +1,8 @@
 ---
-title: js中数组处理常用方法
+title: JavaScript数组
 date: 2021/06/06
 tags: [数组工具,JavaScript]
-categories: JS
+categories: 前端-知识学习
 description: 加快开发速度，提高开发精度
 cover: /img/md/js.jpg
 ---

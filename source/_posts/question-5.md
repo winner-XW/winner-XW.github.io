@@ -1,9 +1,9 @@
 ---
-title: GetMapping和RequestMapping的区别
+title: GetMapping和RequestMapping的区别？
 date: 2024/03/21
 tags: [Java,初级]
-categories: 前端面试
-description:  GetMapping和RequestMapping的区别
+categories: 后端-面试题库
+description:  GetMapping和RequestMapping的区别？
 cover: /img/md/java.png
 ---
 

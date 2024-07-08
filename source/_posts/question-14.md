@@ -2,7 +2,7 @@
 title: 解释什么是盒子模型？
 date: 2024/04/07
 tags: [前端,初级]
-categories: 前端面试
+categories: 前端-面试题库
 description:  解释什么是盒子模型？
 cover: /img/md/web.png
 ---

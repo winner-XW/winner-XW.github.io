@@ -2,7 +2,7 @@
 title: 简述什么是迭代器(Iterator)？
 date: 2024/04/08
 tags: [Java,中级]
-categories: 后端面试
+categories: 后端-面试题库
 description: 简述什么是迭代器(Iterator)？
 cover: /img/md/java.png
 ---

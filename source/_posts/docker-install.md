@@ -1,9 +1,9 @@
 ---
-title: Docker-Linux安装教程
+title: Docker-centos安装教程
 date: 2022/08/07
 tags: [Docker,安装]
-categories: 运维
-description:  Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
+categories: 运维-安装教程
+description:  Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
 cover: /img/md/docker.png
 ---
 

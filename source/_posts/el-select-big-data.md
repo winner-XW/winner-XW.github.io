@@ -2,7 +2,7 @@
 title: Vue2 Element-UI选择器优化
 date: 2022/01/26
 tags: [Vue2,Element-UI,el-select]
-categories: Element-UI优化
+categories: 前端-疑难杂症
 description: 「el-select」下拉选择时候遇到一个问题，当渲染下拉选项的「options」的数据量过多时「本项目中的数据条目已过万」，就会出现下拉选择器卡顿的情况，尤其是在模糊匹配过滤的情况下，显得十分的卡顿。
 cover: /img/md/vue.jpg
 ---

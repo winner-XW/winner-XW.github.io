@@ -1,8 +1,8 @@
 ---
-title: Vue常用工具类-Cookie
+title: Vue-Cookie
 date: 2021/07/15
 tags: [Vue,Cookie]
-categories: Vue
+categories: 前端-开发效率
 description: 储存在用户本地终端上的数据
 cover: /img/md/vue.jpg
 ---

@@ -2,8 +2,8 @@
 title: Nginx配置https服务器​
 date: 2024/03/25
 tags: [安装,Nginx,SSL]
-categories: NGINX
-description: nginx配置https服务器​
+categories: 运维-安装教程
+description: Nginx配置https服务器​
 cover: /img/md/nginx.png
 ---
 

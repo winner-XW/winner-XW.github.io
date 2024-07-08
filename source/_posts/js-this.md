@@ -1,8 +1,8 @@
 ---
-title: Js中的this指向
+title: JavaScript中的this指向
 date: 2022/09/16
 tags: [this,JavaScript]
-categories: JS
+categories: 前端-知识学习
 description: 任何一门语言中，相信this的指向问题都是一个重点，js也不例外
 cover: /img/md/js.jpg
 ---

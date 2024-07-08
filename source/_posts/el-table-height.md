@@ -2,7 +2,7 @@
 title: Vue2 Element-UI 表格随浏览器缩放高度自适应
 date: 2022/01/06
 tags: [Vue2,Element-UI,el-table,自适应]
-categories: Element-UI优化
+categories: 前端-疑难杂症
 description: 打开控制台或者进行浏览器缩放，影响el-table的高度，出现滚动条方便查看和后续开发。
 cover: /img/md/vue.jpg
 ---

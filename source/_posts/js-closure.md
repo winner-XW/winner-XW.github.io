@@ -1,8 +1,8 @@
 ---
-title: 闭包
+title: JavaScript闭包
 date: 2021/08/06
 tags: [闭包,JavaScript]
-categories: JS
+categories: 前端-知识学习
 description: 闭包就是能够读取其他函数内部变量的函数
 cover: /img/md/js.jpg
 ---

@@ -2,7 +2,7 @@
 title:  Http状态码有那些？
 date: 2024/04/07
 tags: [前端,初级]
-categories: 前端面试
+categories: 前端-面试题库
 description:  Http状态码有那些？
 cover: /img/md/web.png
 ---

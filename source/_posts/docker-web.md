@@ -1,8 +1,8 @@
 ---
-title: 前端代码docker镜像作成
+title: Docker-静态资源镜像部署
 date: 2022/12/07
 tags: [Docker,前端部署]
-categories: 运维
+categories: 运维-运维效率
 description:  制作一个docker镜像，无需在主机中安装且这样统一了前端环境。
 cover: /img/md/docker.png
 ---

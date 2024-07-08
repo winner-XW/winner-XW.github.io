@@ -1,8 +1,8 @@
 ---
-title: js复制函数
+title: JavaScript复制
 date: 2021/06/04
 tags: [复制,JavaScript]
-categories: JS
+categories: 前端-开发效率
 description: JS一键复制主要应用在银行卡、手机号、验证码等各种场合
 cover: /img/md/js.jpg
 ---

@@ -2,7 +2,7 @@
 title: Java内存溢出的场景以及解决方案
 date: 2024/03/21
 tags: [Java, 内存溢出]
-categories: JAVA
+categories: 后端-知识学习
 description: Java内存溢出的场景以及解决方案
 cover: /img/md/java.png
 ---

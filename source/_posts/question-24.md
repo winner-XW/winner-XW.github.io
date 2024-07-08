@@ -1,9 +1,9 @@
 ---
-title: 说明public static void main(String args[])这段声明里每个关键字的作用
+title: 说明public static void main(String args[])这段声明里每个关键字什么作用？
 date: 2024/04/08
 tags: [Java,高级]
-categories: 后端面试
-description: 说明public static void main(String args[])这段声明里每个关键字的作用
+categories: 后端-面试题库
+description: 说明public static void main(String args[])这段声明里每个关键字什么作用？
 cover: /img/md/java.png
 ---
 

@@ -2,7 +2,7 @@
 title: Spring AOP
 date: 2023/08/02
 tags: [Java,SPRING,AOP]
-categories: JAVA
+categories: 后端-知识学习
 description: 如果说IOC是Spring 的核心，那么面向切面编程AOP就是Spring 另外一个最为重要的核心。
 cover: /img/md/spring.jpg
 ---

@@ -1,8 +1,8 @@
 ---
-title: Springboot整合Hutool自定义注解实现数据脱敏
+title: SpringBoot整合Hutool自定义注解实现数据脱敏
 date: 2023/11/02
-tags: [Java,Springboot,脱敏]
-categories: JAVA
+tags: [Java,SpringBoot,脱敏]
+categories: 后端-开发效率
 description: 我们在项目中会处理敏感数据（如手机号、身份证号、姓名、地址等）时，通常需要对这些数据进行脱敏，以确保数据隐私和安全。
 cover: /img/md/spring.jpg
 ---
