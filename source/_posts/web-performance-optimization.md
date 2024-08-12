@@ -3,7 +3,7 @@ title: Web性能优化
 date: 2021/04/04
 tags: [Web,性能优化]
 categories: 前端-知识学习
-description: Web 性能优化就是用户觉得页面加载很快，用户从输入URL（网址）到页面在浏览器上加载出来的时间很短。
+description: Web性能优化就是用户觉得页面加载很快，用户从输入URL（网址）到页面在浏览器上加载出来的时间很短。
 cover: /img/md/web.png
 ---
 
