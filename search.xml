@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>POST为什么会发送两次请求？</title>
+      <link href="/2024/08/12/post-repeat/"/>
+      <url>/2024/08/12/post-repeat/</url>
+      
+        <content type="html"><![CDATA[<h1 id="为啥有时候会发两次呢？（预检请求）"><a href="#为啥有时候会发两次呢？（预检请求）" class="headerlink" title="为啥有时候会发两次呢？（预检请求）"></a>为啥有时候会发两次呢？（预检请求）</h1><blockquote><p>这其实跟浏览器的“预检”机制有关系。简单来说，就是浏览器在正式发请求之前，会先问问服务器：“嘿，我要发请求了，你准备好了吗？能接收吗？”这个过程就叫做“预检请求”，也叫OPTIONS请求。</p></blockquote><h1 id="为啥要有这个预检呢？"><a href="#为啥要有这个预检呢？" class="headerlink" title="为啥要有这个预检呢？"></a>为啥要有这个预检呢？</h1><blockquote><p>因为有时候咱们发的请求可能比较复杂，比如请求头里面带了点特殊的东西，或者请求方法是PUT、DELETE这种不常用的。这时候，浏览器就会有点担心，怕服务器不理解或者不接受这个请求，所以就先发个简单的OPTIONS请求去问问。<br>如果服务器说：“没问题，你来吧！”那浏览器就会再发一次正式的POST请求。所以，咱们就看到了两次请求：一次是预检的OPTIONS请求，一次是正式的POST请求。</p></blockquote><h1 id="那么，跨域请求的时候，什么情况下会发出OPTIONS预检请求呢？"><a href="#那么，跨域请求的时候，什么情况下会发出OPTIONS预检请求呢？" class="headerlink" title="那么，跨域请求的时候，什么情况下会发出OPTIONS预检请求呢？"></a>那么，跨域请求的时候，什么情况下会发出OPTIONS预检请求呢？</h1><ol><li><p>请求方法不是GET、HEAD、POST：因为GET、HEAD、POST这三种方法被认为是“简单”的，通常不会对服务器造成太大影响，所以浏览器会直接发送请求。但如果是PUT、DELETE等方法，浏览器就会先发个OPTIONS请求问问，就怕有人要搞破坏。</p></li><li><p>请求头包含了自定义字段：比如你在请求头里加了个X-Token，浏览器就会觉得：“咦，这个请求头看起来不简单，我得先问问服务器同不同意。”</p></li><li><p>Content-Type不是常见的三种类型：常见的Content-Type有application&#x2F;x-www-form-urlencoded、multipart&#x2F;form-data和text&#x2F;plain。如果你用了其他类型，比如application&#x2F;json，浏览器也会先发个OPTIONS请求。</p></li></ol><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol><li><p>浏览器的同源策略：简单来说，就是浏览器为了安全起见，设置的一个规矩。这个规矩规定，来自不同源的网页之间不能直接进行交互。这里的“源”指的是协议（比如http或https）、域名（比如<code>www.example.com</code>）和端口号（比如80或443）这三者的组合。只要这三者中有任何一个不同，就认为是不同的源。</p></li><li><p>CORS：全称是跨域资源共享（Cross-Origin Resource Sharing），是浏览器和服务器之间的一种约定，用来解决跨域请求的问题。简单来说，CORS就是一种机制，让服务器告诉浏览器：“嘿，这个网页虽然来自不同的源，但它是安全的，你可以让它访问我的资源。”</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-知识学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> POST </tag>
+            
+            <tag> 请求 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TCP-UDP的区别</title>
+      <link href="/2024/07/23/tcp-udp/"/>
+      <url>/2024/07/23/tcp-udp/</url>
+      
+        <content type="html"><![CDATA[<h1 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h1><ol><li>TCP： 是一种面向连接的协议。在数据传输前，TCP 在通信双方之间建立连接，确保数据传输的可靠性和顺序性。连接建立后，数据传输完毕后会释放连接。</li><li>UDP： 是一种无连接的协议。发送端直接将数据发送到目标地址，不需要建立连接，也不保证数据的可靠性和顺序性。</li></ol><h1 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h1><ol><li>TCP： 提供可靠的数据传输，通过确认机制、重传机制和流量控制来保证数据的完整性和顺序性。如果数据丢失或损坏，TCP 会重传丢失的数据。</li><li>UDP： 不提供数据传输的可靠性保证。数据发送后，不会进行重传，也不保证数据的顺序性，适合那些可以容忍少量数据丢失的应用，如音视频传输、实时游戏等。</li></ol><h1 id="传输效率和延迟"><a href="#传输效率和延迟" class="headerlink" title="传输效率和延迟"></a>传输效率和延迟</h1><ol><li>TCP： 因为提供了可靠性保证和错误处理机制，通常会比 UDP 传输速度稍慢，并且会引入一定的延迟。</li><li>UDP： 由于没有连接建立和重传机制，传输速度快，延迟低。适合对实时性要求高、可以容忍一定丢包率的应用场景。</li></ol><h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ol><li>TCP： 适用于需要数据完整性和顺序性的应用，如网页浏览、文件下载、电子邮件传输等。</li><li>UDP： 适用于对实时性要求高、可以容忍少量数据丢失的应用，如语音通话、视频会议、实时游戏等。</li></ol><blockquote><p>总结来说，选择使用 TCP 还是 UDP 取决于应用的需求：如果需要可靠性和完整性的数据传输，选择 TCP；如果需要快速和低延迟的数据传输，并可以容忍一定的数据丢失，选择 UDP。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-知识学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TCP </tag>
+            
+            <tag> UDP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker镜像和容器的关系？</title>
       <link href="/2024/07/08/question/question-27/"/>
       <url>/2024/07/08/question/question-27/</url>
