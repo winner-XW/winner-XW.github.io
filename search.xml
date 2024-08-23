@@ -85,33 +85,6 @@
     
     
     <entry>
-      <title>Docker镜像和容器的关系？</title>
-      <link href="/2024/07/08/question/question-27/"/>
-      <url>/2024/07/08/question/question-27/</url>
-      
-        <content type="html"><![CDATA[<ul><li>Docker镜像是一个只读的模板，包含了运行应用程序所需的所有文件和依赖。</li><li>Docker容器则是Docker镜像的一个运行实例，可以被创建、启动、停止、删除等操作。每个Docker容器都是基于一个Docker镜像创建的。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 运维-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vsftp-CentOS安装教程</title>
       <link href="/2024/07/08/vsftp-install/"/>
       <url>/2024/07/08/vsftp-install/</url>
@@ -131,6 +104,33 @@
             <tag> 安装 </tag>
             
             <tag> Vsftp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker镜像和容器的关系？</title>
+      <link href="/2024/07/08/question/question-27/"/>
+      <url>/2024/07/08/question/question-27/</url>
+      
+        <content type="html"><![CDATA[<ul><li>Docker镜像是一个只读的模板，包含了运行应用程序所需的所有文件和依赖。</li><li>Docker容器则是Docker镜像的一个运行实例，可以被创建、启动、停止、删除等操作。每个Docker容器都是基于一个Docker镜像创建的。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 运维-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> 初级 </tag>
             
         </tags>
       
@@ -247,33 +247,6 @@
     
     
     <entry>
-      <title>如果要重写一个对象的equals方法,还要考虑什么?</title>
-      <link href="/2024/04/08/question/question-23/"/>
-      <url>/2024/04/08/question/question-23/</url>
-      
-        <content type="html"><![CDATA[<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ol><li>自反性：x.equals(x)一定返回true</li><li>对称性：x.equals(y)返回true当且仅当y.equals(x)</li><li>传递性：x.equals(y)且y.equals(z)，则x.equals(z)为true</li><li>一致性：若x.equals(y)返回true，则不改变x，y时多次调用x.equals(y)都返回true</li><li>对于任意的非空引用值x，x.equals(null)一定返回false。</li></ol><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> x;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> y;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Point</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line"><span class="built_in">this</span>.x = x;</span><br><span class="line"><span class="built_in">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line"><span class="keyword">if</span>(!(o <span class="keyword">instanceof</span> Point))</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">Point</span> <span class="variable">p</span> <span class="operator">=</span> (Point)o;</span><br><span class="line"><span class="keyword">return</span> p.x == x &amp;&amp; p.y == y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 高级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>说明public static void main(String args[])这段声明里每个关键字什么作用？</title>
       <link href="/2024/04/08/question/question-24/"/>
       <url>/2024/04/08/question/question-24/</url>
@@ -301,11 +274,11 @@
     
     
     <entry>
-      <title>如何将String类型转化成Number类型？</title>
-      <link href="/2024/04/08/question/question-26/"/>
-      <url>/2024/04/08/question/question-26/</url>
+      <title>如果要重写一个对象的equals方法,还要考虑什么?</title>
+      <link href="/2024/04/08/question/question-23/"/>
+      <url>/2024/04/08/question/question-23/</url>
       
-        <content type="html"><![CDATA[<h1 id="使用Integer-parseInt"><a href="#使用Integer-parseInt" class="headerlink" title="使用Integer.parseInt()"></a>使用Integer.parseInt()</h1><p>如果你知道字符串表示的是一个整数，可以使用Integer.parseInt()方法：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> Integer.parseInt(numberStr);</span><br><span class="line">使用Double.parseDouble()</span><br><span class="line">如果字符串表示的是一个浮点数，可以使用Double.parseDouble()方法：</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123.456&quot;</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">number</span> <span class="operator">=</span> Double.parseDouble(numberStr);</span><br></pre></td></tr></table></figure><h1 id="使用new-Integer-或-new-Double"><a href="#使用new-Integer-或-new-Double" class="headerlink" title="使用new Integer() 或 new Double()"></a>使用new Integer() 或 new Double()</h1><p>这种方法已经被视为过时，不推荐使用，但仍可作为参考：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(numberStr);  <span class="comment">// 整数</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Double</span>(numberStr);    <span class="comment">// 浮点数</span></span><br></pre></td></tr></table></figure><h1 id="使用NumberFormat"><a href="#使用NumberFormat" class="headerlink" title="使用NumberFormat"></a>使用NumberFormat</h1><p>如果你需要进行更复杂的数字格式转换，可以使用NumberFormat类：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="type">NumberFormat</span> <span class="variable">format</span> <span class="operator">=</span> NumberFormat.getInstance();</span><br><span class="line">format.setGroupingUsed(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">Number</span> <span class="variable">number</span> <span class="operator">=</span> format.parse(numberStr);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：以上方法在转换失败时（如字符串不表示有效数字），会抛出异常（如NumberFormatException）。因此，在使用这些方法时，最好进行适当的异常处理。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><ol><li>自反性：x.equals(x)一定返回true</li><li>对称性：x.equals(y)返回true当且仅当y.equals(x)</li><li>传递性：x.equals(y)且y.equals(z)，则x.equals(z)为true</li><li>一致性：若x.equals(y)返回true，则不改变x，y时多次调用x.equals(y)都返回true</li><li>对于任意的非空引用值x，x.equals(null)一定返回false。</li></ol><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> x;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> y;</span><br><span class="line"><span class="keyword">public</span> <span class="title function_">Point</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line"><span class="built_in">this</span>.x = x;</span><br><span class="line"><span class="built_in">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line"><span class="keyword">if</span>(!(o <span class="keyword">instanceof</span> Point))</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="type">Point</span> <span class="variable">p</span> <span class="operator">=</span> (Point)o;</span><br><span class="line"><span class="keyword">return</span> p.x == x &amp;&amp; p.y == y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -319,7 +292,7 @@
             
             <tag> Java </tag>
             
-            <tag> 初级 </tag>
+            <tag> 高级 </tag>
             
         </tags>
       
@@ -355,131 +328,23 @@
     
     
     <entry>
-      <title>浏览器渲染原理，回流，重绘的概念和原理 ？</title>
-      <link href="/2024/04/07/question/question-4/"/>
-      <url>/2024/04/07/question/question-4/</url>
+      <title>如何将String类型转化成Number类型？</title>
+      <link href="/2024/04/08/question/question-26/"/>
+      <url>/2024/04/08/question/question-26/</url>
       
-        <content type="html"><![CDATA[<h1 id="浏览器的渲染机制"><a href="#浏览器的渲染机制" class="headerlink" title="浏览器的渲染机制"></a>浏览器的渲染机制</h1><ol><li>浏览器的渲染机制一般分为以下几个步骤:</li><li>处理 HTML 并构建 DOM 树。</li><li>处理 CSS 构建 CSSOM 树。</li><li>将 DOM 与 CSSOM 合并成一个渲染树。</li><li>根据渲染树来布局，计算每个节点的位置。</li><li>调用 GPU 绘制，合成图层，显示在屏幕上。</li></ol><h1 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h1><h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此损耗较少</p><h2 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h2><p>当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:<br>– 页面初次渲染 – 浏览器窗口大小改变 – 元素尺寸、位置、内容发生改变 – 元素字体大小变化 – 添加或者删除可见的 dom 元素 – 激活 CSS 伪类（例如：:hover） – 查询某些属性或调用某些方法： – clientWidth、clientHeight、clientTop、clientLeft – offsetWidth、offsetHeight、offsetTop、offsetLeft – scrollWidth、scrollHeight、scrollTop、scrollLeft – getComputedStyle() – getBoundingClientRect() – scrollTo()</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote><p>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。所以尽量减少触发回流的操作, 以达到更好的性能</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="使用Integer-parseInt"><a href="#使用Integer-parseInt" class="headerlink" title="使用Integer.parseInt()"></a>使用Integer.parseInt()</h1><p>如果你知道字符串表示的是一个整数，可以使用Integer.parseInt()方法：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">number</span> <span class="operator">=</span> Integer.parseInt(numberStr);</span><br><span class="line">使用Double.parseDouble()</span><br><span class="line">如果字符串表示的是一个浮点数，可以使用Double.parseDouble()方法：</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123.456&quot;</span>;</span><br><span class="line"><span class="type">double</span> <span class="variable">number</span> <span class="operator">=</span> Double.parseDouble(numberStr);</span><br></pre></td></tr></table></figure><h1 id="使用new-Integer-或-new-Double"><a href="#使用new-Integer-或-new-Double" class="headerlink" title="使用new Integer() 或 new Double()"></a>使用new Integer() 或 new Double()</h1><p>这种方法已经被视为过时，不推荐使用，但仍可作为参考：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">numberStr</span> <span class="operator">=</span> <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">Integer</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Integer</span>(numberStr);  <span class="comment">// 整数</span></span><br><span class="line"><span class="type">Double</span> <span class="variable">number</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Double</span>(numberStr);    <span class="comment">// 浮点数</span></span><br></pre></td></tr></table></figure><h1 id="使用NumberFormat"><a href="#使用NumberFormat" class="headerlink" title="使用NumberFormat"></a>使用NumberFormat</h1><p>如果你需要进行更复杂的数字格式转换，可以使用NumberFormat类：</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"></span><br><span class="line"><span class="type">NumberFormat</span> <span class="variable">format</span> <span class="operator">=</span> NumberFormat.getInstance();</span><br><span class="line">format.setGroupingUsed(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">Number</span> <span class="variable">number</span> <span class="operator">=</span> format.parse(numberStr);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：以上方法在转换失败时（如字符串不表示有效数字），会抛出异常（如NumberFormatException）。因此，在使用这些方法时，最好进行适当的异常处理。</p>]]></content>
       
       
       <categories>
           
-          <category> 前端-面试题库 </category>
+          <category> 后端-面试题库 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 前端 </tag>
-            
-            <tag> 高级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>对WEB标准以及W3C的理解与认识？</title>
-      <link href="/2024/04/07/question/question-6/"/>
-      <url>/2024/04/07/question/question-6/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>Web标准简单来说可以分为结构、表现、行为。其中结构是由HTML各种标签组成，简单来说就是body里面写入标签是为了页面的结构。表现指的是CSS层叠样式表，通过CSS可以让我们的页面结构标签更具美感。行为指的是页面和用户具有一定的交互，这部分主要由JS组成。<br>W3C，全称：world wide web consortium是一个制定各种标准的非盈利性组织，也叫万维网联盟，标准包括HTML、CSS、ECMAScript等等，web标准的制定有很多好处，比如说：</p></blockquote><ol><li>可以统一开发流程，统一使用标准化开发工具(VSCode、WebStorm、Sublime)，方便多人协作</li><li>学习成本降低，只需要学习标准就行，否则就要学习各个浏览器厂商标准</li><li>跨平台，方便迁移都不同设备</li><li>降低代码维护成本</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 中级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XHTML和HTML有什么区别？</title>
-      <link href="/2024/04/07/question/question-7/"/>
-      <url>/2024/04/07/question/question-7/</url>
-      
-        <content type="html"><![CDATA[<h1 id="其基础语言不同"><a href="#其基础语言不同" class="headerlink" title="其基础语言不同"></a>其基础语言不同</h1><ol><li>XhtmL是基于可扩展标记语言（XmL）。</li><li>htmL是基于标准通用标记语言（sgmL）。</li></ol><h1 id="语法严格程度不同"><a href="#语法严格程度不同" class="headerlink" title="语法严格程度不同"></a>语法严格程度不同</h1><ol><li>XhtmL语法比较严格，存在dtd定义规则。</li><li>htmL语法要求比较松散，这样对网页编写者来说，比较方便。</li></ol><h1 id="可混合应用不同"><a href="#可混合应用不同" class="headerlink" title="可混合应用不同"></a>可混合应用不同</h1><ol><li>XhtmL可以混合各种XmL应用，比如mathmL、sVg。</li><li>htmL不能混合其它XmL应用。</li></ol><h1 id="大小写敏感度不同"><a href="#大小写敏感度不同" class="headerlink" title="大小写敏感度不同"></a>大小写敏感度不同</h1><ol><li>XhtmL对大小写敏感，标准的XhtmL标签应该使用小写。</li><li>htmL对大小写不敏感。</li></ol><h1 id="公布时间不同"><a href="#公布时间不同" class="headerlink" title="公布时间不同"></a>公布时间不同</h1><ol><li>XhtmL是2000年w3c公布发行的。</li><li>htmL4.01是1999年w3c推荐标准。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 高级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>标签上title与alt属性的区别是什么?</title>
-      <link href="/2024/04/07/question/question-8/"/>
-      <url>/2024/04/07/question/question-8/</url>
-      
-        <content type="html"><![CDATA[<ol><li>含义不同<br>alt是当图片不存在时的替代文字;title是对图片的描述与进一步说明</li><li>在浏览器中的表现不同<br>在firefox（火狐浏览器）和ie8中，当鼠标经过图片时title值会显示，而alt的值不会显示;只有在ie6中，当鼠标经过图片时title和alt的值都会显示。</li><li>对于网站seo优化来说，title与alt还有最重要的一点：<br>搜索引擎对图片意思的判断，主要靠alt属性。所以在图片alt属性中以简要文字说明，同时包含关键词，也是页面优化的一部分。条件允许的话，可以在title属性里，进一步对图片说明。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>前端页面有哪三层构成，分别是什么？作用是什么?</title>
-      <link href="/2024/04/07/question/question-9/"/>
-      <url>/2024/04/07/question/question-9/</url>
-      
-        <content type="html"><![CDATA[<ol><li>结构层：由 HTML 或 XHTML 之类的标记语言负责创建，仅负责语义的表达。解决了页面”内容是什么”的问题。</li><li>表示层：由CSS负责创建，解决了页面“如何显示内容”的问题。</li><li>行为层：由脚本负责。解决了页面上“内容应该如何对事件作出反应”的问题。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
+            <tag> Java </tag>
             
             <tag> 初级 </tag>
             
@@ -517,11 +382,11 @@
     
     
     <entry>
-      <title>如何实现浏览器内多个标签页之间的通信?</title>
-      <link href="/2024/04/07/question/question-11/"/>
-      <url>/2024/04/07/question/question-11/</url>
+      <title>简述什么叫优雅降级和渐进增强？</title>
+      <link href="/2024/04/07/question/question-13/"/>
+      <url>/2024/04/07/question/question-13/</url>
       
-        <content type="html"><![CDATA[<ol><li><p>LocalStorage 和 sessionStorage<br>通过使用localStorage和sessionStorage，可以在不同的标签页中保存和读取数据。</p></li><li><p>使用Cookie<br>Cookie 是存储在客户端的小文件，可以存储少量数据并在多个标签页之间共享。在一个标签页中设置的 Cookie 可以被其他标签页中的 JavaScript 访问和修改。</p></li><li><p>BroadcastChannel<br>BroadcastChannel API 允许在同源的不同上下文（例如，不同标签页、iframes、workers）之间进行简单的通信。</p></li><li><p>SharedWorker<br>可以使用SharedWorker创建一个共享的工作线程，它可以在同源的多个上下文之间共享。这意味着它可以用于在不同标签页之间进行通信。</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<ol><li><p>优雅降级（Graceful Degradation）：<br>优雅降级是指首先针对最新的浏览器或设备进行开发，利用其提供的最新特性和功能来构建网页。然后，通过检测用户使用的浏览器或设备，如果发现其不支持某些特性或功能，就会提供一个替代方案，以确保网页在旧版本的浏览器或设备上也能够正常显示和使用。这种策略的目标是尽可能地提供最佳的用户体验，但在旧版本浏览器上可能会有一些功能缺失或效果不佳。</p></li><li><p>渐进增强（Progressive Enhancement）：<br>渐进增强是指首先针对基本的浏览器或设备进行开发，确保网页的核心功能在所有浏览器上都能够正常运行。然后，通过检测用户使用的浏览器或设备，如果发现其支持某些额外的特性或功能，就会逐步增强网页的功能和用户体验。这种策略的目标是确保网页在所有浏览器上都能够正常运行，并逐步提供更多的功能和效果。</p></li></ol><blockquote><p>总结起来，优雅降级是从高版本向低版本适配，提供替代方案以确保兼容性；而渐进增强是从低版本向高版本适配，逐步增强功能和用户体验。两种策略都是为了在不同浏览器或设备上提供最佳的用户体验。</p></blockquote>]]></content>
       
       
       <categories>
@@ -544,38 +409,11 @@
     
     
     <entry>
-      <title>Http状态码有那些？</title>
-      <link href="/2024/04/07/question/question-12/"/>
-      <url>/2024/04/07/question/question-12/</url>
+      <title>如何实现浏览器内多个标签页之间的通信?</title>
+      <link href="/2024/04/07/question/question-11/"/>
+      <url>/2024/04/07/question/question-11/</url>
       
-        <content type="html"><![CDATA[<h1 id="1xx系列：信息性状态码"><a href="#1xx系列：信息性状态码" class="headerlink" title="1xx系列：信息性状态码"></a>1xx系列：信息性状态码</h1><p>1xx系列的状态码表示服务器已经接收到请求并正在处理，但需要进一步的操作才能完成请求。</p><ol><li>100 Continue：表示服务器已经接收到请求的头部，并且客户端应该继续发送请求的主体部分。</li><li>101 Switching Protocols：表示服务器已经理解了客户端的请求，并且将切换到不同的协议来完成请求。</li></ol><h1 id="2xx系列：成功状态码"><a href="#2xx系列：成功状态码" class="headerlink" title="2xx系列：成功状态码"></a>2xx系列：成功状态码</h1><p>2xx系列的状态码表示请求已经成功被服务器接收、理解和处理。</p><ol><li>200 OK：表示请求已成功，服务器正常处理并返回请求的资源。</li><li>201 Created：表示请求已成功，并且服务器创建了新的资源。</li><li>202 Accepted：表示服务器已接受请求，但尚未处理完成。</li><li>204 No Content：表示请求已成功，但服务器没有返回任何内容。</li></ol><h1 id="3xx系列：重定向状态码"><a href="#3xx系列：重定向状态码" class="headerlink" title="3xx系列：重定向状态码"></a>3xx系列：重定向状态码</h1><p>3xx系列的状态码表示客户端需要进行进一步的操作才能完成请求。</p><ol><li>301 Moved Permanently：表示请求的资源已永久移动到新的URL。</li><li>302 Found：表示请求的资源已临时移动到新的URL。</li><li>304 Not Modified：表示请求的资源未被修改，可以直接使用缓存的版本。</li></ol><h1 id="4xx系列：客户端错误状态码"><a href="#4xx系列：客户端错误状态码" class="headerlink" title="4xx系列：客户端错误状态码"></a>4xx系列：客户端错误状态码</h1><p>4xx系列的状态码表示客户端发起的请求有错误或无法完成。</p><ol><li>400 Bad Request：表示客户端发送的请求有语法错误。</li><li>401 Unauthorized：表示请求需要用户进行身份验证。</li><li>403 Forbidden：表示服务器拒绝请求，没有权限访问。</li><li>404 Not Found：表示请求的资源不存在。</li></ol><h1 id="5xx系列：服务器错误状态码"><a href="#5xx系列：服务器错误状态码" class="headerlink" title="5xx系列：服务器错误状态码"></a>5xx系列：服务器错误状态码</h1><p>5xx系列的状态码表示服务器在处理请求时发生了错误。</p><ol><li>500 Internal Server Error：表示服务器内部发生了错误。</li><li>502 Bad Gateway：表示服务器作为网关或代理，从上游服务器接收到无效的响应。</li><li>503 Service Unavailable：表示服务器当前无法处理请求，一般是由于过载或维护导致。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端-面试题库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 初级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>简述什么叫优雅降级和渐进增强？</title>
-      <link href="/2024/04/07/question/question-13/"/>
-      <url>/2024/04/07/question/question-13/</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>优雅降级（Graceful Degradation）：<br>优雅降级是指首先针对最新的浏览器或设备进行开发，利用其提供的最新特性和功能来构建网页。然后，通过检测用户使用的浏览器或设备，如果发现其不支持某些特性或功能，就会提供一个替代方案，以确保网页在旧版本的浏览器或设备上也能够正常显示和使用。这种策略的目标是尽可能地提供最佳的用户体验，但在旧版本浏览器上可能会有一些功能缺失或效果不佳。</p></li><li><p>渐进增强（Progressive Enhancement）：<br>渐进增强是指首先针对基本的浏览器或设备进行开发，确保网页的核心功能在所有浏览器上都能够正常运行。然后，通过检测用户使用的浏览器或设备，如果发现其支持某些额外的特性或功能，就会逐步增强网页的功能和用户体验。这种策略的目标是确保网页在所有浏览器上都能够正常运行，并逐步提供更多的功能和效果。</p></li></ol><blockquote><p>总结起来，优雅降级是从高版本向低版本适配，提供替代方案以确保兼容性；而渐进增强是从低版本向高版本适配，逐步增强功能和用户体验。两种策略都是为了在不同浏览器或设备上提供最佳的用户体验。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<ol><li><p>LocalStorage 和 sessionStorage<br>通过使用localStorage和sessionStorage，可以在不同的标签页中保存和读取数据。</p></li><li><p>使用Cookie<br>Cookie 是存储在客户端的小文件，可以存储少量数据并在多个标签页之间共享。在一个标签页中设置的 Cookie 可以被其他标签页中的 JavaScript 访问和修改。</p></li><li><p>BroadcastChannel<br>BroadcastChannel API 允许在同源的不同上下文（例如，不同标签页、iframes、workers）之间进行简单的通信。</p></li><li><p>SharedWorker<br>可以使用SharedWorker创建一个共享的工作线程，它可以在同源的多个上下文之间共享。这意味着它可以用于在不同标签页之间进行通信。</p></li></ol>]]></content>
       
       
       <categories>
@@ -652,6 +490,60 @@
     
     
     <entry>
+      <title>Http状态码有那些？</title>
+      <link href="/2024/04/07/question/question-12/"/>
+      <url>/2024/04/07/question/question-12/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1xx系列：信息性状态码"><a href="#1xx系列：信息性状态码" class="headerlink" title="1xx系列：信息性状态码"></a>1xx系列：信息性状态码</h1><p>1xx系列的状态码表示服务器已经接收到请求并正在处理，但需要进一步的操作才能完成请求。</p><ol><li>100 Continue：表示服务器已经接收到请求的头部，并且客户端应该继续发送请求的主体部分。</li><li>101 Switching Protocols：表示服务器已经理解了客户端的请求，并且将切换到不同的协议来完成请求。</li></ol><h1 id="2xx系列：成功状态码"><a href="#2xx系列：成功状态码" class="headerlink" title="2xx系列：成功状态码"></a>2xx系列：成功状态码</h1><p>2xx系列的状态码表示请求已经成功被服务器接收、理解和处理。</p><ol><li>200 OK：表示请求已成功，服务器正常处理并返回请求的资源。</li><li>201 Created：表示请求已成功，并且服务器创建了新的资源。</li><li>202 Accepted：表示服务器已接受请求，但尚未处理完成。</li><li>204 No Content：表示请求已成功，但服务器没有返回任何内容。</li></ol><h1 id="3xx系列：重定向状态码"><a href="#3xx系列：重定向状态码" class="headerlink" title="3xx系列：重定向状态码"></a>3xx系列：重定向状态码</h1><p>3xx系列的状态码表示客户端需要进行进一步的操作才能完成请求。</p><ol><li>301 Moved Permanently：表示请求的资源已永久移动到新的URL。</li><li>302 Found：表示请求的资源已临时移动到新的URL。</li><li>304 Not Modified：表示请求的资源未被修改，可以直接使用缓存的版本。</li></ol><h1 id="4xx系列：客户端错误状态码"><a href="#4xx系列：客户端错误状态码" class="headerlink" title="4xx系列：客户端错误状态码"></a>4xx系列：客户端错误状态码</h1><p>4xx系列的状态码表示客户端发起的请求有错误或无法完成。</p><ol><li>400 Bad Request：表示客户端发送的请求有语法错误。</li><li>401 Unauthorized：表示请求需要用户进行身份验证。</li><li>403 Forbidden：表示服务器拒绝请求，没有权限访问。</li><li>404 Not Found：表示请求的资源不存在。</li></ol><h1 id="5xx系列：服务器错误状态码"><a href="#5xx系列：服务器错误状态码" class="headerlink" title="5xx系列：服务器错误状态码"></a>5xx系列：服务器错误状态码</h1><p>5xx系列的状态码表示服务器在处理请求时发生了错误。</p><ol><li>500 Internal Server Error：表示服务器内部发生了错误。</li><li>502 Bad Gateway：表示服务器作为网关或代理，从上游服务器接收到无效的响应。</li><li>503 Service Unavailable：表示服务器当前无法处理请求，一般是由于过载或维护导致。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Javascript中async await和promise和generator有什么区别？</title>
+      <link href="/2024/04/07/question/question-18/"/>
+      <url>/2024/04/07/question/question-18/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><blockquote><p>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p></blockquote><h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ol><li>对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。</li><li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</li></ol><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol><li>无法取消Promise，一旦新建它就会立即执行，无法中途取消。</li><li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。</li><li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li></ol><h1 id="generator-x2F-yield"><a href="#generator-x2F-yield" class="headerlink" title="generator&#x2F;yield"></a>generator&#x2F;yield</h1><blockquote><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p></blockquote><h2 id="语法上"><a href="#语法上" class="headerlink" title="语法上"></a>语法上</h2><p>首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p><h2 id="形式上"><a href="#形式上" class="headerlink" title="形式上"></a>形式上</h2><p>Generator 函数是一个普通函数，但是有两个特征。</p><ol><li>function关键字与函数名之间有一个星号；</li><li>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。</li></ol><p>Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。<br>不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象（Iterator Object）。<br>下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。<br>yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。</p><h1 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h1><blockquote><p>async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await，仅此而已。</p></blockquote><h2 id="async函数对-Generator-函数的改进"><a href="#async函数对-Generator-函数的改进" class="headerlink" title="async函数对 Generator 函数的改进"></a>async函数对 Generator 函数的改进</h2><ol><li>内置执行器: async函数自带执行器,使用方法为 asyncReadFile()</li><li>更好的语义: async表示函数里有异步操作,await表示紧跟再后面的表达式需要等待结果</li><li>更广的适用性: yield命令后,只能是Thunk函数或Promise对象,而async函数的await命令后面,可以是Promise对象和原始类型的值</li><li>返回值是Promise对象,可以使用then方法指定下一步操作</li></ol><h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><ol><li>await命令后面的Promise对象，运行结果可能是rejected，所以最好把await命令放在try…catch代码块中。</li><li>多个await命令后面的异步操作，如果不存在继发关系（比较耗时），最好让它们同时触发。</li><li>await命令只能用在async函数之中，如果用在普通函数，就会报错。</li></ol><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Promise 的写法比回调函数的写法大大改进，但是一眼看上去，代码完全都是 Promise 的 API（then、catch等等），操作本身的语义反而不容易看出来。<br> Generator 函数语义比 Promise 写法更清晰，这个写法的问题在于，必须有一个任务运行器，自动执行 Generator 函数。<br> Async 函数的实现最简洁，最符合语义，几乎没有语义不相关的代码。<br> 它将 Generator 写法中的自动执行器，改在语言层面提供，不暴露给用户，因此代码量最少。<br> 如果使用 Generator 写法，自动执行器需要用户自己提供。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 高级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>XML和JSON的区别？</title>
       <link href="/2024/04/07/question/question-16/"/>
       <url>/2024/04/07/question/question-16/</url>
@@ -706,11 +598,119 @@
     
     
     <entry>
-      <title>Javascript中async await和promise和generator有什么区别？</title>
-      <link href="/2024/04/07/question/question-18/"/>
-      <url>/2024/04/07/question/question-18/</url>
+      <title>浏览器渲染原理，回流，重绘的概念和原理 ？</title>
+      <link href="/2024/04/07/question/question-4/"/>
+      <url>/2024/04/07/question/question-4/</url>
       
-        <content type="html"><![CDATA[<h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><blockquote><p>Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p></blockquote><h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ol><li>对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。</li><li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。</li></ol><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol><li>无法取消Promise，一旦新建它就会立即执行，无法中途取消。</li><li>如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。</li><li>当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</li></ol><h1 id="generator-x2F-yield"><a href="#generator-x2F-yield" class="headerlink" title="generator&#x2F;yield"></a>generator&#x2F;yield</h1><blockquote><p>Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p></blockquote><h2 id="语法上"><a href="#语法上" class="headerlink" title="语法上"></a>语法上</h2><p>首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p><h2 id="形式上"><a href="#形式上" class="headerlink" title="形式上"></a>形式上</h2><p>Generator 函数是一个普通函数，但是有两个特征。</p><ol><li>function关键字与函数名之间有一个星号；</li><li>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。</li></ol><p>Generator 函数的调用方法与普通函数一样，也是在函数名后面加上一对圆括号。<br>不同的是，调用 Generator 函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是遍历器对象（Iterator Object）。<br>下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。<br>yield表达式后面的表达式，只有当调用next方法、内部指针指向该语句时才会执行，因此等于为 JavaScript 提供了手动的“惰性求值”（Lazy Evaluation）的语法功能。</p><h1 id="async-x2F-await"><a href="#async-x2F-await" class="headerlink" title="async&#x2F;await"></a>async&#x2F;await</h1><blockquote><p>async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await，仅此而已。</p></blockquote><h2 id="async函数对-Generator-函数的改进"><a href="#async函数对-Generator-函数的改进" class="headerlink" title="async函数对 Generator 函数的改进"></a>async函数对 Generator 函数的改进</h2><ol><li>内置执行器: async函数自带执行器,使用方法为 asyncReadFile()</li><li>更好的语义: async表示函数里有异步操作,await表示紧跟再后面的表达式需要等待结果</li><li>更广的适用性: yield命令后,只能是Thunk函数或Promise对象,而async函数的await命令后面,可以是Promise对象和原始类型的值</li><li>返回值是Promise对象,可以使用then方法指定下一步操作</li></ol><h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><ol><li>await命令后面的Promise对象，运行结果可能是rejected，所以最好把await命令放在try…catch代码块中。</li><li>多个await命令后面的异步操作，如果不存在继发关系（比较耗时），最好让它们同时触发。</li><li>await命令只能用在async函数之中，如果用在普通函数，就会报错。</li></ol><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> Promise 的写法比回调函数的写法大大改进，但是一眼看上去，代码完全都是 Promise 的 API（then、catch等等），操作本身的语义反而不容易看出来。<br> Generator 函数语义比 Promise 写法更清晰，这个写法的问题在于，必须有一个任务运行器，自动执行 Generator 函数。<br> Async 函数的实现最简洁，最符合语义，几乎没有语义不相关的代码。<br> 它将 Generator 写法中的自动执行器，改在语言层面提供，不暴露给用户，因此代码量最少。<br> 如果使用 Generator 写法，自动执行器需要用户自己提供。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="浏览器的渲染机制"><a href="#浏览器的渲染机制" class="headerlink" title="浏览器的渲染机制"></a>浏览器的渲染机制</h1><ol><li>浏览器的渲染机制一般分为以下几个步骤:</li><li>处理 HTML 并构建 DOM 树。</li><li>处理 CSS 构建 CSSOM 树。</li><li>将 DOM 与 CSSOM 合并成一个渲染树。</li><li>根据渲染树来布局，计算每个节点的位置。</li><li>调用 GPU 绘制，合成图层，显示在屏幕上。</li></ol><h1 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h1><h2 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h2><p>当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此损耗较少</p><h2 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h2><p>当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:<br>– 页面初次渲染 – 浏览器窗口大小改变 – 元素尺寸、位置、内容发生改变 – 元素字体大小变化 – 添加或者删除可见的 dom 元素 – 激活 CSS 伪类（例如：:hover） – 查询某些属性或调用某些方法： – clientWidth、clientHeight、clientTop、clientLeft – offsetWidth、offsetHeight、offsetTop、offsetLeft – scrollWidth、scrollHeight、scrollTop、scrollLeft – getComputedStyle() – getBoundingClientRect() – scrollTo()</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote><p>回流必定触发重绘，重绘不一定触发回流。重绘的开销较小，回流的代价较高。所以尽量减少触发回流的操作, 以达到更好的性能</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 高级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>对WEB标准以及W3C的理解与认识？</title>
+      <link href="/2024/04/07/question/question-6/"/>
+      <url>/2024/04/07/question/question-6/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Web标准简单来说可以分为结构、表现、行为。其中结构是由HTML各种标签组成，简单来说就是body里面写入标签是为了页面的结构。表现指的是CSS层叠样式表，通过CSS可以让我们的页面结构标签更具美感。行为指的是页面和用户具有一定的交互，这部分主要由JS组成。<br>W3C，全称：world wide web consortium是一个制定各种标准的非盈利性组织，也叫万维网联盟，标准包括HTML、CSS、ECMAScript等等，web标准的制定有很多好处，比如说：</p></blockquote><ol><li>可以统一开发流程，统一使用标准化开发工具(VSCode、WebStorm、Sublime)，方便多人协作</li><li>学习成本降低，只需要学习标准就行，否则就要学习各个浏览器厂商标准</li><li>跨平台，方便迁移都不同设备</li><li>降低代码维护成本</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 中级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>标签上title与alt属性的区别是什么?</title>
+      <link href="/2024/04/07/question/question-8/"/>
+      <url>/2024/04/07/question/question-8/</url>
+      
+        <content type="html"><![CDATA[<ol><li>含义不同<br>alt是当图片不存在时的替代文字;title是对图片的描述与进一步说明</li><li>在浏览器中的表现不同<br>在firefox（火狐浏览器）和ie8中，当鼠标经过图片时title值会显示，而alt的值不会显示;只有在ie6中，当鼠标经过图片时title和alt的值都会显示。</li><li>对于网站seo优化来说，title与alt还有最重要的一点：<br>搜索引擎对图片意思的判断，主要靠alt属性。所以在图片alt属性中以简要文字说明，同时包含关键词，也是页面优化的一部分。条件允许的话，可以在title属性里，进一步对图片说明。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端页面有哪三层构成，分别是什么？作用是什么?</title>
+      <link href="/2024/04/07/question/question-9/"/>
+      <url>/2024/04/07/question/question-9/</url>
+      
+        <content type="html"><![CDATA[<ol><li>结构层：由 HTML 或 XHTML 之类的标记语言负责创建，仅负责语义的表达。解决了页面”内容是什么”的问题。</li><li>表示层：由CSS负责创建，解决了页面“如何显示内容”的问题。</li><li>行为层：由脚本负责。解决了页面上“内容应该如何对事件作出反应”的问题。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端-面试题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 初级 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XHTML和HTML有什么区别？</title>
+      <link href="/2024/04/07/question/question-7/"/>
+      <url>/2024/04/07/question/question-7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="其基础语言不同"><a href="#其基础语言不同" class="headerlink" title="其基础语言不同"></a>其基础语言不同</h1><ol><li>XhtmL是基于可扩展标记语言（XmL）。</li><li>htmL是基于标准通用标记语言（sgmL）。</li></ol><h1 id="语法严格程度不同"><a href="#语法严格程度不同" class="headerlink" title="语法严格程度不同"></a>语法严格程度不同</h1><ol><li>XhtmL语法比较严格，存在dtd定义规则。</li><li>htmL语法要求比较松散，这样对网页编写者来说，比较方便。</li></ol><h1 id="可混合应用不同"><a href="#可混合应用不同" class="headerlink" title="可混合应用不同"></a>可混合应用不同</h1><ol><li>XhtmL可以混合各种XmL应用，比如mathmL、sVg。</li><li>htmL不能混合其它XmL应用。</li></ol><h1 id="大小写敏感度不同"><a href="#大小写敏感度不同" class="headerlink" title="大小写敏感度不同"></a>大小写敏感度不同</h1><ol><li>XhtmL对大小写敏感，标准的XhtmL标签应该使用小写。</li><li>htmL对大小写不敏感。</li></ol><h1 id="公布时间不同"><a href="#公布时间不同" class="headerlink" title="公布时间不同"></a>公布时间不同</h1><ol><li>XhtmL是2000年w3c公布发行的。</li><li>htmL4.01是1999年w3c推荐标准。</li></ol>]]></content>
       
       
       <categories>
@@ -818,33 +818,6 @@
     
     
     <entry>
-      <title>Java线程</title>
-      <link href="/2024/03/21/java-Thread/"/>
-      <url>/2024/03/21/java-Thread/</url>
-      
-        <content type="html"><![CDATA[<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><blockquote><p>这是创建线程的一种最基本方法。你可以创建一个新类，该类继承自java.lang.Thread类，并重写run()方法。然后创建该类的实例，并调用它的start()方法来启动线程。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">myThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h2><blockquote><p>另一种创建线程的方法是实现java.lang.Runnable接口。你需要重写run()方法，并将实现Runnable接口的类的实例传递给Thread对象。然后，通过Thread对象的start()方法启动线程。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="使用Executor框架"><a href="#使用Executor框架" class="headerlink" title="使用Executor框架"></a>使用Executor框架</h2><blockquote><p>从Java 5开始，可以使用java.util.concurrent包中的Executor框架来管理线程。这个框架提供了线程池等高级功能，可以简化线程的使用和管理。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">        executorService.execute(<span class="keyword">new</span> <span class="title class_">MyRunnable</span>());</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="使用Callable和Future"><a href="#使用Callable和Future" class="headerlink" title="使用Callable和Future"></a>使用Callable和Future</h2><blockquote><p>如果你需要在执行线程任务时获取返回结果，可以使用java.util.concurrent.Callable接口代替Runnable接口。同时，可以使用Future对象来获取线程执行的结果。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCallable</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;Integer&gt; &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        FutureTask&lt;Integer&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">MyCallable</span>());</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        thread.start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Integer</span> <span class="variable">result</span> <span class="operator">=</span> futureTask.get();</span><br><span class="line">            System.out.println(<span class="string">&quot;Result: &quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>每种创建线程的方法都有其适用场景。</p><ol><li>继承Thread类方式简单直观，但会导致类层次结构变得复杂。</li><li>实现Runnable接口方式更加灵活，允许同一个类实现多个接口。</li><li>使用Executor框架可以更高效地管理线程，适用于需要大量短生命周期线程的场景。</li><li>使用Callable和Future可以方便地获取线程执行的结果。</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端-知识学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 线程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Java内存溢出的场景以及解决方案</title>
       <link href="/2024/03/21/java-Memory/"/>
       <url>/2024/03/21/java-Memory/</url>
@@ -864,6 +837,33 @@
             <tag> Java </tag>
             
             <tag> 内存溢出 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java线程</title>
+      <link href="/2024/03/21/java-Thread/"/>
+      <url>/2024/03/21/java-Thread/</url>
+      
+        <content type="html"><![CDATA[<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><blockquote><p>这是创建线程的一种最基本方法。你可以创建一个新类，该类继承自java.lang.Thread类，并重写run()方法。然后创建该类的实例，并调用它的start()方法来启动线程。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyThread</span> <span class="variable">myThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h2><blockquote><p>另一种创建线程的方法是实现java.lang.Runnable接口。你需要重写run()方法，并将实现Runnable接口的类的实例传递给Thread对象。然后，通过Thread对象的start()方法启动线程。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable);</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="使用Executor框架"><a href="#使用Executor框架" class="headerlink" title="使用Executor框架"></a>使用Executor框架</h2><blockquote><p>从Java 5开始，可以使用java.util.concurrent包中的Executor框架来管理线程。这个框架提供了线程池等高级功能，可以简化线程的使用和管理。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line">        executorService.execute(<span class="keyword">new</span> <span class="title class_">MyRunnable</span>());</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="使用Callable和Future"><a href="#使用Callable和Future" class="headerlink" title="使用Callable和Future"></a>使用Callable和Future</h2><blockquote><p>如果你需要在执行线程任务时获取返回结果，可以使用java.util.concurrent.Callable接口代替Runnable接口。同时，可以使用Future对象来获取线程执行的结果。</p></blockquote><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Callable;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.FutureTask;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCallable</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;Integer&gt; &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        FutureTask&lt;Integer&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">MyCallable</span>());</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        thread.start();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Integer</span> <span class="variable">result</span> <span class="operator">=</span> futureTask.get();</span><br><span class="line">            System.out.println(<span class="string">&quot;Result: &quot;</span> + result);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>每种创建线程的方法都有其适用场景。</p><ol><li>继承Thread类方式简单直观，但会导致类层次结构变得复杂。</li><li>实现Runnable接口方式更加灵活，允许同一个类实现多个接口。</li><li>使用Executor框架可以更高效地管理线程，适用于需要大量短生命周期线程的场景。</li><li>使用Callable和Future可以方便地获取线程执行的结果。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端-知识学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 线程 </tag>
             
         </tags>
       
@@ -1227,9 +1227,9 @@
             
             <tag> Java </tag>
             
-            <tag> 脱敏 </tag>
-            
             <tag> SpringBoot </tag>
+            
+            <tag> 脱敏 </tag>
             
         </tags>
       
@@ -1897,9 +1897,9 @@
       
         <tags>
             
-            <tag> 闭包 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 闭包 </tag>
             
         </tags>
       
@@ -2005,9 +2005,9 @@
       
         <tags>
             
-            <tag> JavaScript </tag>
-            
             <tag> 数组 </tag>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
