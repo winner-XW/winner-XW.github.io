@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .atlas-container {
+        margin: 0 auto;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+      }
+      .gallery-item {
+        box-sizing: border-box;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .gallery-item p {
+        margin: 0;
+        padding: 10px;
+        background: #464646;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="atlas-container">
+      <div class="gallery" id="gallery"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.getElementById("gallery");
+        const items = [
+          {
+            text: "前端开发流程图",
+            src: "../img/atlas/前端开发流程图.jpg",
+            alt: "前端开发流程图",
+          },
+          {
+            text: "DOM对象",
+            src: "../img/atlas/DOM对象.jpg",
+            alt: "DOM对象",
+          },
+          {
+            text: "google云部署图-物流ABC系统",
+            src: "../img/atlas/google云部署图-物流ABC系统.jpg",
+            alt: "google云部署图-物流ABC系统",
+          },
+          {
+            text: "前后端分离图",
+            src: "../img/atlas/前后端分离图.png",
+            alt: "前后端分离图",
+          },
+          {
+            text: "HTTP状态码",
+            src: "../img/atlas/HTTP状态码.webp",
+            alt: "HTTP状态码",
+          },
+          {
+            text: "git常用命令",
+            src: "../img/atlas/git常用命令.png",
+            alt: "git常用命令",
+          },
+          {
+            text: "docker常用命令",
+            src: "../img/atlas/docker常用命令.png",
+            alt: "docker常用命令",
+          },
+          {
+            text: "无感刷新",
+            src: "../img/atlas/无感刷新.png",
+            alt: "无感刷新",
+          },
+          {
+            text: "项目整体流程",
+            src: "../img/atlas/项目整体流程.png",
+            alt: "项目整体流程",
+          },
+          {
+            text: "前端路线图",
+            src: "../img/atlas/前端路线图.png",
+            alt: "前端路线图",
+          },
+          {
+            text: "后端路线图",
+            src: "../img/atlas/后端路线图.png",
+            alt: "后端路线图",
+          },
+          {
+            text: "DevOps路线图",
+            src: "../img/atlas/DevOps路线图.png",
+            alt: "DevOps路线图",
+          },
+          {
+            text: "接口设计的十八条规范",
+            src: "../img/atlas/接口设计的十八条规范.png",
+            alt: "接口设计的十八条规范",
+          },
+          {
+            text: "接口设计的十八条规范",
+            src: "../img/atlas/接口设计的十八条规范.png",
+            alt: "接口设计的十八条规范",
+          },
+        ];
+        items.forEach((item) => {
+          const galleryItem = document.createElement("div");
+          galleryItem.classList.add("gallery-item");
+
+          const textElement = document.createElement("p");
+          textElement.textContent = item.text;
+          galleryItem.appendChild(textElement);
+
+          const imgElement = document.createElement("img");
+          imgElement.src = item.src;
+          imgElement.alt = item.alt;
+          galleryItem.appendChild(imgElement);
+
+          gallery.appendChild(galleryItem);
+        });
+      });
+    </script>
+  </body>
+</html>
