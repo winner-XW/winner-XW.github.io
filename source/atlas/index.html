@@ -15,9 +15,8 @@
         margin: 0 auto;
       }
       .gallery {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
+        column-count: 3;
+        column-gap: 10px;
       }
       .gallery-item {
         box-sizing: border-box;
@@ -25,6 +24,7 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
       }
       .gallery-item img {
         width: 100%;
@@ -114,6 +114,21 @@
             src: "../img/atlas/接口设计的十八条规范.png",
             alt: "接口设计的十八条规范",
           },
+          {
+            text: "敏捷开发流程图",
+            src: "../img/atlas/敏捷开发流程图.png",
+            alt: "敏捷开发流程图",
+          },
+          {
+            text: "JVM垃圾回收",
+            src: "../img/atlas/JVM垃圾回收.webp",
+            alt: "JVM垃圾回收",
+          },
+          {
+            text: "EMS储能系统功能设计",
+            src: "../img/atlas/EMS储能系统功能设计.jpg",
+            alt: "EMS储能系统功能设计",
+          },
         ];
         items.forEach((item) => {
           const galleryItem = document.createElement("div");
@@ -126,6 +141,7 @@
           const imgElement = document.createElement("img");
           imgElement.src = item.src;
           imgElement.alt = item.alt;
+          imgElement.loading = "lazy";
           galleryItem.appendChild(imgElement);
 
           gallery.appendChild(galleryItem);

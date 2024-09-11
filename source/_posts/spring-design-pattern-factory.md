@@ -20,7 +20,7 @@ cover: /img/md/spring.jpg
 3. 抽象工厂模式（abstract Factory）  
 主要创建一个产品族，不同工厂继承父类的抽象工厂创建不同的产品族。
 
-### 1. 简单工厂模式（ simple Factory）  
+### 简单工厂模式（ simple Factory）  
 
 接口类car
 ```java
@@ -107,7 +107,7 @@ public class SimpleFactory  {
 ```
 
 
-### 2. 工厂方法模式（Factory Method）
+### 工厂方法模式（Factory Method）
 ```java
 /**
  * @Project: spring 
@@ -167,7 +167,7 @@ public class FactoryTest {
 }
 ```
 
-### 3. 抽象工厂模式（abstract Factory）
+### 抽象工厂模式（abstract Factory）
 
 抽象工厂
 ```java
