@@ -1,10 +1,10 @@
 ---
 title: Spring设计模式-代理模式
 date: 2022/02/18
-tags: [Java,Spring,代理模式]
+tags: [Java,Spring,设计模式,代理模式]
 categories: 后端-知识学习
 description: 设计模式是软件开发的重要组成部分。这些解决方案不仅解决了反复出现的问题，而且还通过识别通用模式来帮助开发人员了解框架的设计。
-keywords: JAVA,SPRING,设计模式
+keywords: Java,Spring,设计模式,设计模式
 cover: /img/md/spring.jpg
 ---
 
