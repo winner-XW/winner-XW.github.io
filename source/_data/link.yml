@@ -1,26 +1,22 @@
 - class_name: cahtGPT
   class_desc: OpenAI研发的一款聊天机器人程序
   link_list:
-    - name: 智谱清言
-      link: https://chatglm.cn/main/detail
-      avatar: https://chatglm.cn/img/icons/apple-touch-icon-152x152.png
-      descr: 中国版对话语言模型，与GLM大模型进行对话。
-    - name: 文心一言
-      link: https://yiyan.baidu.com/
-      avatar: https://nlp-eb.cdn.bcebos.com/logo/favicon.ico
-      descr: 有用、有趣、有温度的智能伙伴
     - name: ChatGPT
       link: https://chatgpt.com/
       avatar: https://cdn.oaistatic.com/_next/static/media/apple-touch-icon.82af6fe1.png
       descr: Get instant answers, find inspiration, learn something new
+    - name: 豆包
+      link: https://www.doubao.com/chat/
+      avatar: https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/samantha/logo-icon-white-bg.png
+      descr: 豆包是你的 AI 聊天智能对话问答助手，写作文案翻译情感陪伴编程全能工具。豆包为你答疑解惑，提供灵感，辅助创作，也可以和你畅聊任何你感兴趣的话题。
+    - name: deepseek
+      link: https://chat.deepseek.com/
+      avatar: https://chat.deepseek.com/deepseek-chat.jpeg
+      descr: DeepSeek - 探索未至之境
 
 - class_name: 在线工具
   class_desc: 比你快两倍不止哦
   link_list:
-    - name: yaml互转properties
-      link: https://www.toyaml.com/index.html
-      avatar: https://www.toyaml.com/favicon.ico
-      descr: ToYaml.com -- Convert between Properties and YAML Online -- About
     - name: 图片去底工具
       link: https://www.aigei.com/bgremover/
       avatar: https://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico
@@ -57,10 +53,6 @@
       link: https://feathericons.com/
       avatar: https://feathericons.com/favicon-32x32.png
       descr: Simply beautiful open source icons
-    - name: Tabler Icons
-      link: https://tablericons.com/
-      avatar: https://tablericons.com/favicon.png
-      descr: 1424 Fully customizable free SVG icons. (MIT license)
     - name: 图标工场
       link: https://icon.wuruihong.com/#
       avatar: https://icon.wuruihong.com/wrh/apple-touch-icon.png
@@ -90,9 +82,9 @@
   class_desc: 未来掌握在自己手中
   link_list:
     - name: 程序员极速开发平台-coderd
-      link: http://coderd.adjustrd.com/
-      avatar: http://coderd.adjustrd.com/favicon.ico
-      descr: 一键构建框架，极速开发项目，支持30+种语言
+      link: http://www.goldpankit.com/
+      avatar: http://www.goldpankit.com/logo.png
+      descr: GoldPanKit KIT 在线搭框架 在线构建框架 在线搭建框架 框架在线搭建 在线脚手架 源码交易平台 代码生成器
     - name: 快速搭建-若依
       link: http://www.ruoyi.vip/
       avatar: https://www.ruoyi.vip/images/favicon.ico
