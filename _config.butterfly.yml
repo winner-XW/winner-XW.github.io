@@ -4,30 +4,21 @@
 
 menu:
   首页: / || fas fa-home
-  前端知识||fa fa-industry:
-    知识学习: /categories/前端-知识学习/ || fas fa-book
-    开发效率: /categories/前端-开发效率/ || fas fa-coffee
-    面试题库: /categories/前端-面试题库/ || fas fa-question
-    疑难杂症: /categories/前端-疑难杂症/ || fas fa-bug
-  后端知识||fa fa-server:
-    知识学习: /categories/后端-知识学习/ || fas fa-book
-    开发效率: /categories/后端-开发效率/ || fas fa-coffee
-    面试题库: /categories/后端-面试题库/ || fas fa-question
-    疑难杂症: /categories/后端-疑难杂症/ || fas fa-bug
-  运维知识||fa fa-suitcase:
-    知识学习: /categories/运维-知识学习/ || fas fa-book
-    安装教程: /categories/运维-安装教程/ || fas fa-coffee
-    运维效率: /categories/运维-运维效率/ || fas fa-location-arrow
-    面试题库: /categories/运维-面试题库/ || fas fa-question
-    疑难杂症: /categories/运维-疑难杂症/ || fas fa-bug
-  软考知识: /categories/软考知识/ || fas fa-pencil
-  读后感: /categories/读后感/ || fas fa-book
-  # 时间轴: /archives/ || fas fa-archive
-  图片: /atlas || fas fa-image
-  文档 || fas fa-archive:
-    标签: /tags/ || fas fa-tags
-    分类: /categories/ || fas fa-folder-open
-  友链: /link/ || fas fa-link
+  理论知识||fas fa-book:
+    前端: /categories/理论知识-前端/ || fab fa-js-square
+    后端: /categories/理论知识-后端/ || fas fa-server
+    运维: /categories/理论知识-运维/ || fas fa-gears
+    数据库: /categories/理论知识-数据库/ || fas fa-database
+  场景解决||fas fa-puzzle-piece:
+    前端: /categories/场景解决-前端/ || fab fa-js-square
+    后端: /categories/场景解决-后端/ || fas fa-server
+    运维: /categories/场景解决-运维/ || fas fa-gears
+    数据库: /categories/场景解决-数据库/ || fas fa-database
+  AI知识: /categories/AI知识/ || fas fa-robot
+  书籍知识: /categories/书籍知识/ || fas fa-book-reader
+  图片||fas fa-image:
+    图集: /atlas || fas fa-th
+    专栏: /categories/图片/ || fas fa-bookmark
 
 # Code Blocks (代碼相關)
 # --------------------------------------
