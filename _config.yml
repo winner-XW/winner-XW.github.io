@@ -102,11 +102,10 @@ theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+## 与 git remote 一致：若 ~/.ssh/config 里用 Host github-winner，此处也要用 git@github-winner:...，否则会出现 Permission denied (publickey)。
 deploy:
   type: git
-  repository: 
-    github: https://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@github.com/winner-XW/winner-XW.github.io.git
-    
+  repo: git@github-winner:winner-XW/winner-XW.github.io.git
   branch: master
 
 # deploy:
