@@ -2,7 +2,7 @@
 title: 项目管理中的WBS理论知识与实战演练
 date: {{date}}
 tags: [项目管理, WBS, 工作分解结构, 进度管理, 实战演练]
-categories: 书籍知识
+categories: 项目管理
 description: 用一篇文章讲清WBS的核心理论、拆解方法与可落地的项目实战流程。
 cover: /images/cover/project-management-wbs-theory-and-practice.svg
 ---
