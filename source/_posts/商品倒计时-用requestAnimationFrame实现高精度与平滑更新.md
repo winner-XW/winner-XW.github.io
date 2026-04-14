@@ -4,6 +4,7 @@ date: 2026-04-14
 tags: [JavaScript, 倒计时, requestAnimationFrame, 性能优化, 前端]
 categories: 场景解决-前端
 description: 通过对比setInterval与setTimeout，构建一个基于requestAnimationFrame的高精度商品倒计时方案。
+image: /images/background/countdown-raf-cover.svg
 ---
 
 在电商场景中，商品秒杀、优惠券领取、限时折扣都依赖倒计时。常见实现会使用`setInterval`或递归`setTimeout`，它们简单直接，但在页面卡顿、标签页切换或低性能设备上容易出现时间漂移。
@@ -119,7 +120,7 @@ description: 通过对比setInterval与setTimeout，构建一个基于requestAni
     const statusEl = document.getElementById("status");
 
     // 示例：从现在起倒计时90分钟
-    const endTime = Date.now() + 90 * 60 * 1000;
+    const endTime = Date.now() + 1 * 60 * 1000;
 
     const countdown = new Countdown(
       endTime,

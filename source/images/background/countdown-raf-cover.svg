@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Countdown Cover</title>
+  <desc id="desc">requestAnimationFrame high precision and smooth updates</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1020" cy="120" r="180" fill="#38bdf8" opacity="0.14"/>
+  <circle cx="130" cy="540" r="220" fill="#a78bfa" opacity="0.16"/>
+
+  <rect x="72" y="84" rx="14" ry="14" width="220" height="44" fill="url(#accent)"/>
+  <text x="182" y="113" text-anchor="middle" font-size="24" fill="#0b1020" font-family="Arial, sans-serif" font-weight="700">
+    Frontend Practice
+  </text>
+
+  <text x="72" y="220" font-size="62" fill="#f8fafc" font-family="Arial, sans-serif" font-weight="700">
+    Product Countdown
+  </text>
+  <text x="72" y="300" font-size="44" fill="#e2e8f0" font-family="Arial, sans-serif" font-weight="600">
+    requestAnimationFrame
+  </text>
+  <text x="72" y="360" font-size="38" fill="#cbd5e1" font-family="Arial, sans-serif">
+    High precision and smooth updates
+  </text>
+
+  <rect x="72" y="430" rx="12" ry="12" width="460" height="108" fill="#0b1020" opacity="0.45" stroke="#93c5fd" stroke-opacity="0.35"/>
+  <text x="100" y="485" font-size="42" fill="#f8fafc" font-family="Consolas, Menlo, monospace" letter-spacing="2">00:59:59</text>
+  <text x="100" y="520" font-size="20" fill="#bfdbfe" font-family="Arial, sans-serif">Render by requestAnimationFrame</text>
+</svg>
