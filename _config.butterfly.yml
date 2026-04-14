@@ -17,9 +17,7 @@ menu:
   项目管理: /categories/项目管理/ || fas fa-list-check
   AI知识: /categories/AI知识/ || fas fa-robot
   书籍知识: /categories/书籍知识/ || fas fa-book-reader
-  图片||fas fa-image:
-    图集: /atlas || fas fa-th
-    专栏: /categories/图片/ || fas fa-bookmark
+  图片: /atlas || fas fa-image
 
 # Code Blocks (代碼相關)
 # --------------------------------------

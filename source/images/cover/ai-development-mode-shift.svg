@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550" role="img" aria-labelledby="title desc">
+  <title id="title">AI Development Mode Shift Cover</title>
+  <desc id="desc">How software development shifts from coding to capability orchestration in the AI era</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#bg)"/>
+  <circle cx="700" cy="84" r="106" fill="#a78bfa" opacity="0.15"/>
+  <circle cx="98" cy="404" r="130" fill="#22d3ee" opacity="0.12"/>
+
+  <rect x="42" y="34" width="208" height="36" rx="10" fill="url(#chip)"/>
+  <text x="146" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#082f49">
+    AI KNOWLEDGE
+  </text>
+
+  <text x="42" y="128" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#f8fafc">
+    AI Development Shift
+  </text>
+  <text x="42" y="170" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="#dbeafe">
+    From Coding to Orchestration
+  </text>
+
+  <rect x="42" y="222" width="716" height="170" rx="14" fill="#081225" opacity="0.62" stroke="#93c5fd" stroke-opacity="0.35"/>
+  <text x="68" y="262" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bfdbfe">
+    Prompt | Context | Generate | Verify | Iterate
+  </text>
+  <text x="68" y="294" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bfdbfe">
+    Human Decision + AI Execution + CI Validation
+  </text>
+  <text x="68" y="334" font-family="Arial, sans-serif" font-size="19" fill="#e2e8f0">
+    Speed Gains Need Engineering Governance
+  </text>
+</svg>
