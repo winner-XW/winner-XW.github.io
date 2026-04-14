@@ -70,6 +70,39 @@
     
     
     <entry>
+      <title>Docker常用命令合集：从镜像到编排的高频操作清单</title>
+      <link href="/2026/04/14/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86%EF%BC%9A%E4%BB%8E%E9%95%9C%E5%83%8F%E5%88%B0%E7%BC%96%E6%8E%92%E7%9A%84%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/"/>
+      <url>/2026/04/14/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86%EF%BC%9A%E4%BB%8E%E9%95%9C%E5%83%8F%E5%88%B0%E7%BC%96%E6%8E%92%E7%9A%84%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Docker把应用与运行环境封装到容器中，解决了“本地能跑、线上不行”的一致性问题。但在实际开发与运维中，命令数量多、选项细节杂，常见现象是“会用几个命令，却很难系统排障”。本文按实际操作链路整理一套高频命令清单，从镜像拉取到容器排查、从网络连接到多服务编排，帮助你在日常工作中快速定位并执行正确命令。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-环境与版本信息"><a href="#1-环境与版本信息" class="headerlink" title="1. 环境与版本信息"></a>1. 环境与版本信息</h3><p>先确认Docker引擎和客户端是否正常，避免后续问题由环境本身引起。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看客户端与服务端版本</span></span><br><span class="line">docker version</span><br><span class="line"><span class="comment"># 查看运行时详细信息（存储驱动、Cgroup、镜像数等）</span></span><br><span class="line">docker info</span><br><span class="line"><span class="comment"># 查看当前可用的Docker上下文</span></span><br><span class="line">docker context <span class="built_in">ls</span></span><br></pre></td></tr></table></figure><table><thead><tr><th>命令</th><th>作用</th><th>典型场景</th></tr></thead><tbody><tr><td><code>docker version</code></td><td>查看Client&#x2F;Server版本</td><td>确认API兼容性</td></tr><tr><td><code>docker info</code></td><td>查看运行时信息</td><td>排查驱动、存储、Cgroup问题</td></tr><tr><td><code>docker context ls</code></td><td>查看上下文</td><td>切换本地&#x2F;远程Docker环境</td></tr></tbody></table><h3 id="2-镜像管理命令"><a href="#2-镜像管理命令" class="headerlink" title="2. 镜像管理命令"></a>2. 镜像管理命令</h3><p>镜像是容器运行基础，常见操作是搜索、拉取、查看、删除与构建。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在镜像仓库搜索nginx相关镜像</span></span><br><span class="line">docker search nginx</span><br><span class="line"><span class="comment"># 拉取指定版本镜像</span></span><br><span class="line">docker pull nginx:1.27</span><br><span class="line"><span class="comment"># 列出本地镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment"># 查看镜像详细元数据</span></span><br><span class="line">docker image inspect nginx:1.27</span><br><span class="line"><span class="comment"># 删除本地镜像</span></span><br><span class="line">docker rmi nginx:1.27</span><br><span class="line"><span class="comment"># 使用当前目录Dockerfile构建镜像</span></span><br><span class="line">docker build -t myapp:1.0 .</span><br><span class="line"><span class="comment"># 给镜像打上可推送到私有仓库的标签</span></span><br><span class="line">docker tag myapp:1.0 registry.example.com/team/myapp:1.0</span><br><span class="line"><span class="comment"># 推送镜像到远程仓库</span></span><br><span class="line">docker push registry.example.com/team/myapp:1.0</span><br></pre></td></tr></table></figure><p>实践建议：</p><ul><li>拉取时尽量指定明确标签，避免<code>latest</code>造成不可预期升级。</li><li>构建镜像时控制上下文体积，配合<code>.dockerignore</code>减少传输与缓存失效。</li><li>推送私有仓库前先执行<code>docker login</code>，并确认命名空间权限。</li></ul><h3 id="3-容器生命周期命令"><a href="#3-容器生命周期命令" class="headerlink" title="3. 容器生命周期命令"></a>3. 容器生命周期命令</h3><p>开发调试阶段的核心是“创建、启动、观察、进入、停止、删除”。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 后台启动容器并映射端口</span></span><br><span class="line">docker run -d --name web -p 8080:80 nginx:1.27</span><br><span class="line"><span class="comment"># 查看运行中的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment"># 查看所有容器（含已停止）</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># 启动已停止容器</span></span><br><span class="line">docker start web</span><br><span class="line"><span class="comment"># 停止运行中的容器</span></span><br><span class="line">docker stop web</span><br><span class="line"><span class="comment"># 重启容器</span></span><br><span class="line">docker restart web</span><br><span class="line"><span class="comment"># 删除已停止容器</span></span><br><span class="line">docker <span class="built_in">rm</span> web</span><br></pre></td></tr></table></figure><p>常用补充命令：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 持续跟踪容器日志，最多显示最近200行</span></span><br><span class="line">docker logs -f --<span class="built_in">tail</span>=200 web</span><br><span class="line"><span class="comment"># 进入容器交互式终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -it web /bin/sh</span><br><span class="line"><span class="comment"># 从本地复制文件到容器</span></span><br><span class="line">docker <span class="built_in">cp</span> ./app.conf web:/etc/nginx/conf.d/app.conf</span><br><span class="line"><span class="comment"># 实时查看容器资源占用</span></span><br><span class="line">docker stats</span><br><span class="line"><span class="comment"># 查看容器内正在运行的进程</span></span><br><span class="line">docker top web</span><br></pre></td></tr></table></figure><table><thead><tr><th>命令</th><th>核心价值</th></tr></thead><tbody><tr><td><code>docker logs</code></td><td>快速定位启动失败、端口占用、配置错误</td></tr><tr><td><code>docker exec</code></td><td>进入容器做在线排障与配置验证</td></tr><tr><td><code>docker stats</code></td><td>实时观察CPU&#x2F;内存，识别资源异常</td></tr><tr><td><code>docker cp</code></td><td>本地与容器间快速传输文件</td></tr></tbody></table><h3 id="4-网络与数据卷命令"><a href="#4-网络与数据卷命令" class="headerlink" title="4. 网络与数据卷命令"></a>4. 网络与数据卷命令</h3><p>容器间通信与数据持久化，是服务可用性的关键基础。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有Docker网络</span></span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 创建自定义网络</span></span><br><span class="line">docker network create app-net</span><br><span class="line"><span class="comment"># 查看网络详情（子网、已连接容器）</span></span><br><span class="line">docker network inspect app-net</span><br><span class="line"><span class="comment"># 将容器连接到指定网络</span></span><br><span class="line">docker network connect app-net web</span><br><span class="line"><span class="comment"># 删除未使用网络</span></span><br><span class="line">docker network <span class="built_in">rm</span> app-net</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有数据卷</span></span><br><span class="line">docker volume <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 创建数据卷</span></span><br><span class="line">docker volume create pgdata</span><br><span class="line"><span class="comment"># 查看数据卷详情</span></span><br><span class="line">docker volume inspect pgdata</span><br><span class="line"><span class="comment"># 启动PostgreSQL并挂载数据卷持久化数据</span></span><br><span class="line">docker run -d --name pg -e POSTGRES_PASSWORD=123456 -v pgdata:/var/lib/postgresql/data postgres:16</span><br><span class="line"><span class="comment"># 删除未被使用的数据卷</span></span><br><span class="line">docker volume <span class="built_in">rm</span> pgdata</span><br></pre></td></tr></table></figure><p>使用要点：</p><ul><li>多容器互联优先使用自定义网络，容器名可直接作为DNS名称访问。</li><li>数据库、消息队列等状态服务必须挂载数据卷，避免容器删除后数据丢失。</li><li>清理前先确认数据卷是否仍被引用，避免误删业务数据。</li></ul><h3 id="5-资源清理与故障排查"><a href="#5-资源清理与故障排查" class="headerlink" title="5. 资源清理与故障排查"></a>5. 资源清理与故障排查</h3><p>长时间开发后，未使用资源会持续占用磁盘与缓存，建议定期清理。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看镜像、容器、卷占用的磁盘空间</span></span><br><span class="line">docker system <span class="built_in">df</span></span><br><span class="line"><span class="comment"># 删除所有已停止容器</span></span><br><span class="line">docker container prune</span><br><span class="line"><span class="comment"># 删除所有未被容器使用的镜像</span></span><br><span class="line">docker image prune -a</span><br><span class="line"><span class="comment"># 删除未使用数据卷</span></span><br><span class="line">docker volume prune</span><br><span class="line"><span class="comment"># 删除未使用网络</span></span><br><span class="line">docker network prune</span><br><span class="line"><span class="comment"># 一次性清理未使用资源（含卷）</span></span><br><span class="line">docker system prune -a --volumes</span><br></pre></td></tr></table></figure><p>排障高频组合：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看容器状态，确认是否异常退出</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># 查看容器完整配置与运行参数</span></span><br><span class="line">docker inspect web</span><br><span class="line"><span class="comment"># 查看最近30分钟日志</span></span><br><span class="line">docker logs --since=30m web</span><br><span class="line"><span class="comment"># 查看最近10分钟Docker事件流</span></span><br><span class="line">docker events --since 10m</span><br></pre></td></tr></table></figure><p>说明：</p><ul><li><code>docker inspect</code>可查看容器完整配置、网络、挂载与启动参数。</li><li><code>docker events</code>适合追踪容器重启、停止、健康检查变更等时间线问题。</li></ul><h3 id="6-Docker-Compose常用命令"><a href="#6-Docker-Compose常用命令" class="headerlink" title="6. Docker Compose常用命令"></a>6. Docker Compose常用命令</h3><p>当服务超过1个时，建议使用Compose统一描述和启动。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 后台启动compose定义的所有服务</span></span><br><span class="line">docker compose up -d</span><br><span class="line"><span class="comment"># 查看compose服务状态</span></span><br><span class="line">docker compose ps</span><br><span class="line"><span class="comment"># 持续查看api服务日志</span></span><br><span class="line">docker compose logs -f api</span><br><span class="line"><span class="comment"># 进入api服务容器执行shell</span></span><br><span class="line">docker compose <span class="built_in">exec</span> api sh</span><br><span class="line"><span class="comment"># 重启api服务</span></span><br><span class="line">docker compose restart api</span><br><span class="line"><span class="comment"># 停止并删除compose相关容器和网络</span></span><br><span class="line">docker compose down</span><br><span class="line"><span class="comment"># 停止并删除compose资源，同时删除卷</span></span><br><span class="line">docker compose down -v</span><br></pre></td></tr></table></figure><table><thead><tr><th>命令</th><th>作用</th></tr></thead><tbody><tr><td><code>docker compose up -d</code></td><td>后台启动所有服务</td></tr><tr><td><code>docker compose logs -f</code></td><td>聚合查看服务日志</td></tr><tr><td><code>docker compose exec</code></td><td>进入指定服务容器</td></tr><tr><td><code>docker compose down -v</code></td><td>停止并删除容器、网络与匿名卷</td></tr></tbody></table><h2 id="可执行"><a href="#可执行" class="headerlink" title="可执行"></a>可执行</h2><p>下面是一组可在本地直接演练的命令，快速覆盖镜像、容器、网络和清理流程。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1) 拉取并运行Nginx</span></span><br><span class="line">docker pull nginx:1.27</span><br><span class="line">docker run -d --name demo-nginx -p 8080:80 nginx:1.27</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) 查看状态与日志</span></span><br><span class="line">docker ps</span><br><span class="line">docker logs --<span class="built_in">tail</span>=50 demo-nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3) 进入容器验证配置</span></span><br><span class="line">docker <span class="built_in">exec</span> -it demo-nginx /bin/sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4) 创建网络并挂接容器</span></span><br><span class="line">docker network create demo-net</span><br><span class="line">docker network connect demo-net demo-nginx</span><br><span class="line">docker network inspect demo-net</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5) 清理演练资源</span></span><br><span class="line">docker <span class="built_in">rm</span> -f demo-nginx</span><br><span class="line">docker network <span class="built_in">rm</span> demo-net</span><br><span class="line">docker image <span class="built_in">rm</span> nginx:1.27</span><br></pre></td></tr></table></figure><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Docker命令学习的关键不是“记全”，而是建立稳定的操作路径：先确认环境，再管理镜像与容器，随后检查网络与数据卷，最后形成可复用的Compose编排与清理习惯。把这套命令清单固化为团队Runbook后，容器故障定位效率和环境交付一致性都会明显提升。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> 容器 </tag>
+            
+            <tag> DevOps </tag>
+            
+            <tag> 运维 </tag>
+            
+            <tag> Docker Compose </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PostgreSQL索引指南：原理、实战与类型比较</title>
       <link href="/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/"/>
       <url>/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/</url>
@@ -169,31 +202,6 @@
     
     
     <entry>
-      <title>AI 知识</title>
-      <link href="/2026/04/13/menu-seed/ai/"/>
-      <url>/2026/04/13/menu-seed/ai/</url>
-      
-        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> AI知识 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> AI </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>书籍知识</title>
       <link href="/2026/04/13/menu-seed/books/"/>
       <url>/2026/04/13/menu-seed/books/</url>
@@ -213,6 +221,31 @@
             <tag> 读书 </tag>
             
             <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AI 知识</title>
+      <link href="/2026/04/13/menu-seed/ai/"/>
+      <url>/2026/04/13/menu-seed/ai/</url>
+      
+        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
             
         </tags>
       
@@ -246,33 +279,6 @@
     
     
     <entry>
-      <title>场景解决 · 数据库</title>
-      <link href="/2026/04/13/menu-seed/scene-db/"/>
-      <url>/2026/04/13/menu-seed/scene-db/</url>
-      
-        <content type="html"><![CDATA[<p>本站「场景解决 → 数据库」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 场景解决-数据库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库 </tag>
-            
-            <tag> 场景解决 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>场景解决 · 后端</title>
       <link href="/2026/04/13/menu-seed/scene-be/"/>
       <url>/2026/04/13/menu-seed/scene-be/</url>
@@ -289,9 +295,9 @@
       
         <tags>
             
-            <tag> 场景解决 </tag>
-            
             <tag> 后端 </tag>
+            
+            <tag> 场景解决 </tag>
             
         </tags>
       
@@ -300,16 +306,16 @@
     
     
     <entry>
-      <title>场景解决 · 运维</title>
-      <link href="/2026/04/13/menu-seed/scene-ops/"/>
-      <url>/2026/04/13/menu-seed/scene-ops/</url>
+      <title>场景解决 · 数据库</title>
+      <link href="/2026/04/13/menu-seed/scene-db/"/>
+      <url>/2026/04/13/menu-seed/scene-db/</url>
       
-        <content type="html"><![CDATA[<p>本站「场景解决 → 运维」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+        <content type="html"><![CDATA[<p>本站「场景解决 → 数据库」分类已就绪，可按主题陆续补充文章。</p>]]></content>
       
       
       <categories>
           
-          <category> 场景解决-运维 </category>
+          <category> 场景解决-数据库 </category>
           
       </categories>
       
@@ -318,7 +324,7 @@
             
             <tag> 场景解决 </tag>
             
-            <tag> 运维 </tag>
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -344,6 +350,33 @@
         <tags>
             
             <tag> 前端 </tag>
+            
+            <tag> 场景解决 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>场景解决 · 运维</title>
+      <link href="/2026/04/13/menu-seed/scene-ops/"/>
+      <url>/2026/04/13/menu-seed/scene-ops/</url>
+      
+        <content type="html"><![CDATA[<p>本站「场景解决 → 运维」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 场景解决-运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
             
             <tag> 场景解决 </tag>
             

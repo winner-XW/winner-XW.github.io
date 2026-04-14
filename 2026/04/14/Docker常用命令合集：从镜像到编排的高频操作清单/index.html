@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Docker常用命令合集：从镜像到编排的高频操作清单 | 爱吃的瘦子</title><meta name="author" content="爱吃的瘦子"><meta name="copyright" content="爱吃的瘦子"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一次性梳理Docker日常高频命令，覆盖镜像、容器、网络、数据卷和Compose的核心操作。"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/04/14/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86%EF%BC%9A%E4%BB%8E%E9%95%9C%E5%83%8F%E5%88%B0%E7%BC%96%E6%8E%92%E7%9A%84%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/index.html"><link rel="preconnect" href="//fastly.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"还有","messageNext":"天文章就要过期了，请及时保留……"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 爱吃的瘦子","link":"链接: ","source":"来源: 爱吃的瘦子","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://fastly.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://fastly.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Docker常用命令合集：从镜像到编排的高频操作清单',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2026-04-14 03:27:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_1.css" ><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/zyoushuo/Blog@latest/hexo/css/loading_style_2.css" ><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/css/function.min.css"><link rel="stylesheet" href="/config/css/style.css"><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://fastly.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.xjh.me/random_img.php?type=bg&amp;ctype=nature&amp;return=302" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 理论知识</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-js-square"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E8%BF%90%E7%BB%B4/"><i class="fa-fw fas fa-gears"></i><span> 运维</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-puzzle-piece"></i><span> 场景解决</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-js-square"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E8%BF%90%E7%BB%B4/"><i class="fa-fw fas fa-gears"></i><span> 运维</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><i class="fa-fw fas fa-list-check"></i><span> 项目管理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E7%9F%A5%E8%AF%86/"><i class="fa-fw fas fa-robot"></i><span> AI知识</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%B9%A6%E7%B1%8D%E7%9F%A5%E8%AF%86/"><i class="fa-fw fas fa-book-reader"></i><span> 书籍知识</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-image"></i><span> 图片</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/atlas"><i class="fa-fw fas fa-th"></i><span> 图集</span></a></li><li><a class="site-page child" href="/categories/%E5%9B%BE%E7%89%87/"><i class="fa-fw fas fa-bookmark"></i><span> 专栏</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="爱吃的瘦子"><span class="site-name">爱吃的瘦子</span></a></span><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 理论知识</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-js-square"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E8%BF%90%E7%BB%B4/"><i class="fa-fw fas fa-gears"></i><span> 运维</span></a></li><li><a class="site-page child" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-puzzle-piece"></i><span> 场景解决</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E5%89%8D%E7%AB%AF/"><i class="fa-fw fab fa-js-square"></i><span> 前端</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E5%90%8E%E7%AB%AF/"><i class="fa-fw fas fa-server"></i><span> 后端</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E8%BF%90%E7%BB%B4/"><i class="fa-fw fas fa-gears"></i><span> 运维</span></a></li><li><a class="site-page child" href="/categories/%E5%9C%BA%E6%99%AF%E8%A7%A3%E5%86%B3-%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa-fw fas fa-database"></i><span> 数据库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"><i class="fa-fw fas fa-list-check"></i><span> 项目管理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/AI%E7%9F%A5%E8%AF%86/"><i class="fa-fw fas fa-robot"></i><span> AI知识</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%B9%A6%E7%B1%8D%E7%9F%A5%E8%AF%86/"><i class="fa-fw fas fa-book-reader"></i><span> 书籍知识</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-image"></i><span> 图片</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/atlas"><i class="fa-fw fas fa-th"></i><span> 图集</span></a></li><li><a class="site-page child" href="/categories/%E5%9B%BE%E7%89%87/"><i class="fa-fw fas fa-bookmark"></i><span> 专栏</span></a></li></ul></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Docker常用命令合集：从镜像到编排的高频操作清单</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-04-14T00:00:00.000Z" title="发表于 2026-04-14 00:00:00">2026-04-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-04-14T03:27:20.211Z" title="更新于 2026-04-14 03:27:20">2026-04-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86-%E8%BF%90%E7%BB%B4/">理论知识-运维</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Docker常用命令合集：从镜像到编排的高频操作清单"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Docker把应用与运行环境封装到容器中，解决了“本地能跑、线上不行”的一致性问题。但在实际开发与运维中，命令数量多、选项细节杂，常见现象是“会用几个命令，却很难系统排障”。本文按实际操作链路整理一套高频命令清单，从镜像拉取到容器排查、从网络连接到多服务编排，帮助你在日常工作中快速定位并执行正确命令。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-环境与版本信息"><a href="#1-环境与版本信息" class="headerlink" title="1. 环境与版本信息"></a>1. 环境与版本信息</h3><p>先确认Docker引擎和客户端是否正常，避免后续问题由环境本身引起。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看客户端与服务端版本</span></span><br><span class="line">docker version</span><br><span class="line"><span class="comment"># 查看运行时详细信息（存储驱动、Cgroup、镜像数等）</span></span><br><span class="line">docker info</span><br><span class="line"><span class="comment"># 查看当前可用的Docker上下文</span></span><br><span class="line">docker context <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker version</code></td>
+<td>查看Client&#x2F;Server版本</td>
+<td>确认API兼容性</td>
+</tr>
+<tr>
+<td><code>docker info</code></td>
+<td>查看运行时信息</td>
+<td>排查驱动、存储、Cgroup问题</td>
+</tr>
+<tr>
+<td><code>docker context ls</code></td>
+<td>查看上下文</td>
+<td>切换本地&#x2F;远程Docker环境</td>
+</tr>
+</tbody></table>
+<h3 id="2-镜像管理命令"><a href="#2-镜像管理命令" class="headerlink" title="2. 镜像管理命令"></a>2. 镜像管理命令</h3><p>镜像是容器运行基础，常见操作是搜索、拉取、查看、删除与构建。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在镜像仓库搜索nginx相关镜像</span></span><br><span class="line">docker search nginx</span><br><span class="line"><span class="comment"># 拉取指定版本镜像</span></span><br><span class="line">docker pull nginx:1.27</span><br><span class="line"><span class="comment"># 列出本地镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment"># 查看镜像详细元数据</span></span><br><span class="line">docker image inspect nginx:1.27</span><br><span class="line"><span class="comment"># 删除本地镜像</span></span><br><span class="line">docker rmi nginx:1.27</span><br><span class="line"><span class="comment"># 使用当前目录Dockerfile构建镜像</span></span><br><span class="line">docker build -t myapp:1.0 .</span><br><span class="line"><span class="comment"># 给镜像打上可推送到私有仓库的标签</span></span><br><span class="line">docker tag myapp:1.0 registry.example.com/team/myapp:1.0</span><br><span class="line"><span class="comment"># 推送镜像到远程仓库</span></span><br><span class="line">docker push registry.example.com/team/myapp:1.0</span><br></pre></td></tr></table></figure>
+
+<p>实践建议：</p>
+<ul>
+<li>拉取时尽量指定明确标签，避免<code>latest</code>造成不可预期升级。</li>
+<li>构建镜像时控制上下文体积，配合<code>.dockerignore</code>减少传输与缓存失效。</li>
+<li>推送私有仓库前先执行<code>docker login</code>，并确认命名空间权限。</li>
+</ul>
+<h3 id="3-容器生命周期命令"><a href="#3-容器生命周期命令" class="headerlink" title="3. 容器生命周期命令"></a>3. 容器生命周期命令</h3><p>开发调试阶段的核心是“创建、启动、观察、进入、停止、删除”。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 后台启动容器并映射端口</span></span><br><span class="line">docker run -d --name web -p 8080:80 nginx:1.27</span><br><span class="line"><span class="comment"># 查看运行中的容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment"># 查看所有容器（含已停止）</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># 启动已停止容器</span></span><br><span class="line">docker start web</span><br><span class="line"><span class="comment"># 停止运行中的容器</span></span><br><span class="line">docker stop web</span><br><span class="line"><span class="comment"># 重启容器</span></span><br><span class="line">docker restart web</span><br><span class="line"><span class="comment"># 删除已停止容器</span></span><br><span class="line">docker <span class="built_in">rm</span> web</span><br></pre></td></tr></table></figure>
+
+<p>常用补充命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 持续跟踪容器日志，最多显示最近200行</span></span><br><span class="line">docker logs -f --<span class="built_in">tail</span>=200 web</span><br><span class="line"><span class="comment"># 进入容器交互式终端</span></span><br><span class="line">docker <span class="built_in">exec</span> -it web /bin/sh</span><br><span class="line"><span class="comment"># 从本地复制文件到容器</span></span><br><span class="line">docker <span class="built_in">cp</span> ./app.conf web:/etc/nginx/conf.d/app.conf</span><br><span class="line"><span class="comment"># 实时查看容器资源占用</span></span><br><span class="line">docker stats</span><br><span class="line"><span class="comment"># 查看容器内正在运行的进程</span></span><br><span class="line">docker top web</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>核心价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker logs</code></td>
+<td>快速定位启动失败、端口占用、配置错误</td>
+</tr>
+<tr>
+<td><code>docker exec</code></td>
+<td>进入容器做在线排障与配置验证</td>
+</tr>
+<tr>
+<td><code>docker stats</code></td>
+<td>实时观察CPU&#x2F;内存，识别资源异常</td>
+</tr>
+<tr>
+<td><code>docker cp</code></td>
+<td>本地与容器间快速传输文件</td>
+</tr>
+</tbody></table>
+<h3 id="4-网络与数据卷命令"><a href="#4-网络与数据卷命令" class="headerlink" title="4. 网络与数据卷命令"></a>4. 网络与数据卷命令</h3><p>容器间通信与数据持久化，是服务可用性的关键基础。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有Docker网络</span></span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 创建自定义网络</span></span><br><span class="line">docker network create app-net</span><br><span class="line"><span class="comment"># 查看网络详情（子网、已连接容器）</span></span><br><span class="line">docker network inspect app-net</span><br><span class="line"><span class="comment"># 将容器连接到指定网络</span></span><br><span class="line">docker network connect app-net web</span><br><span class="line"><span class="comment"># 删除未使用网络</span></span><br><span class="line">docker network <span class="built_in">rm</span> app-net</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有数据卷</span></span><br><span class="line">docker volume <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 创建数据卷</span></span><br><span class="line">docker volume create pgdata</span><br><span class="line"><span class="comment"># 查看数据卷详情</span></span><br><span class="line">docker volume inspect pgdata</span><br><span class="line"><span class="comment"># 启动PostgreSQL并挂载数据卷持久化数据</span></span><br><span class="line">docker run -d --name pg -e POSTGRES_PASSWORD=123456 -v pgdata:/var/lib/postgresql/data postgres:16</span><br><span class="line"><span class="comment"># 删除未被使用的数据卷</span></span><br><span class="line">docker volume <span class="built_in">rm</span> pgdata</span><br></pre></td></tr></table></figure>
+
+<p>使用要点：</p>
+<ul>
+<li>多容器互联优先使用自定义网络，容器名可直接作为DNS名称访问。</li>
+<li>数据库、消息队列等状态服务必须挂载数据卷，避免容器删除后数据丢失。</li>
+<li>清理前先确认数据卷是否仍被引用，避免误删业务数据。</li>
+</ul>
+<h3 id="5-资源清理与故障排查"><a href="#5-资源清理与故障排查" class="headerlink" title="5. 资源清理与故障排查"></a>5. 资源清理与故障排查</h3><p>长时间开发后，未使用资源会持续占用磁盘与缓存，建议定期清理。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看镜像、容器、卷占用的磁盘空间</span></span><br><span class="line">docker system <span class="built_in">df</span></span><br><span class="line"><span class="comment"># 删除所有已停止容器</span></span><br><span class="line">docker container prune</span><br><span class="line"><span class="comment"># 删除所有未被容器使用的镜像</span></span><br><span class="line">docker image prune -a</span><br><span class="line"><span class="comment"># 删除未使用数据卷</span></span><br><span class="line">docker volume prune</span><br><span class="line"><span class="comment"># 删除未使用网络</span></span><br><span class="line">docker network prune</span><br><span class="line"><span class="comment"># 一次性清理未使用资源（含卷）</span></span><br><span class="line">docker system prune -a --volumes</span><br></pre></td></tr></table></figure>
+
+<p>排障高频组合：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看容器状态，确认是否异常退出</span></span><br><span class="line">docker ps -a</span><br><span class="line"><span class="comment"># 查看容器完整配置与运行参数</span></span><br><span class="line">docker inspect web</span><br><span class="line"><span class="comment"># 查看最近30分钟日志</span></span><br><span class="line">docker logs --since=30m web</span><br><span class="line"><span class="comment"># 查看最近10分钟Docker事件流</span></span><br><span class="line">docker events --since 10m</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><code>docker inspect</code>可查看容器完整配置、网络、挂载与启动参数。</li>
+<li><code>docker events</code>适合追踪容器重启、停止、健康检查变更等时间线问题。</li>
+</ul>
+<h3 id="6-Docker-Compose常用命令"><a href="#6-Docker-Compose常用命令" class="headerlink" title="6. Docker Compose常用命令"></a>6. Docker Compose常用命令</h3><p>当服务超过1个时，建议使用Compose统一描述和启动。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 后台启动compose定义的所有服务</span></span><br><span class="line">docker compose up -d</span><br><span class="line"><span class="comment"># 查看compose服务状态</span></span><br><span class="line">docker compose ps</span><br><span class="line"><span class="comment"># 持续查看api服务日志</span></span><br><span class="line">docker compose logs -f api</span><br><span class="line"><span class="comment"># 进入api服务容器执行shell</span></span><br><span class="line">docker compose <span class="built_in">exec</span> api sh</span><br><span class="line"><span class="comment"># 重启api服务</span></span><br><span class="line">docker compose restart api</span><br><span class="line"><span class="comment"># 停止并删除compose相关容器和网络</span></span><br><span class="line">docker compose down</span><br><span class="line"><span class="comment"># 停止并删除compose资源，同时删除卷</span></span><br><span class="line">docker compose down -v</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>docker compose up -d</code></td>
+<td>后台启动所有服务</td>
+</tr>
+<tr>
+<td><code>docker compose logs -f</code></td>
+<td>聚合查看服务日志</td>
+</tr>
+<tr>
+<td><code>docker compose exec</code></td>
+<td>进入指定服务容器</td>
+</tr>
+<tr>
+<td><code>docker compose down -v</code></td>
+<td>停止并删除容器、网络与匿名卷</td>
+</tr>
+</tbody></table>
+<h2 id="可执行"><a href="#可执行" class="headerlink" title="可执行"></a>可执行</h2><p>下面是一组可在本地直接演练的命令，快速覆盖镜像、容器、网络和清理流程。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1) 拉取并运行Nginx</span></span><br><span class="line">docker pull nginx:1.27</span><br><span class="line">docker run -d --name demo-nginx -p 8080:80 nginx:1.27</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) 查看状态与日志</span></span><br><span class="line">docker ps</span><br><span class="line">docker logs --<span class="built_in">tail</span>=50 demo-nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3) 进入容器验证配置</span></span><br><span class="line">docker <span class="built_in">exec</span> -it demo-nginx /bin/sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4) 创建网络并挂接容器</span></span><br><span class="line">docker network create demo-net</span><br><span class="line">docker network connect demo-net demo-nginx</span><br><span class="line">docker network inspect demo-net</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5) 清理演练资源</span></span><br><span class="line">docker <span class="built_in">rm</span> -f demo-nginx</span><br><span class="line">docker network <span class="built_in">rm</span> demo-net</span><br><span class="line">docker image <span class="built_in">rm</span> nginx:1.27</span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Docker命令学习的关键不是“记全”，而是建立稳定的操作路径：先确认环境，再管理镜像与容器，随后检查网络与数据卷，最后形成可复用的Compose编排与清理习惯。把这套命令清单固化为团队Runbook后，容器故障定位效率和环境交付一致性都会明显提升。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Docker/">Docker</a><a class="post-meta__tags" href="/tags/%E5%AE%B9%E5%99%A8/">容器</a><a class="post-meta__tags" href="/tags/DevOps/">DevOps</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/Docker-Compose/">Docker Compose</a></div><div class="post_share"><div class="social-share" data-image="/images/cover/docker-common-commands-guide.svg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://fastly.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" title="PostgreSQL索引指南：原理、实战与类型比较"><img class="cover" src="/images/cover/postgresql-index-guide.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">PostgreSQL索引指南：原理、实战与类型比较</div></div></a></div><div class="next-post pull-right"><a href="/2026/04/14/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84WBS%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E4%B8%8E%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83/" title="项目管理中的WBS理论知识与实战演练"><img class="cover" src="/images/cover/project-management-wbs-theory-and-practice.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">项目管理中的WBS理论知识与实战演练</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2026/04/13/menu-seed/scene-ops/" title="场景解决 · 运维"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-13</div><div class="title">场景解决 · 运维</div></div></a></div><div><a href="/2026/04/13/menu-seed/theory-ops/" title="理论知识 · 运维"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-13</div><div class="title">理论知识 · 运维</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.xjh.me/random_img.php?type=bg&amp;ctype=nature&amp;return=302" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">爱吃的瘦子</div><div class="author-info__description">努力成为优秀的人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://winner-XW.github.io/"><i class="fab fa-grav"></i><span>欢迎来到吃货联盟……</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><b><font color="#e66b6d">双</font> <font color="#e66d98">手</font> <font color="#e66cc6">合</font> <font color="#cc6de6">十</font> <font color="#9770e6">成</font> <font color="#6d93e6">为</font> <font color="#6fcde6">自</font> <font color="#72e6b6">己</font> <font color="#72e689">的</font> <font color="#99e670">神</font><br/><font color="#cde670">自</font> <font color="#e6df72">己</font> <font color="#e6c073">所</font> <font color="#e6a271">信</font> <font color="#e6796f">念</font> <font color="#e65454">的</font> <font color="#e63333">即</font> <font color="#e62c2c">是</font> <font color="#e60101">信</font> <font color="#e60101">仰</font></b> <div align="left">微信号：17853538076</div> <div align="left">QQ号：1041477412</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E4%B8%8E%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">2.1.</span> <span class="toc-text">1. 环境与版本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">2. 镜像管理命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.</span> <span class="toc-text">3. 容器生命周期命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%91%BD%E4%BB%A4"><span class="toc-number">2.4.</span> <span class="toc-text">4. 网络与数据卷命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%B5%84%E6%BA%90%E6%B8%85%E7%90%86%E4%B8%8E%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5"><span class="toc-number">2.5.</span> <span class="toc-text">5. 资源清理与故障排查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Docker-Compose%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.6.</span> <span class="toc-text">6. Docker Compose常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C"><span class="toc-number">3.</span> <span class="toc-text">可执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">小结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/%E4%B8%89%E5%88%86%E9%92%9F%E8%AF%BB%E6%87%82%E3%80%8A%E5%A5%BD%E6%88%98%E7%95%A5%E3%80%81%E5%9D%8F%E6%88%98%E7%95%A5%E3%80%8B%EF%BC%9A%E4%BB%8E%E7%9B%AE%E6%A0%87%E5%8F%A3%E5%8F%B7%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A0%B4%E5%B1%80/" title="三分钟读懂《好战略、坏战略》：从目标口号到可执行破局"><img src="/images/cover/gsbs.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三分钟读懂《好战略、坏战略》：从目标口号到可执行破局"/></a><div class="content"><a class="title" href="/2026/04/14/%E4%B8%89%E5%88%86%E9%92%9F%E8%AF%BB%E6%87%82%E3%80%8A%E5%A5%BD%E6%88%98%E7%95%A5%E3%80%81%E5%9D%8F%E6%88%98%E7%95%A5%E3%80%8B%EF%BC%9A%E4%BB%8E%E7%9B%AE%E6%A0%87%E5%8F%A3%E5%8F%B7%E5%88%B0%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A0%B4%E5%B1%80/" title="三分钟读懂《好战略、坏战略》：从目标口号到可执行破局">三分钟读懂《好战略、坏战略》：从目标口号到可执行破局</a><time datetime="2026-04-14T03:27:20.211Z" title="发表于 2026-04-14 03:27:20">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84WBS%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E4%B8%8E%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83/" title="项目管理中的WBS理论知识与实战演练"><img src="/images/cover/project-management-wbs-theory-and-practice.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="项目管理中的WBS理论知识与实战演练"/></a><div class="content"><a class="title" href="/2026/04/14/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E4%B8%AD%E7%9A%84WBS%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86%E4%B8%8E%E5%AE%9E%E6%88%98%E6%BC%94%E7%BB%83/" title="项目管理中的WBS理论知识与实战演练">项目管理中的WBS理论知识与实战演练</a><time datetime="2026-04-14T03:27:20.211Z" title="发表于 2026-04-14 03:27:20">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86%EF%BC%9A%E4%BB%8E%E9%95%9C%E5%83%8F%E5%88%B0%E7%BC%96%E6%8E%92%E7%9A%84%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/" title="Docker常用命令合集：从镜像到编排的高频操作清单"><img src="/images/cover/docker-common-commands-guide.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker常用命令合集：从镜像到编排的高频操作清单"/></a><div class="content"><a class="title" href="/2026/04/14/Docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86%EF%BC%9A%E4%BB%8E%E9%95%9C%E5%83%8F%E5%88%B0%E7%BC%96%E6%8E%92%E7%9A%84%E9%AB%98%E9%A2%91%E6%93%8D%E4%BD%9C%E6%B8%85%E5%8D%95/" title="Docker常用命令合集：从镜像到编排的高频操作清单">Docker常用命令合集：从镜像到编排的高频操作清单</a><time datetime="2026-04-14T00:00:00.000Z" title="发表于 2026-04-14 00:00:00">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" title="PostgreSQL索引指南：原理、实战与类型比较"><img src="/images/cover/postgresql-index-guide.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PostgreSQL索引指南：原理、实战与类型比较"/></a><div class="content"><a class="title" href="/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/" title="PostgreSQL索引指南：原理、实战与类型比较">PostgreSQL索引指南：原理、实战与类型比较</a><time datetime="2026-04-14T00:00:00.000Z" title="发表于 2026-04-14 00:00:00">2026-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/14/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82Event-Loop%EF%BC%9A%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/" title="一文读懂Event Loop：任务、微任务与渲染时机"><img src="/images/cover/event-loop-guide-cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一文读懂Event Loop：任务、微任务与渲染时机"/></a><div class="content"><a class="title" href="/2026/04/14/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82Event-Loop%EF%BC%9A%E4%BB%BB%E5%8A%A1%E3%80%81%E5%BE%AE%E4%BB%BB%E5%8A%A1%E4%B8%8E%E6%B8%B2%E6%9F%93%E6%97%B6%E6%9C%BA/" title="一文读懂Event Loop：任务、微任务与渲染时机">一文读懂Event Loop：任务、微任务与渲染时机</a><time datetime="2026-04-14T00:00:00.000Z" title="发表于 2026-04-14 00:00:00">2026-04-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://fastly.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'BPCA5f3dDzVccwRbLYU7FNM8-gzGzoHsz',
+      appKey: 'ge5YKIbWrPKYPIzb21otY41N',
+      avatar: 'monsterid',
+      serverURLs: 'https://bpca5f3d.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://fastly.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://fastly.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://fastly.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://fastly.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
