@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    <linearGradient id="leftCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1D4ED8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.5" />
+    </linearGradient>
+    <linearGradient id="rightCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#9333EA" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#bg)" />
+  <rect x="36" y="36" width="728" height="478" rx="24" fill="none" stroke="#67E8F9" stroke-opacity="0.4" stroke-width="2" />
+
+  <text x="70" y="110" fill="#A5F3FC" font-size="20" font-family="Arial, sans-serif">Backend Architecture Theory</text>
+  <text x="70" y="165" fill="#FFFFFF" font-size="46" font-weight="700" font-family="Arial, sans-serif">Microservices vs Monolith</text>
+  <text x="70" y="205" fill="#CCFBF1" font-size="20" font-family="Arial, sans-serif">Trade-offs in complexity, delivery, and scalability</text>
+
+  <rect x="70" y="250" width="300" height="190" rx="16" fill="url(#leftCard)" stroke="#93C5FD" stroke-opacity="0.6" />
+  <rect x="430" y="250" width="300" height="190" rx="16" fill="url(#rightCard)" stroke="#C4B5FD" stroke-opacity="0.6" />
+
+  <text x="95" y="295" fill="#DBEAFE" font-size="24" font-weight="700" font-family="Arial, sans-serif">Monolith</text>
+  <text x="95" y="330" fill="#E0F2FE" font-size="16" font-family="Arial, sans-serif">- Fast startup and simpler delivery</text>
+  <text x="95" y="358" fill="#E0F2FE" font-size="16" font-family="Arial, sans-serif">- Strong consistency is easier</text>
+  <text x="95" y="386" fill="#E0F2FE" font-size="16" font-family="Arial, sans-serif">- Best for early-stage products</text>
+
+  <text x="455" y="295" fill="#F3E8FF" font-size="24" font-weight="700" font-family="Arial, sans-serif">Microservices</text>
+  <text x="455" y="330" fill="#FAE8FF" font-size="16" font-family="Arial, sans-serif">- Independent scaling and release</text>
+  <text x="455" y="358" fill="#FAE8FF" font-size="16" font-family="Arial, sans-serif">- Better team parallelism</text>
+  <text x="455" y="386" fill="#FAE8FF" font-size="16" font-family="Arial, sans-serif">- Higher governance complexity</text>
+
+  <line x1="370" y1="345" x2="430" y2="345" stroke="#99F6E4" stroke-width="4" stroke-linecap="round" />
+  <polygon points="430,345 418,337 418,353" fill="#99F6E4" />
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550" role="img" aria-labelledby="title desc">
+  <title id="title">PostgreSQL Large Table Locking Cover</title>
+  <desc id="desc">Production scenario of slow operations and lock waits caused by oversized PostgreSQL tables</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1022"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#bg)"/>
+  <circle cx="700" cy="78" r="104" fill="#a78bfa" opacity="0.16"/>
+  <circle cx="105" cy="410" r="132" fill="#22d3ee" opacity="0.12"/>
+
+  <rect x="44" y="34" width="248" height="36" rx="10" fill="url(#chip)"/>
+  <text x="168" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#082f49">
+    DATABASE SCENARIO
+  </text>
+
+  <text x="44" y="128" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#f8fafc">
+    PostgreSQL Large Table
+  </text>
+  <text x="44" y="170" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="#dbeafe">
+    Slow Query &amp; Lock Wait
+  </text>
+
+  <rect x="44" y="222" width="712" height="168" rx="14" fill="#081225" opacity="0.62" stroke="#93c5fd" stroke-opacity="0.35"/>
+  <text x="70" y="262" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bfdbfe">
+    Seq Scan | Long Transaction | DDL Blocking
+  </text>
+  <text x="70" y="294" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bfdbfe">
+    Partitioning | Archiving | Vacuum Tuning
+  </text>
+  <text x="70" y="334" font-family="Arial, sans-serif" font-size="19" fill="#e2e8f0">
+    From Symptom to Root Cause and Governance
+  </text>
+</svg>
