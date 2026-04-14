@@ -53,8 +53,6 @@
       
         <tags>
             
-            <tag> 前端 </tag>
-            
             <tag> JavaScript </tag>
             
             <tag> 倒计时 </tag>
@@ -62,6 +60,58 @@
             <tag> requestAnimationFrame </tag>
             
             <tag> 性能优化 </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>AI 知识</title>
+      <link href="/2026/04/13/menu-seed/ai/"/>
+      <url>/2026/04/13/menu-seed/ai/</url>
+      
+        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图片专栏</title>
+      <link href="/2026/04/13/menu-seed/picture/"/>
+      <url>/2026/04/13/menu-seed/picture/</url>
+      
+        <content type="html"><![CDATA[<p>本站「图片」分类用于图文笔记；<strong>流程图、路线图等大图浏览</strong>请打开导航 <strong>图片 → 图集</strong>（<code>/atlas</code>）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图片 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 图片 </tag>
             
         </tags>
       
@@ -97,33 +147,6 @@
     
     
     <entry>
-      <title>场景解决 · 前端</title>
-      <link href="/2026/04/13/menu-seed/scene-fe/"/>
-      <url>/2026/04/13/menu-seed/scene-fe/</url>
-      
-        <content type="html"><![CDATA[<p>本站「场景解决 → 前端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 场景解决-前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 场景解决 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>场景解决 · 后端</title>
       <link href="/2026/04/13/menu-seed/scene-be/"/>
       <url>/2026/04/13/menu-seed/scene-be/</url>
@@ -140,140 +163,9 @@
       
         <tags>
             
+            <tag> 后端 </tag>
+            
             <tag> 场景解决 </tag>
-            
-            <tag> 后端 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>理论知识 · 后端</title>
-      <link href="/2026/04/13/menu-seed/theory-be/"/>
-      <url>/2026/04/13/menu-seed/theory-be/</url>
-      
-        <content type="html"><![CDATA[<p>本站「理论知识 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 理论知识-后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 后端 </tag>
-            
-            <tag> 理论知识 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>图片专栏</title>
-      <link href="/2026/04/13/menu-seed/picture/"/>
-      <url>/2026/04/13/menu-seed/picture/</url>
-      
-        <content type="html"><![CDATA[<p>本站「图片」分类用于图文笔记；<strong>流程图、路线图等大图浏览</strong>请打开导航 <strong>图片 → 图集</strong>（<code>/atlas</code>）。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 图片 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 图片 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>理论知识 · 前端</title>
-      <link href="/2026/04/13/menu-seed/theory-fe/"/>
-      <url>/2026/04/13/menu-seed/theory-fe/</url>
-      
-        <content type="html"><![CDATA[<p>本站「理论知识 → 前端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 理论知识-前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-            <tag> 理论知识 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>AI 知识</title>
-      <link href="/2026/04/13/menu-seed/ai/"/>
-      <url>/2026/04/13/menu-seed/ai/</url>
-      
-        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> AI知识 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> AI </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>理论知识 · 数据库</title>
-      <link href="/2026/04/13/menu-seed/theory-db/"/>
-      <url>/2026/04/13/menu-seed/theory-db/</url>
-      
-        <content type="html"><![CDATA[<p>本站「理论知识 → 数据库」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 理论知识-数据库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 理论知识 </tag>
-            
-            <tag> 数据库 </tag>
             
         </tags>
       
@@ -309,25 +201,25 @@
     
     
     <entry>
-      <title>理论知识 · 运维</title>
-      <link href="/2026/04/13/menu-seed/theory-ops/"/>
-      <url>/2026/04/13/menu-seed/theory-ops/</url>
+      <title>场景解决 · 前端</title>
+      <link href="/2026/04/13/menu-seed/scene-fe/"/>
+      <url>/2026/04/13/menu-seed/scene-fe/</url>
       
-        <content type="html"><![CDATA[<p>本站「理论知识 → 运维」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+        <content type="html"><![CDATA[<p>本站「场景解决 → 前端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
       
       
       <categories>
           
-          <category> 理论知识-运维 </category>
+          <category> 场景解决-前端 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 理论知识 </tag>
+            <tag> 前端 </tag>
             
-            <tag> 运维 </tag>
+            <tag> 场景解决 </tag>
             
         </tags>
       
@@ -355,6 +247,114 @@
             <tag> 场景解决 </tag>
             
             <tag> 运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>理论知识 · 数据库</title>
+      <link href="/2026/04/13/menu-seed/theory-db/"/>
+      <url>/2026/04/13/menu-seed/theory-db/</url>
+      
+        <content type="html"><![CDATA[<p>本站「理论知识 → 数据库」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>理论知识 · 后端</title>
+      <link href="/2026/04/13/menu-seed/theory-be/"/>
+      <url>/2026/04/13/menu-seed/theory-be/</url>
+      
+        <content type="html"><![CDATA[<p>本站「理论知识 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>理论知识 · 前端</title>
+      <link href="/2026/04/13/menu-seed/theory-fe/"/>
+      <url>/2026/04/13/menu-seed/theory-fe/</url>
+      
+        <content type="html"><![CDATA[<p>本站「理论知识 → 前端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>理论知识 · 运维</title>
+      <link href="/2026/04/13/menu-seed/theory-ops/"/>
+      <url>/2026/04/13/menu-seed/theory-ops/</url>
+      
+        <content type="html"><![CDATA[<p>本站「理论知识 → 运维」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
+            
+            <tag> 理论知识 </tag>
             
         </tags>
       
