@@ -12,15 +12,14 @@ date: {{date}}
 tags: [根据文章内容自动提炼 3~5 个标签]
 categories: 从已有分类中选择一个最匹配项
 description: 一句话概述文章价值
-cover: 文章封面图片 URL
+cover: 文章封面图片URL
 ---
 
 封面图规则（必须执行）：
 1. `cover` 字段必填，不允许省略。
-2. 优先使用 `@source/images/cover` 中的图片作为主图。
-3. 若 `@source/images/cover` 不存在或无可用图片，则按文章标题生成主图 URL，格式为：
-   `https://api.dicebear.com/9.x/shapes/svg?seed=<文章标题>`
-4. 生成 URL 时，`<文章标题>` 使用原始标题文本，不要改写语义。
+2. 图片位置：`/images/cover/`
+3. 根据文章标题，生成图片，图片格式为SVG。
+4. 图片名称为使用英文名，间隔用-隔开。
 
 分类选择范围（仅可选其一）：
 - AI知识
