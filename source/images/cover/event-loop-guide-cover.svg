@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Event Loop Guide Cover</title>
+  <desc id="desc">A cover image for JavaScript Event Loop article.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="220" cy="210" r="120" fill="none" stroke="url(#ring)" stroke-width="14" />
+  <circle cx="220" cy="210" r="72" fill="none" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="10" />
+
+  <rect x="410" y="110" width="260" height="56" rx="10" fill="#0b1220" stroke="#334155" />
+  <text x="430" y="145" fill="#e2e8f0" font-size="24" font-family="Segoe UI, Arial, sans-serif">Call Stack</text>
+
+  <rect x="410" y="182" width="260" height="56" rx="10" fill="#0b1220" stroke="#334155" />
+  <text x="430" y="217" fill="#e2e8f0" font-size="24" font-family="Segoe UI, Arial, sans-serif">Microtask Queue</text>
+
+  <rect x="410" y="254" width="260" height="56" rx="10" fill="#0b1220" stroke="#334155" />
+  <text x="430" y="289" fill="#e2e8f0" font-size="24" font-family="Segoe UI, Arial, sans-serif">Task Queue</text>
+
+  <text x="60" y="85" fill="#67e8f9" font-size="28" font-weight="600" font-family="Segoe UI, Arial, sans-serif">JavaScript Runtime</text>
+  <text x="60" y="325" fill="#f8fafc" font-size="42" font-weight="700" font-family="Segoe UI, Arial, sans-serif">Event Loop</text>
+  <text x="60" y="360" fill="#cbd5e1" font-size="22" font-family="Segoe UI, Arial, sans-serif">Tasks, Microtasks, and Rendering</text>
+</svg>
