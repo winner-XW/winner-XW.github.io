@@ -7,8 +7,6 @@ description: 用一篇文章讲清WBS的核心理论、拆解方法与可落地�
 cover: /images/cover/project-management-wbs-theory-and-practice.svg
 ---
 
-# 项目管理中的WBS理论知识与实战演练
-
 ## 描述
 
 WBS（Work Breakdown Structure，工作分解结构）是项目计划的骨架，它把“目标”转化为“可执行工作包”，让范围、进度、成本和责任都可以被明确管理。
