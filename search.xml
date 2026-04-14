@@ -103,6 +103,39 @@
     
     
     <entry>
+      <title>Nginx介绍与配置实战：从入门到上线</title>
+      <link href="/2026/04/14/Nginx%E4%BB%8B%E7%BB%8D%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8A%E7%BA%BF/"/>
+      <url>/2026/04/14/Nginx%E4%BB%8B%E7%BB%8D%E4%B8%8E%E9%85%8D%E7%BD%AE%E5%AE%9E%E6%88%98%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8A%E7%BA%BF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Nginx在现代Web架构中通常处于最前面的一层：它既可以提供静态资源，也可以把请求反向代理到后端应用，还能统一处理HTTPS、限流与缓存策略。很多项目的线上问题并不是业务代码导致，而是入口层配置不清晰引发的连锁问题。本文从概念、配置结构、实战示例和上线检查四个维度，整理一套可以直接复用的Nginx配置方法。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-Nginx的角色定位"><a href="#1-Nginx的角色定位" class="headerlink" title="1.Nginx的角色定位"></a>1.Nginx的角色定位</h3><p>在真实项目里，Nginx最常见的职责有四类：</p><ul><li>作为Web服务器：直接返回HTML、CSS、JS、图片等静态资源；</li><li>作为反向代理：把<code>/api</code>等动态请求转发给Node.js、Java、Go服务；</li><li>作为负载均衡器：将请求分发到多台上游实例；</li><li>作为统一入口：集中完成HTTPS终止、跨域、缓存和访问控制。</li></ul><p>这类“统一入口”设计的价值在于：应用服务专注业务逻辑，流量与协议层问题由Nginx统一治理，系统边界更清晰。</p><h3 id="2-配置分层与核心块"><a href="#2-配置分层与核心块" class="headerlink" title="2.配置分层与核心块"></a>2.配置分层与核心块</h3><p>Nginx配置通常分为<code>main -&gt; events -&gt; http -&gt; server -&gt; location</code>五层。理解这个层级，后续排障效率会明显提升。</p><table><thead><tr><th>配置块</th><th>作用</th><th>常见参数</th></tr></thead><tbody><tr><td><code>main</code></td><td>全局进程参数</td><td><code>worker_processes</code></td></tr><tr><td><code>events</code></td><td>连接处理模型</td><td><code>worker_connections</code></td></tr><tr><td><code>http</code></td><td>HTTP公共能力</td><td><code>sendfile</code>、<code>gzip</code>、日志格式</td></tr><tr><td><code>server</code></td><td>站点&#x2F;域名级配置</td><td><code>listen</code>、<code>server_name</code></td></tr><tr><td><code>location</code></td><td>路径路由规则</td><td><code>try_files</code>、<code>proxy_pass</code></td></tr></tbody></table><p>一个简化但可运行的最小示例：</p><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">  <span class="attribute">worker_connections</span> <span class="number">10240</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">  <span class="attribute">include</span>       mime.types;</span><br><span class="line">  <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line">  <span class="attribute">sendfile</span>      <span class="literal">on</span>;</span><br><span class="line">  <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">  <span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> demo.local;</span><br><span class="line">    <span class="attribute">root</span> /var/www/html;</span><br><span class="line">    <span class="attribute">index</span> index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-反向代理与前后端分离配置"><a href="#3-反向代理与前后端分离配置" class="headerlink" title="3.反向代理与前后端分离配置"></a>3.反向代理与前后端分离配置</h3><p>前端项目上线时，高频需求是“静态资源直出 + API代理转发”。下面是一个典型配置：</p><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> app.example.com;</span><br><span class="line">  <span class="attribute">root</span> /var/www/app;</span><br><span class="line">  <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">  <span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="section">location</span> /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:3000/;</span><br><span class="line">    <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    <span class="attribute">proxy_connect_timeout</span> <span class="number">5s</span>;</span><br><span class="line">    <span class="attribute">proxy_read_timeout</span> <span class="number">30s</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这段配置解决了三个典型问题：</p><ol><li><code>try_files</code>确保单页应用刷新不404；</li><li><code>X-Forwarded-*</code>头保证后端拿到真实协议与客户端IP；</li><li>显式超时让异常上游尽快失败，避免请求长期阻塞。</li></ol><h3 id="4-HTTPS与流量安全配置"><a href="#4-HTTPS与流量安全配置" class="headerlink" title="4.HTTPS与流量安全配置"></a>4.HTTPS与流量安全配置</h3><p>线上环境建议强制HTTP跳转HTTPS，并限制TLS协议版本：</p><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> app.example.com;</span><br><span class="line">  <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">443</span> ssl http2;</span><br><span class="line">  <span class="attribute">server_name</span> app.example.com;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">ssl_certificate</span>     /etc/nginx/ssl/fullchain.pem;</span><br><span class="line">  <span class="attribute">ssl_certificate_key</span> /etc/nginx/ssl/privkey.pem;</span><br><span class="line">  <span class="attribute">ssl_protocols</span> TLSv1.<span class="number">2</span> TLSv1.<span class="number">3</span>;</span><br><span class="line">  <span class="attribute">ssl_session_cache</span> shared:SSL:<span class="number">20m</span>;</span><br><span class="line">  <span class="attribute">ssl_session_timeout</span> <span class="number">10m</span>;</span><br><span class="line"></span><br><span class="line">  <span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:3000;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>如果证书通过Let’s Encrypt签发，建议把“自动续期 + reload”做成定时任务，并配置到监控告警，避免证书过期导致业务中断。</p><h3 id="5-性能与稳定性实践"><a href="#5-性能与稳定性实践" class="headerlink" title="5.性能与稳定性实践"></a>5.性能与稳定性实践</h3><p>调优建议遵循“先稳定，再极致”：</p><ul><li>先设置合理超时：<code>proxy_connect_timeout</code>、<code>proxy_read_timeout</code>；</li><li>再优化静态资源缓存：对构建产物设置长期缓存；</li><li>最后按监控数据决定是否启用更复杂的压缩与连接池策略。</li></ul><p>静态资源缓存示例：</p><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">location</span> <span class="regexp">~* \.(js|css|png|jpg|jpeg|gif|svg|woff2?)$</span> &#123;</span><br><span class="line">  <span class="attribute">expires</span> <span class="number">30d</span>;</span><br><span class="line">  <span class="attribute">add_header</span> Cache-Control <span class="string">&quot;public, max-age=2592000, immutable&quot;</span>;</span><br><span class="line">  <span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：登录态接口、支付回调等动态接口不应盲目套用长期缓存规则。</p><h2 id="可执行"><a href="#可执行" class="headerlink" title="可执行"></a>可执行</h2><p>以下命令可用于本地验证Nginx配置是否可上线：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1) 检查配置语法</span></span><br><span class="line">nginx -t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) 平滑重载配置</span></span><br><span class="line">nginx -s reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3) 查看端口监听</span></span><br><span class="line">ss -lntp | rg nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4) 验证首页响应头</span></span><br><span class="line">curl -I http://127.0.0.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5) 验证HTTPS与API代理</span></span><br><span class="line">curl -I https://app.example.com</span><br><span class="line">curl https://app.example.com/api/health</span><br></pre></td></tr></table></figure><p>上线前建议再做三项检查：证书有效期、错误日志持续观察、关键接口压测结果对比。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Nginx配置的本质不是堆参数，而是建立清晰的流量治理边界。你可以把它理解为“应用前面的稳定层”：静态请求高效分发，动态请求稳定转发，HTTPS与基础安全统一控制。只要保持配置分层清晰、变更前先校验、上线后看监控，就能在多数项目里获得稳定且可维护的入口能力。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-运维 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 反向代理 </tag>
+            
+            <tag> 负载均衡 </tag>
+            
+            <tag> HTTPS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PostgreSQL索引指南：原理、实战与类型比较</title>
       <link href="/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/"/>
       <url>/2026/04/14/PostgreSQL%E7%B4%A2%E5%BC%95%E6%8C%87%E5%8D%97%EF%BC%9A%E5%8E%9F%E7%90%86%E3%80%81%E5%AE%9E%E6%88%98%E4%B8%8E%E7%B1%BB%E5%9E%8B%E6%AF%94%E8%BE%83/</url>
@@ -202,6 +235,31 @@
     
     
     <entry>
+      <title>AI 知识</title>
+      <link href="/2026/04/13/menu-seed/ai/"/>
+      <url>/2026/04/13/menu-seed/ai/</url>
+      
+        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>书籍知识</title>
       <link href="/2026/04/13/menu-seed/books/"/>
       <url>/2026/04/13/menu-seed/books/</url>
@@ -221,31 +279,6 @@
             <tag> 读书 </tag>
             
             <tag> 笔记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>AI 知识</title>
-      <link href="/2026/04/13/menu-seed/ai/"/>
-      <url>/2026/04/13/menu-seed/ai/</url>
-      
-        <content type="html"><![CDATA[<p>本站「AI知识」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> AI知识 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> AI </tag>
             
         </tags>
       
@@ -279,33 +312,6 @@
     
     
     <entry>
-      <title>场景解决 · 后端</title>
-      <link href="/2026/04/13/menu-seed/scene-be/"/>
-      <url>/2026/04/13/menu-seed/scene-be/</url>
-      
-        <content type="html"><![CDATA[<p>本站「场景解决 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 场景解决-后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 后端 </tag>
-            
-            <tag> 场景解决 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>场景解决 · 数据库</title>
       <link href="/2026/04/13/menu-seed/scene-db/"/>
       <url>/2026/04/13/menu-seed/scene-db/</url>
@@ -322,9 +328,36 @@
       
         <tags>
             
+            <tag> 数据库 </tag>
+            
             <tag> 场景解决 </tag>
             
-            <tag> 数据库 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>场景解决 · 后端</title>
+      <link href="/2026/04/13/menu-seed/scene-be/"/>
+      <url>/2026/04/13/menu-seed/scene-be/</url>
+      
+        <content type="html"><![CDATA[<p>本站「场景解决 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 场景解决-后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 场景解决 </tag>
+            
+            <tag> 后端 </tag>
             
         </tags>
       
@@ -387,33 +420,6 @@
     
     
     <entry>
-      <title>理论知识 · 后端</title>
-      <link href="/2026/04/13/menu-seed/theory-be/"/>
-      <url>/2026/04/13/menu-seed/theory-be/</url>
-      
-        <content type="html"><![CDATA[<p>本站「理论知识 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 理论知识-后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 后端 </tag>
-            
-            <tag> 理论知识 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>理论知识 · 数据库</title>
       <link href="/2026/04/13/menu-seed/theory-db/"/>
       <url>/2026/04/13/menu-seed/theory-db/</url>
@@ -431,6 +437,33 @@
         <tags>
             
             <tag> 数据库 </tag>
+            
+            <tag> 理论知识 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>理论知识 · 后端</title>
+      <link href="/2026/04/13/menu-seed/theory-be/"/>
+      <url>/2026/04/13/menu-seed/theory-be/</url>
+      
+        <content type="html"><![CDATA[<p>本站「理论知识 → 后端」分类已就绪，可按主题陆续补充文章。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 理论知识-后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 后端 </tag>
             
             <tag> 理论知识 </tag>
             
