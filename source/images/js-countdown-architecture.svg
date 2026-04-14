@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #1f2937; }
+      .label { font: 600 22px Arial, sans-serif; fill: #111827; }
+      .text { font: 400 18px Arial, sans-serif; fill: #374151; }
+      .box { fill: #f9fafb; stroke: #d1d5db; stroke-width: 2; }
+      .box-blue { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2; }
+      .box-green { fill: #ecfdf5; stroke: #86efac; stroke-width: 2; }
+      .box-orange { fill: #fff7ed; stroke: #fdba74; stroke-width: 2; }
+      .arrow { stroke: #6b7280; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="520" fill="#ffffff"/>
+  <text x="60" y="70" class="title">&#21830;&#21697;&#20498;&#35745;&#26102;&#27969;&#31243;&#65288;requestAnimationFrame&#65289;</text>
+
+  <rect x="60" y="120" width="280" height="120" rx="14" class="box-blue"/>
+  <text x="90" y="170" class="label">1. &#21021;&#22987;&#21270;</text>
+  <text x="90" y="205" class="text">&#35760;&#24405;&#32467;&#26463;&#26102;&#38388; endTime</text>
+
+  <rect x="460" y="120" width="280" height="120" rx="14" class="box-green"/>
+  <text x="490" y="170" class="label">2. &#24103;&#22238;&#35843;</text>
+  <text x="490" y="205" class="text">requestAnimationFrame(loop)</text>
+
+  <rect x="860" y="120" width="280" height="120" rx="14" class="box-orange"/>
+  <text x="890" y="170" class="label">3. &#35745;&#31639;&#21097;&#20313;&#26102;&#38388;</text>
+  <text x="890" y="205" class="text">remaining = endTime - Date.now()</text>
+
+  <rect x="460" y="320" width="280" height="120" rx="14" class="box"/>
+  <text x="490" y="370" class="label">4. &#25353;&#31186;&#26356;&#26032;UI</text>
+  <text x="490" y="405" class="text">&#20165;&#22312;&#31186;&#25968;&#21464;&#21270;&#26102;&#26356;&#26032;DOM</text>
+
+  <path d="M340 180 L460 180" class="arrow"/>
+  <path d="M740 180 L860 180" class="arrow"/>
+  <path d="M1000 240 L1000 300 L740 300" class="arrow"/>
+  <path d="M460 380 L300 380 L300 240" class="arrow"/>
+  <text x="770" y="292" class="text">remaining &gt; 0 &#32487;&#32493;&#24490;&#29615;</text>
+  <text x="175" y="280" class="text">remaining &lt;= 0 &#20572;&#27490;&#24182;&#32467;&#26463;</text>
+</svg>
