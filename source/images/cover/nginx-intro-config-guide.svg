@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550" role="img" aria-labelledby="title desc">
+  <title id="title">Nginx Intro Config Guide Cover</title>
+  <desc id="desc">Nginx introduction and configuration practical guide</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#052e16"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#bg)"/>
+  <circle cx="700" cy="85" r="95" fill="#bbf7d0" opacity="0.16"/>
+  <circle cx="110" cy="410" r="130" fill="#4ade80" opacity="0.14"/>
+
+  <rect x="46" y="38" width="208" height="34" rx="10" fill="url(#chip)"/>
+  <text x="150" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#064e3b">
+    OPS PRACTICE
+  </text>
+
+  <text x="46" y="132" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#ecfdf5">
+    Nginx Guide
+  </text>
+  <text x="46" y="176" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="#d1fae5">
+    Intro and Configuration
+  </text>
+
+  <rect x="46" y="224" width="708" height="148" rx="14" fill="#022c22" opacity="0.62" stroke="#86efac" stroke-opacity="0.4"/>
+
+  <text x="72" y="264" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bbf7d0">
+    location /api/ {
+  </text>
+  <text x="72" y="292" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bbf7d0">
+      proxy_pass http://127.0.0.1:3000/;
+  </text>
+  <text x="72" y="320" font-family="Consolas, Menlo, monospace" font-size="18" fill="#bbf7d0">
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  </text>
+  <text x="72" y="350" font-family="Arial, sans-serif" font-size="18" fill="#ecfdf5">
+    Reverse Proxy | HTTPS | Load Balancing
+  </text>
+</svg>
