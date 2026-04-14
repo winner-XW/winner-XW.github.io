@@ -12,9 +12,10 @@
   background-color: transparent !important;
 }
 
-/* 导航栏菜单鼠标移入字体放大 */
+/* 导航栏菜单鼠标移入不放大 */
 #nav #site-name:hover,
 #nav .menus_item:hover,
 #nav #search-button:hover {
-  font-size: 22px;
+  font-size: inherit !important;
+  transform: none !important;
 }
